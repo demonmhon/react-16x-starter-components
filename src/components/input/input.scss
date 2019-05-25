@@ -1,0 +1,13 @@
+@import '../../scss/variables';
+
+.#{$alias}-input {
+  display: inline;
+
+  &--disabled {
+    @include stateDisabled;
+  }
+
+  &__label {
+    display: block;
+  }
+}

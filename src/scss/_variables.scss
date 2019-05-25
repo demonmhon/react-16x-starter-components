@@ -1,3 +1,6 @@
+// The prefix for every component
+$alias: 'starter';
+
 // Colors
 // Palette from Material
 // URL: https://material.io/tools/color/#!/
@@ -11,3 +14,7 @@ $color-accent-light: #ffe54c;
 $color-accent-dark: #c68400;
 $color-accent-contrast: #000;
 
+// State
+@mixin stateDisabled {
+  opacity: 0.5;
+}
