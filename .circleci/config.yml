@@ -16,9 +16,5 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: Prepare .env
-          command: |-
-            echo "EXPOSE_PORT: ${EXPOSE_PORT} > .env"
-      - run:
-          name: Build Project
+          name: Build a production HTML version
           command: npm run build
