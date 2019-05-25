@@ -9,7 +9,7 @@ class Input extends React.Component {
     super(props);
 
     this.state = {
-      value: ''
+      value: props.value
     };
 
     this.doOnChange = this.doOnChange.bind(this);
