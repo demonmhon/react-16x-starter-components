@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import { ALIAS } from '../variables';
 import './button.scss';
 
+/**
+ * To trigger an operation.
+ */
 class Button extends React.Component {
   constructor(props) {
     super(props);

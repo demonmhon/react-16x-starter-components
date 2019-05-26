@@ -2,13 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import InputWrapper from './input-wrapper';
-import InputPassword from './input-password';
 import './input.scss';
 
-/**
- * Provide the user input is a text field.
- */
-class Input extends React.Component {
+class InputPassword extends React.Component {
   constructor(props) {
     super(props);
 
@@ -19,7 +15,6 @@ class Input extends React.Component {
     this.doOnChange = this.doOnChange.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
   }
-
 
   doOnChange(value) {
     const { onChange } = this.props;
@@ -42,12 +37,12 @@ class Input extends React.Component {
 
   render() {
     const props = this.props;
-    const { disabled, placeholder } = props;
+    const { disabled, label: placeholder } = props;
 
     return (
       <InputWrapper {...props}>
         <input
-          type="text"
+          type="password"
           placeholder={placeholder}
           onKeyDown={this.onKeyDown}
           onChange={e => this.doOnChange(e.target.value)}
@@ -59,9 +54,9 @@ class Input extends React.Component {
   }
 }
 
-Input.propTypes = {
+InputPassword.propTypes = {
   /**
-   * One or more class names to be added to the root element (input wrapper) of this component, i.e. `"class-foo class-bar"`.
+   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
    */
   className: PropTypes.string,
   /**
@@ -76,13 +71,6 @@ Input.propTypes = {
    * Placeholder text
    */
   placeholder: PropTypes.string,
-  /**
-   * Input type:
-   *
-   * * `text`
-   * * `password`
-   */
-  type: PropTypes.string,
   /**
    * Initial value
    */
@@ -99,16 +87,13 @@ Input.propTypes = {
   onChange: PropTypes.func
 };
 
-Input.defaultProps = {
+InputPassword.defaultProps = {
   className: '',
   disabled: false,
   label: '',
   placeholder: '',
-  type: 'text',
   value: '',
   onChange() {}
 };
 
-Input.Password = InputPassword;
-
-export default Input;
+export default InputPassword;

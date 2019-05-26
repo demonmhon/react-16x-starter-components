@@ -6,10 +6,29 @@ const pkgVersion = pkg.version;
 
 module.exports = {
   getExampleFilename(componentPath) {
-    return componentPath.replace(/\.jsx?$/, '.examples.md')
+    return componentPath.replace(/\.jsx?$/, '.examples.md');
   },
   title: `${pkgName} | ${pkgVersion}`,
   pagePerSection: true,
-  skipComponentsWithoutExample: true,
+  sections: [
+    {
+      name: 'General',
+      components: [
+        path.resolve(__dirname, 'src/components/button', 'button.jsx'),
+      ]
+    },
+    {
+      name: 'Form',
+      components: [
+        path.resolve(__dirname, 'src/components/input', 'input.jsx'),
+      ]
+    },
+    {
+      name: 'Components',
+      components: [
+        path.resolve(__dirname, 'src/components/loading', 'loading.jsx'),
+      ]
+    },
+  ],
   webpackConfig: require('./config/webpack.dev.js')
 };
