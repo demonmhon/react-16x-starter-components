@@ -27,9 +27,7 @@ class Button extends React.Component {
     const buttonCssClassList = [`${ALIAS}-button`];
     const buttonProps = {};
 
-    if (disabled) buttonCssClassList.push(`${ALIAS}-button--disabled`);
     if (className) buttonCssClassList.push(className);
-
     if (disabled) buttonProps.disabled = true;
     return (
       <button

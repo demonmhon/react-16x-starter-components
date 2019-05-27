@@ -27,6 +27,11 @@ $ npm start
 ```
 
 
+## Usages
+
+As mentioned, copy the `src/components` and `src/scss` to full react application project might be the best solution for now. Work fine with [demonmhon/react-16x-starter](https://github.com/demonmhon/react-16x-starter).
+
+
 ## Scripts
 
 | Script | Description |

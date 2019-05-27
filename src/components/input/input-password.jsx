@@ -37,7 +37,7 @@ class InputPassword extends React.Component {
 
   render() {
     const props = this.props;
-    const { disabled, label: placeholder } = props;
+    const { disabled, readOnly, label: placeholder } = props;
 
     return (
       <InputWrapper {...props}>
@@ -47,6 +47,7 @@ class InputPassword extends React.Component {
           onKeyDown={this.onKeyDown}
           onChange={e => this.doOnChange(e.target.value)}
           disabled={disabled}
+          readOnly={readOnly}
           value={this.state.value}
         />
       </InputWrapper>
@@ -60,9 +61,13 @@ InputPassword.propTypes = {
    */
   className: PropTypes.string,
   /**
-   * Disables the button if set to true. Disabled button won't trigger the `onClick`.
+   * Disables the input if set to true.
    */
   disabled: PropTypes.bool,
+  /**
+   * Readonly the input if set to true.
+   */
+  readOnly: PropTypes.bool,
   /**
    * Label of input
    */
@@ -90,6 +95,7 @@ InputPassword.propTypes = {
 InputPassword.defaultProps = {
   className: '',
   disabled: false,
+  readOnly: false,
   label: '',
   placeholder: '',
   value: '',

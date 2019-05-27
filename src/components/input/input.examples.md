@@ -28,6 +28,14 @@
 ```
 
 
+#### Disabled and Read-Only
+
+```jsx
+<Input label="Email" value="user1.email@domain.com" disabled />
+<Input label="Email" value="user2.email@domain.com" readOnly />
+```
+
+
 ### Example `<Input.Password>`
 
 #### Basic

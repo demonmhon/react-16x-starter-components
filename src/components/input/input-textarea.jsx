@@ -37,7 +37,7 @@ class InputTextarea extends React.Component {
 
   render() {
     const props = this.props;
-    const { disabled, label: placeholder } = props;
+    const { disabled, readOnly, label: placeholder } = props;
 
     return (
       <InputWrapper {...props}>
@@ -46,6 +46,7 @@ class InputTextarea extends React.Component {
           onKeyDown={this.onKeyDown}
           onChange={e => this.doOnChange(e.target.value)}
           disabled={disabled}
+          readOnly={readOnly}
           defaultValue={this.state.value} />
       </InputWrapper>
     );
@@ -58,9 +59,13 @@ InputTextarea.propTypes = {
    */
   className: PropTypes.string,
   /**
-   * Disables the button if set to true. Disabled button won't trigger the `onClick`.
+   * Disables the input if set to true.
    */
   disabled: PropTypes.bool,
+  /**
+   * Readonly the input if set to true.
+   */
+  readOnly: PropTypes.bool,
   /**
    * Label of input
    */
@@ -88,6 +93,7 @@ InputTextarea.propTypes = {
 InputTextarea.defaultProps = {
   className: '',
   disabled: false,
+  readOnly: false,
   label: '',
   placeholder: '',
   value: '',

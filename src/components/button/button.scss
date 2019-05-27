@@ -11,7 +11,7 @@
   transition-duration: $transition-fastest;
   background: transparent;
 
-  &--disabled {
+  &[disabled] {
     @include stateDisabled;
   }
 
