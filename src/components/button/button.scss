@@ -2,8 +2,27 @@
 
 .#{$alias}-button {
   display: inline;
+  cursor: pointer;
+  color: $color-primary-light;
+  padding: 0.5rem 1rem;
+  border: solid 1px rgba($color-primary-light, 0.6);
+  border-radius: 0.25rem;
+  transition-property: box-shadow, background;
+  transition-duration: $transition-fastest;
+  background: transparent;
 
   &--disabled {
     @include stateDisabled;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    &:not([disabled]) {
+      color: $color-primary-light;
+      background-color: rgba($color-primary-light, 0.4);
+      border-color: $color-primary-light;
+      box-shadow: 0 0 0 0.1875rem rgba($color-primary-light, 0.4);
+    }
   }
 }

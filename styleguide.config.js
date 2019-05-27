@@ -1,5 +1,6 @@
 const path = require('path');
 const pkg = require('./package.json');
+const { theme, styles } = require('./styleguide/styles');
 
 const pkgName = pkg.name;
 const pkgVersion = pkg.version;
@@ -30,5 +31,7 @@ module.exports = {
       ]
     },
   ],
+  theme,
+  styles,
   webpackConfig: require('./config/webpack.dev.js')
 };

@@ -14,6 +14,13 @@ $color-accent-light: #ffe54c;
 $color-accent-dark: #c68400;
 $color-accent-contrast: #000;
 
+// Transition
+$transition: .5s;
+$transition-fast: .25s;
+$transition-fastest: .15s;
+$transition-slow: .7s;
+$transition-slowest: .85s;
+
 // State
 @mixin stateDisabled {
   opacity: 0.5;

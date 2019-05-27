@@ -26,7 +26,6 @@
     }
   }
 
-
   display: none;
   position: relative;
   height: $size;
@@ -75,7 +74,7 @@
   }
 
   &__indicator-path {
-    stroke: #000;
+    stroke: $color-primary-light;
     stroke-linecap: round;
     animation: line-dash 1.5s ease-in-out infinite;
   }
