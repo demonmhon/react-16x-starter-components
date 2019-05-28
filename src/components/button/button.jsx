@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { ALIAS } from '../variables';
 import './button.scss';
 
+const blockCssName = `${ALIAS}-button`;
+
 /**
  * To trigger an operation.
  */
@@ -19,12 +21,11 @@ class Button extends React.Component {
     }
   }
 
-
   render() {
     const props = this.props;
     const { children, className, disabled } = props;
 
-    const buttonCssClassList = [`${ALIAS}-button`];
+    const buttonCssClassList = [blockCssName];
     const buttonProps = {};
 
     if (className) buttonCssClassList.push(className);
@@ -34,7 +35,7 @@ class Button extends React.Component {
         {...buttonProps}
         className={buttonCssClassList.join(' ')}
         onClick={e => this.doOnClick(e)}>
-        <span className={`${ALIAS}-button__label`}>{children}</span>
+        <span className={`${blockCssName}__label`}>{children}</span>
       </button>
   );
   }

@@ -28,6 +28,7 @@ module.exports = {
       name: 'Components',
       components: [
         path.resolve(__dirname, 'src/components/loading', 'loading.jsx'),
+        path.resolve(__dirname, 'src/components/dialog', 'dialog.jsx'),
       ]
     },
   ],

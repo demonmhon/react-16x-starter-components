@@ -1,0 +1,108 @@
+@import '../../scss/variables';
+
+body.#{$alias}-dialog--dialog-opened {
+  overflow: hidden;
+}
+
+.#{$alias}-dialog {
+  $dialog-bg-color: #fff;
+  $dialog-overlay-bg-color: #fff;
+  $dialog-overlay-opacity: 0.85;
+  $dialog-width: 360px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: 100;
+  outline: none;
+
+  &__overlay {
+    display: block;
+    background: $dialog-overlay-bg-color;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: $dialog-overlay-opacity;
+    transition: opacity $transition;
+  }
+
+  &__display {
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__dialog {
+    position: relative;
+    width: 100%;
+    max-width: $dialog-width;
+    background-color: $dialog-bg-color;
+    margin: 30px auto;
+    top: -45px;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, .2);
+    transition: top $transition;
+    border: solid 1px transparent;
+    border-radius: 0.25rem;
+    overflow: hidden;
+
+    @media (max-width: $screen-xs) {
+      width: auto;
+      max-width: 100%;
+      margin: 30px 15px;
+    }
+  }
+
+  &__body {
+    min-height: 30px;
+
+    &-content {
+      box-sizing: border-box;
+      padding: 0.5rem 1rem;
+      height: 100%;
+    }
+  }
+
+  /* Show */
+  &--show {
+    height: 100%;
+
+    .#{$alias}-dialog__dialog {
+      top: 0;
+    }
+
+    .#{$alias}-dialog__overlay {
+      bottom: 0;
+      opacity: $dialog-overlay-opacity;
+    }
+  }
+
+  /* Centered */
+  &--centered {
+    .#{$alias}-dialog__display {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  /* Fullscreen */
+  &--full-screen {
+    .#{$alias}-dialog__dialog {
+      max-width: 100%;
+      width: calc(100% - 90px);
+      height: calc(100% - 60px);
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+
+    .#{$alias}-dialog__body {
+      flex: 1;
+    }
+  }
+}
