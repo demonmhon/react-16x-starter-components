@@ -9,7 +9,8 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
-    "build": "styleguidist build"
+    "build": "styleguidist build",
+    "build:docker": "docker build . -t react-16x-stater-components"
   },
   "repository": {
     "type": "git",

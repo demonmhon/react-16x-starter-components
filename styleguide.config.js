@@ -33,5 +33,6 @@ module.exports = {
   ],
   theme,
   styles,
+  styleguideDir: path.resolve(__dirname, './dist'),
   webpackConfig: require('./config/webpack.dev.js')
 };
