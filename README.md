@@ -26,6 +26,12 @@ Start the style guide dev server. Then open the web browser to view the componen
 $ npm start
 ```
 
+You'll only the `.env` for `docker-compose` only. To do that, set your environment variables, update all variables in `.env` with correct values
+
+```bash
+$ cp .env.example .env
+```
+
 
 ## Usages
 
@@ -36,12 +42,13 @@ As mentioned, copy the `src/components` and `src/scss` to full react application
 
 | Script | Description |
 |-|-|
-| `start` | Alias of `start:docker` |
+| `start` | Alias of `start:dev` |
 | `start:dev` | Start a style guide dev server |
 | `test` | Jest and execute all the tests |
 | `test:coverage` | Generate a coverage report |
 | `test:watch` | Run all the tests and keep on watch mode |
 | `build` | Build a production HTML version |
+| `build:docker` | Build docker image |
 
 
 ## License
