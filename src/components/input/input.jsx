@@ -83,13 +83,6 @@ Input.propTypes = {
    */
   placeholder: PropTypes.string,
   /**
-   * Input type:
-   *
-   * * `text`
-   * * `password`
-   */
-  type: PropTypes.string,
-  /**
    * Initial value
    */
   value: PropTypes.string,
@@ -111,7 +104,6 @@ Input.defaultProps = {
   readOnly: false,
   label: '',
   placeholder: '',
-  type: 'text',
   value: '',
   onChange() {}
 };

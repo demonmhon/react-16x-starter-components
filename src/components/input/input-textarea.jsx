@@ -37,12 +37,13 @@ class InputTextarea extends React.Component {
 
   render() {
     const props = this.props;
-    const { disabled, readOnly, label: placeholder } = props;
+    const { disabled, readOnly, label: placeholder, rows } = props;
 
     return (
       <InputWrapper {...props}>
         <textarea
           placeholder={placeholder}
+          rows={rows}
           onKeyDown={this.onKeyDown}
           onChange={e => this.doOnChange(e.target.value)}
           disabled={disabled}
@@ -75,6 +76,10 @@ InputTextarea.propTypes = {
    */
   placeholder: PropTypes.string,
   /**
+   * Visible number of lines in a text area
+   */
+  rows: PropTypes.number,
+  /**
    * Initial value
    */
   value: PropTypes.string,
@@ -96,6 +101,7 @@ InputTextarea.defaultProps = {
   readOnly: false,
   label: '',
   placeholder: '',
+  rows: 3,
   value: '',
   onChange() {}
 };

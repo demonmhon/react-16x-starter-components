@@ -20,8 +20,15 @@ module.exports = {
     },
     {
       name: 'Form',
-      components: [
-        path.resolve(__dirname, 'src/components/input', 'input.jsx'),
+      sections: [
+        {
+          name: 'Input',
+          components: [
+            path.resolve(__dirname, 'src/components/input', 'input.jsx'),
+            path.resolve(__dirname, 'src/components/input', 'input-password.jsx'),
+            path.resolve(__dirname, 'src/components/input', 'input-textarea.jsx'),
+          ]
+        }
       ]
     },
     {
@@ -36,7 +43,8 @@ module.exports = {
   styles,
   styleguideDir: path.resolve(__dirname, './dist'),
   require: [
-    path.join(__dirname, './styleguide/styles.css')
+    path.join(__dirname, './styleguide/styles.css'),
+    path.resolve(__dirname, './styleguide/setup.js')
   ],
   webpackConfig: require('./config/webpack.dev.js')
 };
