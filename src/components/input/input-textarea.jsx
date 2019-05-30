@@ -9,7 +9,7 @@ class InputTextarea extends React.Component {
     super(props);
 
     this.state = {
-      value: props.value
+      value: props.value,
     };
 
     this.doOnChange = this.doOnChange.bind(this);
@@ -18,11 +18,14 @@ class InputTextarea extends React.Component {
 
   doOnChange(value) {
     const { onChange } = this.props;
-    this.setState({
-      value: value
-    }, () => {
-      onChange(value);
-    });
+    this.setState(
+      {
+        value: value,
+      },
+      () => {
+        onChange(value);
+      }
+    );
   }
 
   onKeyDown(e) {
@@ -48,7 +51,8 @@ class InputTextarea extends React.Component {
           onChange={e => this.doOnChange(e.target.value)}
           disabled={disabled}
           readOnly={readOnly}
-          defaultValue={this.state.value} />
+          defaultValue={this.state.value}
+        />
       </InputWrapper>
     );
   }
@@ -92,7 +96,7 @@ InputTextarea.propTypes = {
    *
    * @param {string} value - The input content value.
    */
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
 };
 
 InputTextarea.defaultProps = {
@@ -103,7 +107,7 @@ InputTextarea.defaultProps = {
   placeholder: '',
   rows: 3,
   value: '',
-  onChange() {}
+  onChange() {},
 };
 
 export default InputTextarea;

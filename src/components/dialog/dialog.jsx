@@ -33,10 +33,11 @@ class Dialog extends React.Component {
       this.renderDialogOverlay();
       document.body.style.paddingRight = `${this.getBrowserScrollbarSize()}px`;
       document.body.classList.add(`${blockCssName}--dialog-opened`);
-      return
+      return;
     }
 
-    const hasOverlay = (document.getElementsByClassName(`${blockCssName}__overlay`).length > 0);
+    const hasOverlay =
+      document.getElementsByClassName(`${blockCssName}__overlay`).length > 0;
     if (hasOverlay) {
       ReactDOM.unmountComponentAtNode(this.dialogOverlay);
       document.body.removeChild(this.dialogOverlay);
@@ -74,23 +75,23 @@ class Dialog extends React.Component {
       fullScreen,
       show,
       modal,
-      style
+      style,
     } = this.props;
 
     const dialogCssClassList = [blockCssName];
     const dialogDialogCssClassList = [`${blockCssName}__dialog`];
-    if (show)  dialogCssClassList.push(`${blockCssName}--show`);
+    if (show) dialogCssClassList.push(`${blockCssName}--show`);
     if (centered) dialogCssClassList.push(`${blockCssName}--centered`);
     if (fullScreen) dialogCssClassList.push(`${blockCssName}--full-screen`);
     if (className) dialogDialogCssClassList.push(className);
 
-    const contentComponent = children
-      ? (
-        <div className={`${blockCssName}--body`}>
-          <div className={`${blockCssName}--body-content`}>{children}</div>
-        </div>
-      )
-      : (<div className={`${blockCssName}--body`} />);
+    const contentComponent = children ? (
+      <div className={`${blockCssName}--body`}>
+        <div className={`${blockCssName}--body-content`}>{children}</div>
+      </div>
+    ) : (
+      <div className={`${blockCssName}--body`} />
+    );
 
     return (
       <div
@@ -102,7 +103,12 @@ class Dialog extends React.Component {
         }}
         className={dialogCssClassList.join(' ')}
       >
-        <div className={`${blockCssName}__display`} onClick={() => { if (!modal) this.doOnClose() }}>
+        <div
+          className={`${blockCssName}__display`}
+          onClick={() => {
+            if (!modal) this.doOnClose();
+          }}
+        >
           <div
             className={dialogDialogCssClassList.join(' ')}
             style={style}
@@ -159,7 +165,7 @@ Dialog.propTypes = {
    * () => {}
    * ```
    */
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
 };
 
 Dialog.defaultProps = {
@@ -168,7 +174,7 @@ Dialog.defaultProps = {
   show: false,
   modal: false,
   fullScreen: false,
-  onClose: () => {}
+  onClose: () => {},
 };
 
 export default Dialog;

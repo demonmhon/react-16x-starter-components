@@ -1,7 +1,7 @@
 export const ALIAS = 'starter';
 
 const variables = {
-  ALIAS
+  ALIAS,
 };
 
 export default variables;

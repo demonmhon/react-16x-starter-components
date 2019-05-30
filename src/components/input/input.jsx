@@ -14,21 +14,23 @@ class Input extends React.Component {
     super(props);
 
     this.state = {
-      value: props.value
+      value: props.value,
     };
 
     this.doOnChange = this.doOnChange.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
   }
 
-
   doOnChange(value) {
     const { onChange } = this.props;
-    this.setState({
-      value: value
-    }, () => {
-      onChange(value);
-    });
+    this.setState(
+      {
+        value: value,
+      },
+      () => {
+        onChange(value);
+      }
+    );
   }
 
   onKeyDown(e) {
@@ -95,7 +97,7 @@ Input.propTypes = {
    *
    * @param {string} value - The input content value.
    */
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
 };
 
 Input.defaultProps = {
@@ -105,7 +107,7 @@ Input.defaultProps = {
   label: '',
   placeholder: '',
   value: '',
-  onChange() {}
+  onChange() {},
 };
 
 Input.Password = InputPassword;

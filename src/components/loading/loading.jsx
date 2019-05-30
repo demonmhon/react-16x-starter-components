@@ -4,12 +4,19 @@ import PropTypes from 'prop-types';
 import { ALIAS } from '../variables';
 import './loading.scss';
 
-const Loading = (props) => {
+const Loading = props => {
   const { children, show } = props;
   const loadingCssPrefix = `${ALIAS}-loading`;
   const spinSvgAnimate = (
     <svg className={`${loadingCssPrefix}__indicator`} viewBox="0 0 50 50">
-      <circle className={`${loadingCssPrefix}__indicator-path`} cx="25" cy="25" r="20" fill="none" strokeWidth="5"></circle>
+      <circle
+        className={`${loadingCssPrefix}__indicator-path`}
+        cx="25"
+        cy="25"
+        r="20"
+        fill="none"
+        strokeWidth="5"
+      />
     </svg>
   );
 
@@ -23,7 +30,7 @@ const Loading = (props) => {
       {spinSvgAnimate}
     </div>
   );
-}
+};
 
 Loading.propTypes = {
   /**
@@ -33,12 +40,12 @@ Loading.propTypes = {
   /**
    * Show the loading if set to true
    */
-  show: PropTypes.bool
+  show: PropTypes.bool,
 };
 
 Loading.defaultProps = {
   children: null,
-  show: true
+  show: true,
 };
 
 export default Loading;

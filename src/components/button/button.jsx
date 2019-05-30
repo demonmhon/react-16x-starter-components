@@ -34,10 +34,11 @@ class Button extends React.Component {
       <button
         {...buttonProps}
         className={buttonCssClassList.join(' ')}
-        onClick={e => this.doOnClick(e)}>
+        onClick={e => this.doOnClick(e)}
+      >
         <span className={`${blockCssName}__label`}>{children}</span>
       </button>
-  );
+    );
   }
 }
 
@@ -61,14 +62,14 @@ Button.propTypes = {
    * e => {}
    * ```
    */
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
   children: 'Button',
   className: '',
   disabled: false,
-  onClick() {}
+  onClick() {},
 };
 
 export default Button;
