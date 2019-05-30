@@ -1,6 +1,8 @@
 @import '../../scss/variables';
 
 .#{$alias}-button {
+  $button-background-color: #fff;
+
   display: inline;
   cursor: pointer;
   color: $color-primary-light;
@@ -9,7 +11,7 @@
   border-radius: 0.25rem;
   transition-property: box-shadow, background;
   transition-duration: $transition-fastest;
-  background: transparent;
+  background: $button-background-color;
 
   &[disabled] {
     @include stateDisabled;
@@ -19,10 +21,44 @@
   &:focus,
   &:active {
     &:not([disabled]) {
-      color: $color-primary-light;
-      background-color: rgba($color-primary-light, 0.4);
+      background-color: rgba($color-primary-light, 0.2);
       border-color: $color-primary-light;
       box-shadow: 0 0 0 0.1875rem rgba($color-primary-light, 0.4);
+      & > span {
+        color: currentColor;
+      }
+    }
+  }
+
+  &--type-primary {
+    color: $color-primary-contrast;
+    background: $color-primary;
+    border-color: rgba($color-primary-light, 0.6);
+
+    &:hover,
+    &:focus,
+    &:active {
+      &:not([disabled]) {
+        background-color: $color-primary-dark;
+        border-color: $color-primary-dark;
+        box-shadow: 0 0 0 0.1875rem rgba($color-primary-light, 0.4);
+      }
+    }
+  }
+
+  &--type-secondary {
+    color: $color-accent-contrast;
+    background: $color-accent;
+    border-color: rgba($color-accent-light, 0.6);
+
+    &:hover,
+    &:focus,
+    &:active {
+      &:not([disabled]) {
+        background-color: $color-accent-dark;
+        border-color: $color-accent-dark;
+        box-shadow: 0 0 0 0.1875rem rgba($color-accent-light, 0.4);
+      }
     }
   }
 }

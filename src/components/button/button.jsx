@@ -23,11 +23,13 @@ class Button extends React.Component {
 
   render() {
     const props = this.props;
-    const { children, className, disabled } = props;
+    const { children, className, type, disabled } = props;
 
     const buttonCssClassList = [blockCssName];
     const buttonProps = {};
 
+    if (['primary', 'secondary', 'button'].includes(type))
+      buttonCssClassList.push(`${blockCssName}--type-${type}`);
     if (className) buttonCssClassList.push(className);
     if (disabled) buttonProps.disabled = true;
     return (
@@ -52,6 +54,14 @@ Button.propTypes = {
    */
   className: PropTypes.string,
   /**
+   * Button type:
+   *
+   * * `primary`
+   * * `secondary`
+   * * `button`
+   */
+  type: PropTypes.string,
+  /**
    * Disables the button if set to true. Disabled button won't trigger the `onClick`.
    */
   disabled: PropTypes.bool,
@@ -68,6 +78,7 @@ Button.propTypes = {
 Button.defaultProps = {
   children: 'Button',
   className: '',
+  type: 'button',
   disabled: false,
   onClick() {},
 };

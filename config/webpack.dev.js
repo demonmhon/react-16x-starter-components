@@ -6,7 +6,7 @@ const mapStyle = process.env.MAP_STYLE === 'true';
 
 module.exports = merge(common, {
   mode: 'development',
-  devtool: 'inline-source-map',
+  devtool: 'eval-source-map',
   module: {
     rules: [
       {
@@ -25,10 +25,5 @@ module.exports = merge(common, {
         ]
       },
     ]
-  },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-    })
-  ],
+  }
 });

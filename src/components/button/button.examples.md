@@ -3,9 +3,16 @@
 #### Basic
 
 ```jsx
-<Button name="button-simple" />
+<Button />
 ```
 
+#### Types
+
+```jsx
+<Button/>
+<Button type="primary">Primary</Button>
+<Button type="secondary">Secondary</Button>
+```
 
 #### CSS Classes
 
@@ -13,12 +20,17 @@
 <Button className="the-first-additional-class the-second-additional-class" />
 ```
 
-
 #### Disabled
 
 ```jsx
-<Button disabled name="button-1">Default Button</Button>
-<Button disabled name="button-1" type="primary">Primary Button</Button>
-<Button disabled name="button-1" type="secondary">Secondary Button</Button>
-<Button disabled name="button-1" type="blank">Blank Button</Button>
+<Button disabled />
+<Button disabled type="primary">Primary</Button>
+<Button disabled type="secondary">Secondary</Button>
 ```
+
+#### Click Event
+
+```jsx
+<Button onClick={e => alert('Button clicked')} />
+```
+
