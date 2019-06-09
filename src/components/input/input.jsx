@@ -21,6 +21,14 @@ class Input extends React.Component {
     this.onKeyDown = this.onKeyDown.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.value !== nextProps.value) {
+      this.setState({
+          value: nextProps.value
+      });
+    }
+  }
+
   doOnChange(value) {
     const { onChange } = this.props;
     this.setState(
