@@ -11,23 +11,24 @@ coverage
 logs
 *.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
 
 # dependencies
-node_modules
+node_modules/
+jspm_packages/
 
 # testing
 coverage
 
 # misc
 .DS_Store
-.env
 
 # Reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 test-results/
 eslint-report.xml
-
-# Development config
-config/app.config.local.js
 
 # NPM Project config
 .npmrc
@@ -42,3 +43,7 @@ yarn-error.log*
 # dist
 dist
 .cache
+.next
+
+# dotenv environment variables file
+.env.development

@@ -4,6 +4,57 @@ import PropTypes from 'prop-types';
 import InputWrapper from './input-wrapper';
 import './input.scss';
 
+const propTypes = {
+  /**
+   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
+   */
+  className: PropTypes.string,
+  /**
+   * Disables the input if set to true.
+   */
+  disabled: PropTypes.bool,
+  /**
+   * Readonly the input if set to true.
+   */
+  readOnly: PropTypes.bool,
+  /**
+   * Label of input
+   */
+  label: PropTypes.string,
+  /**
+   * Placeholder text
+   */
+  placeholder: PropTypes.string,
+  /**
+   * Visible number of lines in a text area
+   */
+  rows: PropTypes.number,
+  /**
+   * Initial value
+   */
+  value: PropTypes.string,
+  /**
+   * A callback function, executed when the input is changed.
+   *
+   * ```jsx
+   * (value) => {}
+   * ```
+   *
+   * @param {string} value - The input content value.
+   */
+  onChange: PropTypes.func,
+};
+
+const defaultProps = {
+  className: '',
+  disabled: false,
+  readOnly: false,
+  label: '',
+  placeholder: '',
+  rows: 3,
+  value: '',
+  onChange() {},
+};
 class InputTextarea extends React.Component {
   constructor(props) {
     super(props);
@@ -19,7 +70,7 @@ class InputTextarea extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.value !== nextProps.value) {
       this.setState({
-          value: nextProps.value
+        value: nextProps.value,
       });
     }
   }
@@ -66,56 +117,7 @@ class InputTextarea extends React.Component {
   }
 }
 
-InputTextarea.propTypes = {
-  /**
-   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
-   */
-  className: PropTypes.string,
-  /**
-   * Disables the input if set to true.
-   */
-  disabled: PropTypes.bool,
-  /**
-   * Readonly the input if set to true.
-   */
-  readOnly: PropTypes.bool,
-  /**
-   * Label of input
-   */
-  label: PropTypes.string,
-  /**
-   * Placeholder text
-   */
-  placeholder: PropTypes.string,
-  /**
-   * Visible number of lines in a text area
-   */
-  rows: PropTypes.number,
-  /**
-   * Initial value
-   */
-  value: PropTypes.string,
-  /**
-   * A callback function, executed when the input is changed.
-   *
-   * ```jsx
-   * (value) => {}
-   * ```
-   *
-   * @param {string} value - The input content value.
-   */
-  onChange: PropTypes.func,
-};
-
-InputTextarea.defaultProps = {
-  className: '',
-  disabled: false,
-  readOnly: false,
-  label: '',
-  placeholder: '',
-  rows: 3,
-  value: '',
-  onChange() {},
-};
+InputTextarea.propTypes = propTypes;
+InputTextarea.defaultProps = defaultProps;
 
 export default InputTextarea;

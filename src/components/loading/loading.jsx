@@ -4,6 +4,22 @@ import PropTypes from 'prop-types';
 import { ALIAS } from '../variables';
 import './loading.scss';
 
+const propTypes = {
+  /**
+   * Elements to be rendered as children of this component.
+   */
+  children: PropTypes.node,
+  /**
+   * Show the loading if set to true
+   */
+  show: PropTypes.bool,
+};
+
+const defaultProps = {
+  children: null,
+  show: true,
+};
+
 const Loading = props => {
   const { children, show } = props;
   const loadingCssPrefix = `${ALIAS}-loading`;
@@ -32,20 +48,7 @@ const Loading = props => {
   );
 };
 
-Loading.propTypes = {
-  /**
-   * Elements to be rendered as children of this component.
-   */
-  children: PropTypes.node,
-  /**
-   * Show the loading if set to true
-   */
-  show: PropTypes.bool,
-};
-
-Loading.defaultProps = {
-  children: null,
-  show: true,
-};
+Loading.propTypes = propTypes;
+Loading.defaultProps = defaultProps;
 
 export default Loading;

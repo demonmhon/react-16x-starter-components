@@ -7,6 +7,59 @@ import './dialog.scss';
 
 const blockCssName = `${ALIAS}-dialog`;
 
+const propTypes = {
+  /**
+   * One or more class names to be added to the dialog element (not root), i.e. `"class-foo class-bar"`.
+   */
+  className: PropTypes.string,
+  /**
+   * Override the inline-styles of the dialog element.
+   */
+  style: PropTypes.shape({}),
+  /**
+   * The title of dialog.
+   */
+  title: PropTypes.string,
+  /**
+   * Elements to be rendered as children (dialog content) of this component.
+   */
+  children: PropTypes.node,
+  /**
+   * Hide the dialog if set to true.
+   */
+  show: PropTypes.bool,
+  /**
+   * Modal dialog can only be closed by selecting one of the actions.
+   *
+   * Dialog won't closed by clicking on overlay and close button won't displayed
+   */
+  modal: PropTypes.bool,
+  /**
+   * Vertically center the modal.
+   */
+  centered: PropTypes.bool,
+  /**
+   * Show dialog in full screen if set to true.
+   */
+  fullScreen: PropTypes.bool,
+  /**
+   * 	A callback function that is triggered when cancel button clicked.
+   * ```jsx
+   * () => {}
+   * ```
+   */
+  onClose: PropTypes.func,
+};
+
+const defaultProps = {
+  className: '',
+  children: null,
+  show: false,
+  modal: false,
+  fullScreen: false,
+  onClose: () => {},
+};
+
 /**
  * Show text and UI controls focused on a specific task. Or to inform users about critical information, require users actions, or involve multiple tasks.
  * Content (children) in Dialog could be element.
@@ -124,57 +177,7 @@ class Dialog extends React.Component {
   }
 }
 
-Dialog.propTypes = {
-  /**
-   * One or more class names to be added to the dialog element (not root), i.e. `"class-foo class-bar"`.
-   */
-  className: PropTypes.string,
-  /**
-   * Override the inline-styles of the dialog element.
-   */
-  style: PropTypes.shape({}),
-  /**
-   * The title of dialog.
-   */
-  title: PropTypes.string,
-  /**
-   * Elements to be rendered as children (dialog content) of this component.
-   */
-  children: PropTypes.node,
-  /**
-   * Hide the dialog if set to true.
-   */
-  show: PropTypes.bool,
-  /**
-   * Modal dialog can only be closed by selecting one of the actions.
-   *
-   * Dialog won't closed by clicking on overlay and close button won't displayed
-   */
-  modal: PropTypes.bool,
-  /**
-   * Vertically center the modal.
-   */
-  centered: PropTypes.bool,
-  /**
-   * Show dialog in full screen if set to true.
-   */
-  fullScreen: PropTypes.bool,
-  /**
-   * 	A callback function that is triggered when cancel button clicked.
-   * ```jsx
-   * () => {}
-   * ```
-   */
-  onClose: PropTypes.func,
-};
-
-Dialog.defaultProps = {
-  className: '',
-  children: null,
-  show: false,
-  modal: false,
-  fullScreen: false,
-  onClose: () => {},
-};
+Dialog.propTypes = propTypes;
+Dialog.defaultProps = defaultProps;
 
 export default Dialog;

@@ -6,6 +6,45 @@ import './button.scss';
 
 const blockCssName = `${ALIAS}-button`;
 
+const propTypes = {
+  /**
+   * Elements to be rendered as children of this component.
+   */
+  children: PropTypes.node,
+  /**
+   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
+   */
+  className: PropTypes.string,
+  /**
+   * Button type:
+   *
+   * * `primary`
+   * * `secondary`
+   * * `button`
+   */
+  type: PropTypes.string,
+  /**
+   * Disables the button if set to true. Disabled button won't trigger the `onClick`.
+   */
+  disabled: PropTypes.bool,
+  /**
+   * A callback function that is triggered when button clicked.
+   *
+   * ```jsx
+   * e => {}
+   * ```
+   */
+  onClick: PropTypes.func,
+};
+
+const defaultProps = {
+  children: 'Button',
+  className: '',
+  type: 'button',
+  disabled: false,
+  onClick() {},
+};
+
 /**
  * To trigger an operation.
  */
@@ -44,43 +83,7 @@ class Button extends React.Component {
   }
 }
 
-Button.propTypes = {
-  /**
-   * Elements to be rendered as children of this component.
-   */
-  children: PropTypes.node,
-  /**
-   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
-   */
-  className: PropTypes.string,
-  /**
-   * Button type:
-   *
-   * * `primary`
-   * * `secondary`
-   * * `button`
-   */
-  type: PropTypes.string,
-  /**
-   * Disables the button if set to true. Disabled button won't trigger the `onClick`.
-   */
-  disabled: PropTypes.bool,
-  /**
-   * A callback function that is triggered when button clicked.
-   *
-   * ```jsx
-   * e => {}
-   * ```
-   */
-  onClick: PropTypes.func,
-};
-
-Button.defaultProps = {
-  children: 'Button',
-  className: '',
-  type: 'button',
-  disabled: false,
-  onClick() {},
-};
+Button.propTypes = propTypes;
+Button.defaultProps = defaultProps;
 
 export default Button;

@@ -4,6 +4,22 @@ import PropTypes from 'prop-types';
 import { ALIAS } from '../variables';
 import './input.scss';
 
+const propTypes = {
+  /**
+   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
+   */
+  className: PropTypes.string,
+  /**
+   * Label of input
+   */
+  label: PropTypes.string,
+};
+
+const defaultProps = {
+  className: '',
+  label: '',
+};
+
 const InputWrapper = props => {
   const { className, children, label: labelText } = props;
 
@@ -24,20 +40,7 @@ const InputWrapper = props => {
   );
 };
 
-InputWrapper.propTypes = {
-  /**
-   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
-   */
-  className: PropTypes.string,
-  /**
-   * Label of input
-   */
-  label: PropTypes.string,
-};
-
-InputWrapper.defaultProps = {
-  className: '',
-  label: '',
-};
+InputWrapper.propTypes = propTypes;
+InputWrapper.defaultProps = defaultProps;
 
 export default InputWrapper;
