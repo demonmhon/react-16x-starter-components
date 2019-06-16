@@ -5,8 +5,6 @@
 Toggle `<Dialog />` with button
 
 ```jsx
-import Button from '../button';
-
 class DialogExample extends React.Component {
   constructor(props) {
     this.state = {
@@ -33,8 +31,6 @@ class DialogExample extends React.Component {
 #### Centered
 
 ```jsx
-import Button from '../button';
-
 class DialogExample extends React.Component {
   constructor(props) {
     this.state = {
@@ -61,8 +57,6 @@ class DialogExample extends React.Component {
 #### Full Screen
 
 ```jsx
-import Button from '../button';
-
 class DialogExample extends React.Component {
   constructor(props) {
     this.state = {

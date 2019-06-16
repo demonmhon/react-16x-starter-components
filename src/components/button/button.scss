@@ -3,7 +3,9 @@
 .#{$alias}-button {
   $button-background-color: #fff;
 
-  display: inline;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  display: inline-block;
   cursor: pointer;
   color: $color-primary-light;
   padding: 0.5rem 1rem;
