@@ -8,12 +8,14 @@
   display: inline-block;
   cursor: pointer;
   color: $color-primary-light;
+  background-color: #fff;
   padding: 0.5rem 1rem;
   border: solid 1px rgba($color-primary-light, 0.6);
   border-radius: 0.25rem;
   transition-property: box-shadow, background;
   transition-duration: $transition-fastest;
   background: $button-background-color;
+  margin-right: 0.5rem;
 
   &[disabled] {
     @include stateDisabled;
@@ -23,8 +25,6 @@
   &:focus,
   &:active {
     &:not([disabled]) {
-      background-color: rgba($color-primary-light, 0.2);
-      border-color: $color-primary-light;
       box-shadow: 0 0 0 0.1875rem rgba($color-primary-light, 0.4);
       & > span {
         color: currentColor;
@@ -41,7 +41,6 @@
     &:focus,
     &:active {
       &:not([disabled]) {
-        background-color: $color-primary-dark;
         border-color: $color-primary-dark;
         box-shadow: 0 0 0 0.1875rem rgba($color-primary-light, 0.4);
       }
@@ -57,7 +56,6 @@
     &:focus,
     &:active {
       &:not([disabled]) {
-        background-color: $color-accent-dark;
         border-color: $color-accent-dark;
         box-shadow: 0 0 0 0.1875rem rgba($color-accent-light, 0.4);
       }

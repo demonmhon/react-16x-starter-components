@@ -1,3 +1,4 @@
+const dotenv = require('dotenv').config();
 const path = require('path');
 const pkg = require('./package.json');
 const { theme, styles } = require('./styleguide/styles');
@@ -9,6 +10,7 @@ module.exports = {
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.jsx?$/, '.examples.md');
   },
+  serverPort: parseInt(process.env.PORT, 10) || 6060,
   title: `${pkgName} | ${pkgVersion}`,
   pagePerSection: true,
   sections: [
@@ -37,6 +39,7 @@ module.exports = {
         path.resolve(__dirname, 'src/components/loading', 'loading.jsx'),
         path.resolve(__dirname, 'src/components/dialog', 'dialog.jsx'),
         path.resolve(__dirname, 'src/components/table', 'table.jsx'),
+        path.resolve(__dirname, 'src/components/pagination', 'pagination.jsx'),
       ]
     },
   ],
