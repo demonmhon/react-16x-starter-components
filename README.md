@@ -1,6 +1,8 @@
 # react-16x-starter-components
 
 [![CircleCI](https://circleci.com/gh/demonmhon/react-16x-starter-components/tree/master.svg?style=svg)](https://circleci.com/gh/demonmhon/react-16x-starter-components/tree/master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/b056c9a999ea6975c607/maintainability)](https://codeclimate.com/github/demonmhon/react-16x-starter-components/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/b056c9a999ea6975c607/test_coverage)](https://codeclimate.com/github/demonmhon/react-16x-starter-components/test_coverage)
 
 The react 16x starter components. The common, starter react components for most project.
 
