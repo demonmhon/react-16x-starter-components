@@ -91,7 +91,7 @@ class Table extends React.Component {
       if (c.width) colStyle.width = c.width;
       col.push(<col key={`col-${c.id}`} style={colStyle} />);
     }
-    return (<colgroup>{col}</colgroup>)
+    return <colgroup>{col}</colgroup>;
   }
 
   renderThead(props) {
@@ -101,7 +101,11 @@ class Table extends React.Component {
       const headerText = c.title ? c.title : c.id;
       th.push(<th key={`th-${c.id}`}>{headerText}</th>);
     }
-    return (<thead><tr>{th}</tr></thead>)
+    return (
+      <thead>
+        <tr>{th}</tr>
+      </thead>
+    );
   }
 
   renderTbody(props) {
@@ -119,7 +123,7 @@ class Table extends React.Component {
       }
       tbodyTr.push(<tr key={`tr-${trId}`}>{td}</tr>);
     }
-    return <tbody>{tbodyTr}</tbody>
+    return <tbody>{tbodyTr}</tbody>;
   }
 
   render() {
@@ -131,9 +135,9 @@ class Table extends React.Component {
 
     return (
       <table className={tableCssClassList.join(' ')}>
-        {this.renderColgroup({...props})}
-        {this.renderThead({...props})}
-        {this.renderTbody({...props})}
+        {this.renderColgroup({ ...props })}
+        {this.renderThead({ ...props })}
+        {this.renderTbody({ ...props })}
       </table>
     );
   }

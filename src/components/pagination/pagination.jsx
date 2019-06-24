@@ -73,7 +73,14 @@ class Pagination extends React.Component {
 
   render() {
     const props = this.props;
-    const { className, page, totalPages, onPageChange, onNext, onPrevious } = props;
+    const {
+      className,
+      page,
+      totalPages,
+      onPageChange,
+      onNext,
+      onPrevious,
+    } = props;
 
     const paginationCssClassList = [blockCssName];
     if (className) paginationCssClassList.push(className);
