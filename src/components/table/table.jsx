@@ -22,7 +22,7 @@ const propTypes = {
       title: PropTypes.node,
       width: PropTypes.number,
       /**
-       * `({value, rowData}) => {}`
+       * `({value, row}) => {}`
        */
       render: PropTypes.func,
     })
@@ -54,11 +54,7 @@ const propTypes = {
   /**
    * A callback function that is triggered when row clicked
    *
-   * ```jsx
-   * (rowData) => {}
-   * ```
-   *
-   * @param {object} rowData - The object of clicked row.
+   * ```(rowData) => {}```
    */
   onRowClick: PropTypes.func,
 };
