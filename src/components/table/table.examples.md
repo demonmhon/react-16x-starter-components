@@ -64,9 +64,9 @@ const gridColumnSettings = [
 <Table data={gridData} columnSettings={gridColumnSettings}/>
 ```
 
-#### Customer Column Render
+#### Custom Column Render
 
-Custom the table header instead of using `id`
+Custom column render in `columnSettings`
 
 ```jsx
 const gridData = [
