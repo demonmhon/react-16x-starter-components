@@ -38,7 +38,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-  children: 'Button',
+  children: null,
   className: '',
   type: 'button',
   disabled: false,

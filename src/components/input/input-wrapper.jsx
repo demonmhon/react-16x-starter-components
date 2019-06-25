@@ -6,6 +6,10 @@ import './input.scss';
 
 const propTypes = {
   /**
+   * Elements to be rendered as children of this component.
+   */
+  children: PropTypes.node,
+  /**
    * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
    */
   className: PropTypes.string,
@@ -16,6 +20,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  children: null,
   className: '',
   label: '',
 };

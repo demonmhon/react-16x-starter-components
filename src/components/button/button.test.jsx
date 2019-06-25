@@ -19,4 +19,10 @@ describe('Button component', () => {
     const component = shallow(<Button>{buttonText}</Button>);
     expect(component.find('.starter-button__label').text()).toEqual(buttonText);
   });
+
+  test('has the provided class name', () => {
+    const className = 'aaa';
+    const component = shallow(<Button className={className} />);
+    expect(component.hasClass(className)).toBe(true);
+  });
 });
