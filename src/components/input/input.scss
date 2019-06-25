@@ -33,6 +33,7 @@
     border-radius: 0.25rem;
     transition-property: box-shadow;
     transition-duration: $transition-fastest;
+    outline: none;
 
     &:focus,
     &:active {

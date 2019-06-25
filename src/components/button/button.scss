@@ -16,6 +16,7 @@
   transition-duration: $transition-fastest;
   background: $button-background-color;
   margin-right: 0.5rem;
+  outline: none;
 
   &[disabled] {
     @include stateDisabled;
