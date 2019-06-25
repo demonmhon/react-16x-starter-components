@@ -34,7 +34,7 @@ const propTypes = {
   /**
    * A callback function, executed when the input is changed.
    *
-   * `(value) => {}`
+   * ```(value) => {}```
    */
   onChange: PropTypes.func,
 };

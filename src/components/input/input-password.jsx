@@ -32,11 +32,7 @@ const propTypes = {
   /**
    * A callback function, executed when the input is changed.
    *
-   * ```jsx
-   * (value) => {}
-   * ```
-   *
-   * @param {string} value - The input content value.
+   * ```(value) => {}```
    */
   onChange: PropTypes.func,
 };
