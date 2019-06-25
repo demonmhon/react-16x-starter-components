@@ -27,11 +27,7 @@ const propTypes = {
    *
    * Click on the current page won't trigger this function.
    *
-   * ```jsx
-   * (pageNumber) => {}
-   * ```
-   *
-   * @param {number} pageNumber - New page number
+   * ```(pageNumber) => {}```
    */
   onChange: PropTypes.func,
 };

@@ -44,9 +44,8 @@ const propTypes = {
   fullScreen: PropTypes.bool,
   /**
    * 	A callback function that is triggered when cancel button clicked.
-   * ```jsx
-   * () => {}
-   * ```
+   *
+   * ```() => {}```
    */
   onClose: PropTypes.func,
 };
