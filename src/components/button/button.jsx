@@ -30,9 +30,7 @@ const propTypes = {
   /**
    * A callback function that is triggered when button clicked.
    *
-   * ```jsx
-   * e => {}
-   * ```
+   * `e => {}`
    */
   onClick: PropTypes.func,
 };

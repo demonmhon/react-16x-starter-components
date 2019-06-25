@@ -22,9 +22,7 @@ const propTypes = {
       title: PropTypes.node,
       width: PropTypes.number,
       /**
-       * ```
-       * ({value, rowData}) => {}
-       * ```
+       * `({value, rowData}) => {}`
        */
       render: PropTypes.func,
     })
@@ -34,6 +32,7 @@ const propTypes = {
    * Each data item must contain the unique attribute `id`
    *
    * Example:
+   *
    * ```json
    * {
    *     "id": "1111-xxxx-xxxx-xxxx",
@@ -48,6 +47,10 @@ const propTypes = {
       id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     })
   ).isRequired,
+  /**
+   * The string of unique key of row data
+   */
+  rowId: PropTypes.string,
   /**
    * A callback function that is triggered when row clicked
    *
@@ -64,6 +67,7 @@ const defaultProps = {
   className: '',
   columnSettings: [],
   data: [],
+  rowId: 'id',
   onRowClick: null,
 };
 
@@ -119,7 +123,7 @@ class Table extends React.Component {
         const renderValue = !c.render
           ? value
           : c.render({ value: row[c.id], row });
-        td.push(<td key={`tr-${trId}-td-${c.id}`}>{renderValue}</td>);
+        td.push(<td key={`td-${trId}-${c.id}`}>{renderValue}</td>);
       }
       tbodyTr.push(<tr key={`tr-${trId}`}>{td}</tr>);
     }
