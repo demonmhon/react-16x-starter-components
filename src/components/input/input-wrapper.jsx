@@ -26,9 +26,10 @@ const defaultProps = {
 };
 
 const InputWrapper = props => {
-  const { className, children, label: labelText } = props;
+  const { className, disabled, children, label: labelText } = props;
 
   const inputCssClassList = [`${ALIAS}-input`];
+  if (disabled) inputCssClassList.push(`${ALIAS}-input--disabled`);
   if (inputCssClassList) inputCssClassList.push(className);
 
   const getLabelEl = labelText => {
