@@ -1,6 +1,8 @@
 @import '../../scss/variables';
 
 .#{$alias}-table {
+  @include reset;
+
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;

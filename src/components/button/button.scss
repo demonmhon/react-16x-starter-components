@@ -3,6 +3,8 @@
 .#{$alias}-button {
   $button-background-color: #fff;
 
+  @include reset;
+
   font-size: 0.875rem;
   line-height: 1.25rem;
   display: inline-block;

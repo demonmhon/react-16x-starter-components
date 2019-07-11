@@ -17,12 +17,17 @@ const propTypes = {
    * Label of input
    */
   label: PropTypes.string,
+  /**
+   * Disables the input if set to true.
+   */
+  disabled: PropTypes.bool,
 };
 
 const defaultProps = {
   children: null,
   className: '',
   label: '',
+  disable: false,
 };
 
 const InputWrapper = props => {

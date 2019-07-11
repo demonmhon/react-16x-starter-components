@@ -3,6 +3,7 @@
 .#{$alias}-input {
   $min-width: 60px;
 
+  @include reset;
   display: block;
   min-width: 60px;
 
@@ -38,8 +39,8 @@
 
     &:focus,
     &:active {
-      border-color: $shade-0;
-      box-shadow: 0 0 0 0.1875rem rgba($shade-0, 0.4);
+      border-color: $color-primary-light;
+      box-shadow: 0 0 0 0.1875rem rgba($color-primary-light, 0.4);
     }
   }
 

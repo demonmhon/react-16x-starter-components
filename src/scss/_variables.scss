@@ -24,11 +24,6 @@ $color-accent-light: #ffe54c;
 $color-accent-dark: #c68400;
 $color-accent-contrast: #000;
 
-// Shade
-$shade-0: #7f7f7f;
-$shade-1: #e2e2e2;
-$shade-2: #f5f5f5;
-
 // Transition
 $transition: .5s;
 $transition-faster: .25s;
@@ -38,6 +33,12 @@ $transition-slowest: .85s;
 
 // Border
 $border-radius: 0.25rem;
+
+// Reset at root of component
+@mixin reset {
+  font-size: 1rem;
+  color: $color-text-1;
+}
 
 // State
 @mixin stateDisabled {
