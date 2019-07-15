@@ -28,6 +28,30 @@
 ```
 
 
+#### Set value
+
+```jsx
+class SetValue extends React.Component {
+  constructor(props) {
+    this.state = {
+      value: ''
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <Button onClick={() => this.setState({ value: '1234-56-7890' })} />
+        <Input label="Number" value={this.state.value} />
+      </div>
+    );
+  }
+}
+
+<SetValue />
+```
+
+
 #### Disabled and Read-Only
 
 ```jsx

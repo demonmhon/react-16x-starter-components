@@ -74,16 +74,8 @@ const defaultProps = {
  * `<Table>` won't manage or control the data itself. Grid functionality or its part is controlled externally like: sorting, filtering, pagination. By passing the props.
  */
 /* eslint-enable max-len */
-class Table extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.renderColgroup = this.renderColgroup.bind(this);
-    this.renderThead = this.renderThead.bind(this);
-    this.renderTbody = this.renderTbody.bind(this);
-  }
-
-  renderColgroup(props) {
+function Table(props) {
+  const renderColgroup = props => {
     const { columnSettings } = props;
     const col = [];
     for (const c of columnSettings) {
@@ -92,9 +84,9 @@ class Table extends React.Component {
       col.push(<col key={`col-${c.id}`} style={colStyle} />);
     }
     return <colgroup>{col}</colgroup>;
-  }
+  };
 
-  renderThead(props) {
+  const renderThead = props => {
     const { columnSettings } = props;
     const th = [];
     for (const c of columnSettings) {
@@ -106,9 +98,9 @@ class Table extends React.Component {
         <tr>{th}</tr>
       </thead>
     );
-  }
+  };
 
-  renderTbody(props) {
+  const renderTbody = props => {
     const { rowId, data, columnSettings } = props;
     const tbodyTr = [];
     for (const row of data) {
@@ -124,23 +116,20 @@ class Table extends React.Component {
       tbodyTr.push(<tr key={`tr-${trId}`}>{td}</tr>);
     }
     return <tbody>{tbodyTr}</tbody>;
-  }
+  };
 
-  render() {
-    const props = this.props;
-    const { className } = props;
+  const { className } = props;
 
-    const tableCssClassList = [blockCssName];
-    if (className) tableCssClassList.push(className);
+  const tableCssClassList = [blockCssName];
+  if (className) tableCssClassList.push(className);
 
-    return (
-      <table className={tableCssClassList.join(' ')}>
-        {this.renderColgroup({ ...props })}
-        {this.renderThead({ ...props })}
-        {this.renderTbody({ ...props })}
-      </table>
-    );
-  }
+  return (
+    <table className={tableCssClassList.join(' ')}>
+      {renderColgroup({ ...props })}
+      {renderThead({ ...props })}
+      {renderTbody({ ...props })}
+    </table>
+  );
 }
 
 Table.propTypes = propTypes;

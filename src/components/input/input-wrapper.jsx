@@ -30,7 +30,7 @@ const defaultProps = {
   disable: false,
 };
 
-const InputWrapper = props => {
+function InputWrapper(props) {
   const { className, disabled, children, label: labelText } = props;
 
   const inputCssClassList = [`${ALIAS}-input`];
@@ -49,7 +49,7 @@ const InputWrapper = props => {
       </label>
     </div>
   );
-};
+}
 
 InputWrapper.propTypes = propTypes;
 InputWrapper.defaultProps = defaultProps;

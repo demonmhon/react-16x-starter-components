@@ -46,39 +46,31 @@ const defaultProps = {
 /**
  * To trigger an operation.
  */
-class Button extends React.Component {
-  constructor(props) {
-    super(props);
-    this.doOnClick = this.doOnClick.bind(this);
-  }
-
-  doOnClick(e) {
-    if (!this.props.disabled) {
-      this.props.onClick(e);
+function Button(props) {
+  const doOnClick = e => {
+    if (!props.disabled) {
+      props.onClick(e);
     }
-  }
+  };
 
-  render() {
-    const props = this.props;
-    const { children, className, type, disabled } = props;
+  const { children, className, type, disabled } = props;
+  const buttonCssClassList = [blockCssName];
+  const buttonProps = {};
 
-    const buttonCssClassList = [blockCssName];
-    const buttonProps = {};
+  if (['primary', 'secondary', 'button'].includes(type))
+    buttonCssClassList.push(`${blockCssName}--type-${type}`);
+  if (className) buttonCssClassList.push(className);
+  if (disabled) buttonProps.disabled = true;
 
-    if (['primary', 'secondary', 'button'].includes(type))
-      buttonCssClassList.push(`${blockCssName}--type-${type}`);
-    if (className) buttonCssClassList.push(className);
-    if (disabled) buttonProps.disabled = true;
-    return (
-      <button
-        {...buttonProps}
-        className={buttonCssClassList.join(' ')}
-        onClick={e => this.doOnClick(e)}
-      >
-        <span className={`${blockCssName}__label`}>{children}</span>
-      </button>
-    );
-  }
+  return (
+    <button
+      {...buttonProps}
+      className={buttonCssClassList.join(' ')}
+      onClick={e => doOnClick(e)}
+    >
+      <span className={`${blockCssName}__label`}>{children}</span>
+    </button>
+  );
 }
 
 Button.propTypes = propTypes;

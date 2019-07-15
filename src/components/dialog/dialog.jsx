@@ -1,5 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { ALIAS } from '../variables';
@@ -67,113 +66,105 @@ const defaultProps = {
  *
  * Dialog could be closed when dialog get focus and pressing `ESC`.
  */
-class Dialog extends React.Component {
-  constructor(props) {
-    super(props);
+function Dialog(props) {
+  let dialogDialog;
+  let dialogOverlay;
 
-    this.getBrowserScrollbarSize = this.getBrowserScrollbarSize.bind(this);
-    this.doOnClose = this.doOnClose.bind(this);
-    this.onKeyDown = this.onKeyDown.bind(this);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (!prevProps.show && this.props.show) {
-      this.dialogDialog.focus();
-      this.dialogOverlay = document.createElement('div');
-      this.dialogOverlay.classList.add(`${blockCssName}__overlay`);
-      document.body.appendChild(this.dialogOverlay);
-      this.renderDialogOverlay();
-      document.body.style.paddingRight = `${this.getBrowserScrollbarSize()}px`;
-      document.body.classList.add(`${blockCssName}--dialog-opened`);
-      return;
+  useEffect(() => {
+    if (props.show) {
+      dialogDialog.focus();
+      toggleDialogOverlay(true);
+    } else {
+      toggleDialogOverlay(false);
     }
+  });
 
-    const hasOverlay =
-      document.getElementsByClassName(`${blockCssName}__overlay`).length > 0;
-    if (hasOverlay) {
-      ReactDOM.unmountComponentAtNode(this.dialogOverlay);
-      document.body.removeChild(this.dialogOverlay);
-      document.body.style.paddingRight = 0;
-      document.body.classList.remove(`${blockCssName}--dialog-opened`);
-    }
-  }
-
-  getBrowserScrollbarSize() {
+  const getBrowserScrollbarSize = () => {
     return window.innerWidth - document.documentElement.clientWidth;
-  }
+  };
 
-  doOnClose() {
-    this.props.onClose();
-  }
+  const doOnClose = () => {
+    props.onClose();
+  };
 
-  onKeyDown(e) {
-    if (e.keyCode === 27 && !this.props.modal) {
-      this.doOnClose();
+  const onKeyDown = e => {
+    if (e.keyCode === 27 && !props.modal) {
+      doOnClose();
     }
-  }
+  };
 
-  renderDialogOverlay() {
-    ReactDOM.render(
-      <div className={`${blockCssName}__overlay`} />,
-      this.dialogOverlay
-    );
-  }
+  const toggleDialogOverlay = show => {
+    if (show) {
+      dialogOverlay = document.createElement('div');
+      dialogOverlay.classList.add(`${blockCssName}__overlay`);
+      document.body.appendChild(dialogOverlay);
+      document.body.style.paddingRight = `${getBrowserScrollbarSize()}px`;
+      document.body.classList.add(`${blockCssName}--dialog-opened`);
+    } else {
+      const overlay = document.getElementsByClassName(
+        `${blockCssName}__overlay`
+      );
+      if (overlay.length) {
+        document.body.removeChild(overlay[0]);
+        document.body.style.paddingRight = 0;
+        document.body.classList.remove(`${blockCssName}--dialog-opened`);
+      }
+    }
+  };
 
-  render() {
-    const {
-      className,
-      children,
-      centered,
-      fullScreen,
-      show,
-      modal,
-      style,
-    } = this.props;
+  const {
+    className,
+    children,
+    centered,
+    fullScreen,
+    show,
+    modal,
+    style,
+  } = props;
 
-    const dialogCssClassList = [blockCssName];
-    const dialogDialogCssClassList = [`${blockCssName}__dialog`];
-    if (show) dialogCssClassList.push(`${blockCssName}--show`);
-    if (centered) dialogCssClassList.push(`${blockCssName}--centered`);
-    if (fullScreen) dialogCssClassList.push(`${blockCssName}--full-screen`);
-    if (className) dialogDialogCssClassList.push(className);
+  const dialogCssClassList = [blockCssName];
+  const dialogDialogCssClassList = [`${blockCssName}__dialog`];
+  if (show) dialogCssClassList.push(`${blockCssName}--show`);
+  if (centered) dialogCssClassList.push(`${blockCssName}--centered`);
+  if (fullScreen) dialogCssClassList.push(`${blockCssName}--full-screen`);
+  if (className) dialogDialogCssClassList.push(className);
 
-    const contentComponent = children ? (
-      <div className={`${blockCssName}--body`}>
-        <div className={`${blockCssName}--body-content`}>{children}</div>
-      </div>
-    ) : (
-      <div className={`${blockCssName}--body`} />
-    );
+  const contentComponent = children ? (
+    <div className={`${blockCssName}--body`}>
+      <div className={`${blockCssName}--body-content`}>{children}</div>
+    </div>
+  ) : (
+    <div className={`${blockCssName}--body`} />
+  );
 
-    return (
+  return (
+    <div
+      tabIndex="0"
+      role="dialog"
+      onKeyDown={onKeyDown}
+      ref={el => {
+        dialogDialog = el;
+      }}
+      className={dialogCssClassList.join(' ')}
+    >
       <div
-        tabIndex="0"
-        role="dialog"
-        onKeyDown={this.onKeyDown}
-        ref={el => {
-          this.dialogDialog = el;
+        className={`${blockCssName}__display`}
+        onClick={() => {
+          if (!modal) doOnClose();
         }}
-        className={dialogCssClassList.join(' ')}
       >
         <div
-          className={`${blockCssName}__display`}
-          onClick={() => {
-            if (!modal) this.doOnClose();
+          className={dialogDialogCssClassList.join(' ')}
+          style={style}
+          onClick={e => {
+            e.stopPropagation();
           }}
         >
-          <div
-            className={dialogDialogCssClassList.join(' ')}
-            style={style}
-            onClick={e => {
-              e.stopPropagation();
-            }}
-          >
-            {contentComponent}
-          </div>
+          {contentComponent}
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 Dialog.propTypes = propTypes;

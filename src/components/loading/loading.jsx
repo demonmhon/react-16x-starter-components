@@ -20,7 +20,7 @@ const defaultProps = {
   show: true,
 };
 
-const Loading = props => {
+function Loading(props) {
   const { children, show } = props;
   const loadingCssPrefix = `${ALIAS}-loading`;
   const spinSvgAnimate = (
@@ -40,13 +40,13 @@ const Loading = props => {
   if (children) loadingCssClassList.push(`${loadingCssPrefix}--has-content`);
   if (show) loadingCssClassList.push(`${loadingCssPrefix}--show`);
   return (
-    <div className={loadingCssClassList.join(' ')}>
+    <span className={loadingCssClassList.join(' ')}>
       {props.children}
-      <div className={`${loadingCssPrefix}__mask`} />
+      <span className={`${loadingCssPrefix}__mask`} />
       {spinSvgAnimate}
-    </div>
+    </span>
   );
-};
+}
 
 Loading.propTypes = propTypes;
 Loading.defaultProps = defaultProps;
