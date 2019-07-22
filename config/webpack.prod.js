@@ -7,25 +7,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = merge(common, {
   mode: 'production',
   devtool: 'source-map',
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [
-          { loader: MiniCssExtractPlugin.loader },
-          { loader: 'css-loader' }
-        ]
-      },
-      {
-        test: /\.s(a|c)ss$/,
-        use: [
-          { loader: MiniCssExtractPlugin.loader },
-          { loader: 'css-loader' },
-          { loader: 'sass-loader' }
-        ]
-      },
-    ]
-  },
   optimization: {
     splitChunks: {
       chunks: 'all',

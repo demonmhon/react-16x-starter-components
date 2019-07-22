@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
+const mapStyle = process.env.MAP_STYLE === 'true';
+
 module.exports = {
   entry: {
     main: path.resolve(__dirname, '../src', 'index.js'),
@@ -12,6 +14,13 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: mapStyle ? 'css-loader?sourceMap' : 'css-loader' }
+        ]
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: [/node_modules/],
