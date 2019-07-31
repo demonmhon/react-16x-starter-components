@@ -9,7 +9,7 @@
 #### Data size and current page setting
 ```jsx
 
-const STYLE = {marginBottom: 10};
+const STYLE = {marginBottom: '15px'};
 
 <div>
   <div style={STYLE}>

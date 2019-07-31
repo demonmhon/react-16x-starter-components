@@ -41,7 +41,8 @@ class SetValue extends React.Component {
   render() {
     return (
       <div>
-        <Button onClick={() => this.setState({ value: '1234-56-7890' })} />
+        <Button onClick={() => this.setState({ value: '1234-56-7890' })}>Set number to input</Button>
+        <div style={{height: '15px'}} />
         <Input label="Number" value={this.state.value} />
       </div>
     );
