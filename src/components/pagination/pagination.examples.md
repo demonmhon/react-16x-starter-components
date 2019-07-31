@@ -13,22 +13,41 @@ const STYLE = {marginBottom: 10};
 
 <div>
   <div style={STYLE}>
-    <Pagination currentPage={1} pageSize={10} total={3}/>
+    <Pagination page={1} totalPages={3} onChange={p => console.log(p)}/>
   </div>
   <div style={STYLE}>
-    <Pagination currentPage={1} pageSize={10} total={13}/>
+    <Pagination page={1} totalPages={13} onChange={p => console.log(p)}/>
   </div>
   <div style={STYLE}>
-    <Pagination currentPage={3} pageSize={10} total={23}/>
+    <Pagination page={3} totalPages={23} onChange={p => console.log(p)}/>
   </div>
   <div style={STYLE}>
-    <Pagination currentPage={2} pageSize={10} total={33}/>
+    <Pagination page={2} totalPages={33} onChange={p => console.log(p)}/>
   </div>
   <div style={STYLE}>
-    <Pagination currentPage={2} pageSize={10} total={50}/>
+    <Pagination page={2} totalPages={50} onChange={p => console.log(p)}/>
   </div>
   <div style={STYLE}>
-    <Pagination currentPage={2} pageSize={10} total={103}/>
+    <Pagination page={2} totalPages={103} onChange={p => console.log(p)}/>
   </div>
 </div>
+```
+
+#### Set page
+```jsx
+class PaginationExample extends React.Component {
+  constructor(props) {
+    this.state = {
+      page: 1
+    };
+  }
+
+  render() {
+    return (
+      <Pagination page={this.state.page} totalPages={20} onChange={p => this.setState({page: p})}/>
+    );
+  }
+}
+
+<PaginationExample />
 ```

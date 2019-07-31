@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { ALIAS } from '../variables';
@@ -30,11 +29,11 @@ const propTypes = {
   /**
    * Element used for previous button. Use empty string to hide the text.
    */
-  previousText: PropTypes.node,
+  previousEl: PropTypes.node,
   /**
    * Element used for next button. Use empty string to hide the text.
    */
-  nextText: PropTypes.node,
+  nextEl: PropTypes.node,
   /**
    * A callback function, executed when the page number is changed with any elements (page number button, previous page button and next page button)
    *
@@ -50,97 +49,65 @@ const defaultProps = {
   page: 1,
   totalPages: 1,
   showControlButton: true,
-  previousText: 'Previous',
-  nextText: 'Next',
+  previousEl: 'Previous',
+  nextEl: 'Next',
   onChange() {},
 };
 
 const PAGE_BUFFER_SIZE = 2;
 
-class Pagination extends React.Component {
-  constructor(props) {
-    super(props);
+function Pagination(props) {
+  const [currentPage, setCurrentPage] = useState(props.page);
+  const [totalPages, setTotalPages] = useState(props.totalPages);
 
-    this.state = {
-      currentPage: props.currentPage,
-      pageCount: this.getPageCount(props.total, props.pageSize),
-    };
-
-    this.getPageCount = this.getPageCount.bind(this);
-    this.onChange = this.onChange.bind(this);
-    this.getFirstPage = this.getFirstPage.bind(this);
-    this.getLastPage = this.getLastPage.bind(this);
-    this.getPage = this.getPage.bind(this);
-    this.getPageItemRange = this.getPageItemRange.bind(this);
-    this.getJump = this.getJump.bind(this);
-    this.getControls = this.getControls.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const { currentPage, pageSize, total } = nextProps;
-    this.setState({
-      currentPage: currentPage,
-      pageCount: this.getPageCount(total, pageSize),
-    });
-  }
-
-  getPageCount(total, pageSize) {
-    if (total > 0 && pageSize > 0) {
-      return Math.ceil(total / pageSize);
+  useEffect(() => {
+    if (props.page) {
+      setCurrentPage(props.page);
     }
-    return 0;
-  }
+  });
 
-  onChange(page) {
-    const { currentPage, pageCount } = this.state;
+  const onPageChange = (pageNumber) => {
     // Will trigger if page in valid and not a current page
-    if (page > 0 && page <= pageCount && page !== currentPage) {
-      this.setState({
-        currentPage: page,
-      });
-      this.props.onChange(page);
+    if (pageNumber > 0 && pageNumber <= totalPages && pageNumber !== currentPage) {
+      props.onChange(pageNumber);
     }
     return false;
   }
 
-  getFirstPage() {
-    const { currentPage } = this.state;
+  const getFirstPage = () => {
     const currentCssClass = currentPage === 1 ? 'current' : '';
     return (
       <li key="first" className={[`${blockCssName}__list-item`, currentCssClass].join(' ')}>
-        <a onClick={() => this.onChange(1)}>1</a>
+        <a onClick={() => onPageChange(1)}>1</a>
       </li>
     );
   }
 
-  getLastPage() {
-    const { currentPage, pageCount } = this.state;
-    const currentCssClass = currentPage === pageCount ? 'current' : '';
+  const getLastPage = () => {
+    const currentCssClass = currentPage === totalPages ? 'current' : '';
     return (
       <li key="last" className={[`${blockCssName}__list-item`, currentCssClass].join(' ')}>
-        <a onClick={() => this.onChange(pageCount)}>
-          {StringHelper.formatNumber(pageCount)}
+        <a onClick={() => onPageChange(totalPages)}>
+          {StringHelper.formatNumber(totalPages)}
         </a>
       </li>
     );
   }
 
-  getPage(p) {
-    const { currentPage } = this.state;
+  const getPage = (p) => {
     const currentCssClass = currentPage === p ? 'current' : '';
     return (
       <li key={p} className={[`${blockCssName}__list-item`, currentCssClass].join(' ')}>
-        <a onClick={() => this.onChange(p)}>{StringHelper.formatNumber(p)}</a>
+        <a onClick={() => onPageChange(p)}>{StringHelper.formatNumber(p)}</a>
       </li>
     );
   }
 
-  getPageItemRange() {
-    const { currentPage, pageCount } = this.state;
+  const getPageItemRange = () => {
     const pageItems = [];
 
     // Append the page after current page
-    let pageTo = Math.min(pageCount, currentPage + PAGE_BUFFER_SIZE);
+    let pageTo = Math.min(totalPages, currentPage + PAGE_BUFFER_SIZE);
     // Calculate if the range of the appended page is equal to buffer
     const bufferAfterLeft = PAGE_BUFFER_SIZE - (pageTo - currentPage);
     // Prepend the page before from the left buffer
@@ -150,33 +117,33 @@ class Pagination extends React.Component {
     );
     // If still buffer left, re-calculate the page after current page again
     const bufferBeforeLeft = PAGE_BUFFER_SIZE - (currentPage - pageFrom);
-    if (bufferBeforeLeft && pageTo < pageCount) {
-      pageTo = Math.min(pageCount, pageTo + bufferBeforeLeft);
+    if (bufferBeforeLeft && pageTo < totalPages) {
+      pageTo = Math.min(totalPages, pageTo + bufferBeforeLeft);
     }
 
     // Make a list of pages
     for (let p = pageFrom; p <= pageTo; p = p + 1) {
-      pageItems.push(this.getPage(p));
+      pageItems.push(getPage(p));
     }
 
     if (pageFrom > 1) {
       if (pageFrom > 2) {
-        pageItems.unshift(this.getJump('before'));
+        pageItems.unshift(getJump('before'));
       }
-      pageItems.unshift(this.getFirstPage());
+      pageItems.unshift(getFirstPage());
     }
 
-    if (pageTo < pageCount) {
-      if (pageTo + 1 < pageCount) {
-        pageItems.push(this.getJump('after'));
+    if (pageTo < totalPages) {
+      if (pageTo + 1 < totalPages) {
+        pageItems.push(getJump('after'));
       }
-      pageItems.push(this.getLastPage());
+      pageItems.push(getLastPage());
     }
 
     return pageItems;
   }
 
-  getJump(type) {
+  const getJump = (type) => {
     return (
       <li key={`jump-${type}`} className={[`${blockCssName}__list-item`, 'jump'].join(' ')}>
         <a>...</a>
@@ -184,12 +151,11 @@ class Pagination extends React.Component {
     );
   }
 
-  getControls(type) {
-    const { showControlButton, previousText, nextText } = this.props;
-    const { currentPage, pageCount } = this.state;
-    const text = type === 'prev' ? previousText : nextText;
+  const getControls = (type) => {
+    const { showControlButton, previousEl , nextEl } = props;
+    const text = type === 'prev' ? previousEl : nextEl;
     const toPage = type === 'prev' ? currentPage - 1 : currentPage + 1;
-    const disabledCssClass = toPage <= 0 || toPage > pageCount ? `${blockCssName}__list-item--disabled` : '';
+    const disabledCssClass = toPage <= 0 || toPage > totalPages ? `${blockCssName}__list-item--disabled` : '';
     const controlPageCssClass = [`${blockCssName}__list-item`, disabledCssClass];
     if (type === 'prev') {
       controlPageCssClass.push('prev');
@@ -198,35 +164,31 @@ class Pagination extends React.Component {
     }
     return showControlButton ? (
       <li key={type} className={controlPageCssClass.join(' ')}>
-        <a onClick={() => this.onChange(toPage)} disabled={(disabledCssClass !== '')}>
+        <a onClick={() => onPageChange(toPage)} disabled={(disabledCssClass !== '')}>
           <span>{text}</span>
         </a>
       </li>
     ) : null;
   }
 
-  render() {
-    const { className } = this.props;
+  const { className } = props;
 
-    const paginationCssClassList = [blockCssName];
-    if (className) {
-      paginationCssClassList.push(className);
-    }
+  const paginationCssClassList = [blockCssName];
+  if (className) paginationCssClassList.push(className);
 
-    const pageItems = [
-      this.getControls('prev'),
-      this.getPageItemRange(),
-      this.getControls('next'),
-    ];
+  const pageItems = [
+    getControls('prev'),
+    getPageItemRange(),
+    getControls('next'),
+  ];
 
-    return (
-      <div className={paginationCssClassList.join(' ')}>
-        <div className={`${blockCssName}__container`}>
-          <ul className={`${blockCssName}__list`}>{pageItems}</ul>
-        </div>
+  return (
+    <div className={paginationCssClassList.join(' ')}>
+      <div className={`${blockCssName}__container`}>
+        <ul className={`${blockCssName}__list`}>{pageItems}</ul>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 Pagination.propTypes = propTypes;
