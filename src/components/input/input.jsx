@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import InputWrapper from './input-wrapper';
 import InputPassword from './input-password';
 import InputTextarea from './input-textarea';
-import './input.scss';
 
 const propTypes = {
   /**

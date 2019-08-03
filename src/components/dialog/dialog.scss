@@ -1,10 +1,10 @@
 @import '../../scss/variables';
 
-body.#{$alias}-dialog--dialog-opened {
+.body-dialog--dialog-opened {
   overflow: hidden;
 }
 
-.#{$alias}-dialog {
+.dialog {
   $dialog-bg-color: #fff;
   $dialog-overlay-bg-color: #fff;
   $dialog-overlay-opacity: 0.85;
@@ -72,11 +72,11 @@ body.#{$alias}-dialog--dialog-opened {
   &--show {
     height: 100%;
 
-    .#{$alias}-dialog__dialog {
+    .dialog__dialog {
       top: 0;
     }
 
-    .#{$alias}-dialog__overlay {
+    .dialog__overlay {
       bottom: 0;
       opacity: $dialog-overlay-opacity;
     }
@@ -84,7 +84,7 @@ body.#{$alias}-dialog--dialog-opened {
 
   /* Centered */
   &--centered {
-    .#{$alias}-dialog__display {
+    .dialog__display {
       display: flex;
       align-items: center;
     }
@@ -92,7 +92,7 @@ body.#{$alias}-dialog--dialog-opened {
 
   /* Fullscreen */
   &--full-screen {
-    .#{$alias}-dialog__dialog {
+    .dialog__dialog {
       max-width: 100%;
       width: calc(100% - 60px);
       height: calc(100% - 60px);
@@ -101,7 +101,7 @@ body.#{$alias}-dialog--dialog-opened {
       flex-wrap: nowrap;
     }
 
-    .#{$alias}-dialog__body {
+    .dialog__body {
       flex: 1;
     }
   }

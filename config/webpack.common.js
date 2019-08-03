@@ -1,6 +1,6 @@
 const path = require('path');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
 
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 const mapStyle = process.env.MAP_STYLE === 'true';
 
 module.exports = {

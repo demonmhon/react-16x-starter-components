@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { ALIAS } from '../variables';
-import './button.scss';
-
-const blockCssName = `${ALIAS}-button`;
+import css from './button.scss';
 
 const propTypes = {
   /**
@@ -54,11 +52,11 @@ function Button(props) {
   };
 
   const { children, className, type, disabled } = props;
-  const buttonCssClassList = [blockCssName];
+  const buttonCssClassList = [css.button];
   const buttonProps = {};
 
   if (['primary', 'secondary', 'button'].includes(type))
-    buttonCssClassList.push(`${blockCssName}--type-${type}`);
+    buttonCssClassList.push(css[`button--type-${type}`]);
   if (className) buttonCssClassList.push(className);
   if (disabled) buttonProps.disabled = true;
 
@@ -68,7 +66,7 @@ function Button(props) {
       className={buttonCssClassList.join(' ')}
       onClick={e => doOnClick(e)}
     >
-      <span className={`${blockCssName}__label`}>{children}</span>
+      <span className={css.button__label}>{children}</span>
     </button>
   );
 }

@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ALIAS } from '../variables';
-import './table.scss';
-
-const blockCssName = `${ALIAS}-table`;
+import css from './table.scss';
 
 const propTypes = {
   /**
@@ -120,7 +117,7 @@ function Table(props) {
 
   const { className } = props;
 
-  const tableCssClassList = [blockCssName];
+  const tableCssClassList = [css.table];
   if (className) tableCssClassList.push(className);
 
   return (

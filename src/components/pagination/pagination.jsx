@@ -3,11 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { ALIAS } from '../variables';
 import StringHelper from '../../utils/string-helper';
-import './pagination.scss';
-
-const blockCssName = `${ALIAS}-pagination`;
+import css from './pagination.scss';
 
 const propTypes = {
   /**
@@ -66,42 +63,60 @@ function Pagination(props) {
     }
   });
 
-  const onPageChange = (pageNumber) => {
+  const onPageChange = pageNumber => {
     // Will trigger if page in valid and not a current page
-    if (pageNumber > 0 && pageNumber <= totalPages && pageNumber !== currentPage) {
+    if (
+      pageNumber > 0 &&
+      pageNumber <= totalPages &&
+      pageNumber !== currentPage
+    ) {
       props.onChange(pageNumber);
     }
     return false;
-  }
+  };
 
   const getFirstPage = () => {
-    const currentCssClass = currentPage === 1 ? 'current' : '';
+    const currentCssClass =
+      currentPage === 1 ? css['pagination__list-item--current'] : '';
     return (
-      <li key="first" className={[`${blockCssName}__list-item`, currentCssClass].join(' ')}>
-        <a onClick={() => onPageChange(1)}>1</a>
+      <li
+        key="first"
+        className={[css['pagination__list-item'], currentCssClass].join(' ')}
+      >
+        <button onClick={() => onPageChange(1)}>1</button>
       </li>
     );
-  }
+  };
 
   const getLastPage = () => {
-    const currentCssClass = currentPage === totalPages ? 'current' : '';
+    const currentCssClass =
+      currentPage === totalPages ? css['pagination__list-item--current'] : '';
     return (
-      <li key="last" className={[`${blockCssName}__list-item`, currentCssClass].join(' ')}>
-        <a onClick={() => onPageChange(totalPages)}>
+      <li
+        key="last"
+        className={[css['pagination__list-item'], currentCssClass].join(' ')}
+      >
+        <button onClick={() => onPageChange(totalPages)}>
           {StringHelper.formatNumber(totalPages)}
-        </a>
+        </button>
       </li>
     );
-  }
+  };
 
-  const getPage = (p) => {
-    const currentCssClass = currentPage === p ? 'current' : '';
+  const getPage = p => {
+    const currentCssClass =
+      currentPage === p ? css['pagination__list-item--current'] : '';
     return (
-      <li key={p} className={[`${blockCssName}__list-item`, currentCssClass].join(' ')}>
-        <a onClick={() => onPageChange(p)}>{StringHelper.formatNumber(p)}</a>
+      <li
+        key={p}
+        className={[css['pagination__list-item'], currentCssClass].join(' ')}
+      >
+        <button onClick={() => onPageChange(p)}>
+          {StringHelper.formatNumber(p)}
+        </button>
       </li>
     );
-  }
+  };
 
   const getPageItemRange = () => {
     const pageItems = [];
@@ -141,39 +156,54 @@ function Pagination(props) {
     }
 
     return pageItems;
-  }
+  };
 
-  const getJump = (type) => {
+  const getJump = type => {
     return (
-      <li key={`jump-${type}`} className={[`${blockCssName}__list-item`, 'jump'].join(' ')}>
-        <a>...</a>
+      <li
+        key={`jump-${type}`}
+        className={[
+          css['pagination__list-item'],
+          css['pagination__list-item--jump'],
+        ].join(' ')}
+      >
+        <button>...</button>
       </li>
     );
-  }
+  };
 
-  const getControls = (type) => {
-    const { showControlButton, previousEl , nextEl } = props;
+  const getControls = type => {
+    const { showControlButton, previousEl, nextEl } = props;
     const text = type === 'prev' ? previousEl : nextEl;
     const toPage = type === 'prev' ? currentPage - 1 : currentPage + 1;
-    const disabledCssClass = toPage <= 0 || toPage > totalPages ? `${blockCssName}__list-item--disabled` : '';
-    const controlPageCssClass = [`${blockCssName}__list-item`, disabledCssClass];
+    const disabledCssClass =
+      toPage <= 0 || toPage > totalPages
+        ? css['pagination__list-item--disabled']
+        : '';
+    const controlPageCssClass = [
+      css['pagination__list-item'],
+      disabledCssClass,
+    ];
     if (type === 'prev') {
-      controlPageCssClass.push('prev');
+      controlPageCssClass.push(css['pagination__list-item--prev']);
     } else {
-      controlPageCssClass.push('next');
+      controlPageCssClass.push(css['pagination__list-item--next']);
     }
     return showControlButton ? (
       <li key={type} className={controlPageCssClass.join(' ')}>
-        <a onClick={() => onPageChange(toPage)} disabled={(disabledCssClass !== '')}>
+        <button
+          onClick={() => onPageChange(toPage)}
+          disabled={disabledCssClass !== ''}
+        >
           <span>{text}</span>
-        </a>
+        </button>
       </li>
     ) : null;
-  }
+  };
 
   const { className } = props;
 
-  const paginationCssClassList = [blockCssName];
+  const paginationCssClassList = [css.pagination];
   if (className) paginationCssClassList.push(className);
 
   const pageItems = [
@@ -184,8 +214,8 @@ function Pagination(props) {
 
   return (
     <div className={paginationCssClassList.join(' ')}>
-      <div className={`${blockCssName}__container`}>
-        <ul className={`${blockCssName}__list`}>{pageItems}</ul>
+      <div className={css.pagination__container}>
+        <ul className={css.pagination__list}>{pageItems}</ul>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 @import '../../scss/variables';
 
-.#{$alias}-input {
+.input {
   $min-width: 60px;
 
   @include reset;

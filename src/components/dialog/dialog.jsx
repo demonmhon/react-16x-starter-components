@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { ALIAS } from '../variables';
-import './dialog.scss';
-
-const blockCssName = `${ALIAS}-dialog`;
+import css from './dialog.scss';
 
 const propTypes = {
   /**
@@ -96,18 +93,16 @@ function Dialog(props) {
   const toggleDialogOverlay = show => {
     if (show) {
       dialogOverlay = document.createElement('div');
-      dialogOverlay.classList.add(`${blockCssName}__overlay`);
+      dialogOverlay.classList.add(css['dialog__overlay']);
       document.body.appendChild(dialogOverlay);
       document.body.style.paddingRight = `${getBrowserScrollbarSize()}px`;
-      document.body.classList.add(`${blockCssName}--dialog-opened`);
+      document.body.classList.add(css['body-dialog--dialog-opened']);
     } else {
-      const overlay = document.getElementsByClassName(
-        `${blockCssName}__overlay`
-      );
+      const overlay = document.getElementsByClassName(css['dialog__overlay']);
       if (overlay.length) {
         document.body.removeChild(overlay[0]);
         document.body.style.paddingRight = 0;
-        document.body.classList.remove(`${blockCssName}--dialog-opened`);
+        document.body.classList.remove(css['body-dialog--dialog-opened']);
       }
     }
   };
@@ -122,19 +117,19 @@ function Dialog(props) {
     style,
   } = props;
 
-  const dialogCssClassList = [blockCssName];
-  const dialogDialogCssClassList = [`${blockCssName}__dialog`];
-  if (show) dialogCssClassList.push(`${blockCssName}--show`);
-  if (centered) dialogCssClassList.push(`${blockCssName}--centered`);
-  if (fullScreen) dialogCssClassList.push(`${blockCssName}--full-screen`);
+  const dialogCssClassList = [css.dialog];
+  const dialogDialogCssClassList = [css['dialog__dialog']];
+  if (show) dialogCssClassList.push(css['dialog--show']);
+  if (centered) dialogCssClassList.push(css['dialog--centered']);
+  if (fullScreen) dialogCssClassList.push(css['dialog--full-screen']);
   if (className) dialogDialogCssClassList.push(className);
 
   const contentComponent = children ? (
-    <div className={`${blockCssName}--body`}>
-      <div className={`${blockCssName}--body-content`}>{children}</div>
+    <div className={css['dialog--body']}>
+      <div className={css['dialog--body-content']}>{children}</div>
     </div>
   ) : (
-    <div className={`${blockCssName}--body`} />
+    <div className={css['dialog--body']} />
   );
 
   return (
@@ -148,7 +143,7 @@ function Dialog(props) {
       className={dialogCssClassList.join(' ')}
     >
       <div
-        className={`${blockCssName}__display`}
+        className={css['dialog__display']}
         onClick={() => {
           if (!modal) doOnClose();
         }}

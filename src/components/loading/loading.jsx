@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ALIAS } from '../variables';
-import './loading.scss';
+import css from './loading.scss';
 
 const propTypes = {
   /**
@@ -22,11 +21,10 @@ const defaultProps = {
 
 function Loading(props) {
   const { children, show } = props;
-  const loadingCssPrefix = `${ALIAS}-loading`;
   const spinSvgAnimate = (
-    <svg className={`${loadingCssPrefix}__indicator`} viewBox="0 0 50 50">
+    <svg className={css['loading__indicator']} viewBox="0 0 50 50">
       <circle
-        className={`${loadingCssPrefix}__indicator-path`}
+        className={css['loading__indicator-path']}
         cx="25"
         cy="25"
         r="20"
@@ -36,13 +34,13 @@ function Loading(props) {
     </svg>
   );
 
-  const loadingCssClassList = [loadingCssPrefix];
-  if (children) loadingCssClassList.push(`${loadingCssPrefix}--has-content`);
-  if (show) loadingCssClassList.push(`${loadingCssPrefix}--show`);
+  const loadingCssClassList = [css.loading];
+  if (children) loadingCssClassList.push(css['loading--has-content']);
+  if (show) loadingCssClassList.push(css['loading--show']);
   return (
     <span className={loadingCssClassList.join(' ')}>
       {props.children}
-      <span className={`${loadingCssPrefix}__mask`} />
+      <span className={css['loading__mask']} />
       {spinSvgAnimate}
     </span>
   );

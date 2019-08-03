@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ALIAS } from '../variables';
-import './input.scss';
+import css from './input.scss';
 
 const propTypes = {
   /**
@@ -33,12 +32,12 @@ const defaultProps = {
 function InputWrapper(props) {
   const { className, disabled, children, label: labelText } = props;
 
-  const inputCssClassList = [`${ALIAS}-input`];
-  if (disabled) inputCssClassList.push(`${ALIAS}-input--disabled`);
+  const inputCssClassList = [css.input];
+  if (disabled) inputCssClassList.push(css['input--disabled']);
   if (inputCssClassList) inputCssClassList.push(className);
 
   const getLabelEl = labelText => {
-    return <span className={`${ALIAS}-input__label`}>{labelText}</span>;
+    return <span className={css['input__label']}>{labelText}</span>;
   };
 
   return (

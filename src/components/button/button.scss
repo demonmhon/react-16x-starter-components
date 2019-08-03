@@ -1,6 +1,6 @@
 @import '../../scss/variables';
 
-.#{$alias}-button {
+.button {
   $button-background-color: #fff;
 
   @include reset;

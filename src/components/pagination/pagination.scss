@@ -1,6 +1,6 @@
 @import '../../scss/variables';
 
-.#{$alias}-pagination {
+.pagination {
   $button-background-color: #fff;
 
   display: block;
@@ -23,13 +23,14 @@
     margin: 0;
     padding: 0;
 
-    & + .#{$alias}-pagination__list-item {
+    & + .pagination__list-item {
       margin-left: 0.1875rem;
     }
 
-    a {
+    button {
       cursor: pointer;
       color: $color-text-1;
+      background: $button-background-color;
       font-size: 0.875rem;
       line-height: 1.25rem;
       text-decoration: none;
@@ -42,6 +43,7 @@
       position: relative;
       border-color: $color-text-2;
       border-radius: 0.25rem;
+      outline: none;
       transition-property: box-shadow, background, border-color;
       transition-duration: $transition-fastest;
 
@@ -53,25 +55,25 @@
       }
     }
 
-    &--disabled {
+    [disabled] {
       @include stateDisabled;
     }
 
-    &.jump,
-    &.prev,
-    &.next {
-      a,
-      a:focus,
-      a:hover {
+    &--jump,
+    &--prev,
+    &--next {
+      button,
+      button:focus,
+      button:hover {
         background-color: transparent;
         border-color: transparent;
         box-shadow: none;
       }
     }
 
-    &.prev,
-    &.next {
-      a {
+    &--prev,
+    &--next {
+      button {
         border-color: transparent;
         min-width: 0;
 
@@ -87,37 +89,8 @@
       }
     }
 
-    &.prev {
-      a {
-        padding-left: 18px;
-        padding-right: 10px;
-      }
-
-      .control-icon {
-        left: 2px;
-      }
-    }
-
-    &.next {
-      a {
-        padding-left: 10px;
-        padding-right: 18px;
-      }
-
-      .control-icon {
-        right: 2px;
-      }
-    }
-
-    .control-icon {
-      width: 14px;
-      height: 14px;
-      position: absolute;
-      top: 9px;
-    }
-
-    &.current {
-      a {
+    &--current {
+      button {
         color: $color-primary-contrast;
         background: $color-primary-light;
         border-color: $color-primary-light;

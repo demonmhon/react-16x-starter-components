@@ -1,6 +1,6 @@
 @import '../../scss/variables';
 
-.#{$alias}-loading {
+.loading {
   $size: 4rem;
 
   @keyframes rotate {
@@ -41,14 +41,14 @@
     height: 100%;
     width: 100%;
 
-    .#{$alias}-loading__mask,
-    .#{$alias}-loading__indicator {
+    .loading__mask,
+    .loading__indicator {
       display: none;
     }
 
-    &.#{$alias}-loading--show {
-      .#{$alias}-loading__mask,
-      .#{$alias}-loading__indicator {
+    &.loading--show {
+      .loading__mask,
+      .loading__indicator {
         display: block;
       }
     }
