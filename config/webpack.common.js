@@ -16,10 +16,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.s(a|c)ss$/,
         use: [
           { loader: 'style-loader' },
-          { loader: mapStyle ? 'css-loader?sourceMap' : 'css-loader' }
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: `[local]-[hash:base64:5]`
+            }
+          },
+          { loader: 'sass-loader' }
         ]
       },
       {
