@@ -47,7 +47,7 @@ module.exports = {
   styles,
   styleguideDir: path.resolve(__dirname, './dist'),
   require: [
-    path.join(__dirname, './styleguide/styles.css')
+    path.join(__dirname, './styleguide/styles.scss')
   ],
   webpackConfig: require('./config/webpack.dev.js')
 };
