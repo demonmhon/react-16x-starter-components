@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ALIAS } from '../variables';
 import css from './button.scss';
 
 const propTypes = {

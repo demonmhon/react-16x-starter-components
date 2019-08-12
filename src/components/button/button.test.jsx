@@ -11,13 +11,13 @@ describe('Button component', () => {
 
   test('has default button text', () => {
     const component = shallow(<Button />);
-    expect(component.find('.starter-button__label').text()).toEqual('Button');
+    expect(component.find('.button__label').text()).toEqual('Button');
   });
 
   test('use the given childen as button text', () => {
     const buttonText = 'OK';
     const component = shallow(<Button>{buttonText}</Button>);
-    expect(component.find('.starter-button__label').text()).toEqual(buttonText);
+    expect(component.find('.button__label').text()).toEqual(buttonText);
   });
 
   test('has the provided class name', () => {
