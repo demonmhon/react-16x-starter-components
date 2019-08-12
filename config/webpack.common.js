@@ -1,6 +1,7 @@
 const path = require('path');
 
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const mapStyle = process.env.MAP_STYLE === 'true';
 
 module.exports = {
@@ -51,6 +52,9 @@ module.exports = {
   plugins: [
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, '../src', 'index.html'),
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
     })
   ],
   resolve: {
