@@ -32,7 +32,6 @@ eslint-report.xml
 
 # NPM Project config
 .npmrc
-package-lock.json
 
 # Yarn Project config
 .yarnrc
