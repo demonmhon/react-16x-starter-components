@@ -30,6 +30,12 @@ module.exports = {
             path.resolve(__dirname, 'src/components/input', 'input-password.jsx'),
             path.resolve(__dirname, 'src/components/input', 'input-textarea.jsx'),
           ]
+        },
+        {
+          name: 'Checkbox',
+          components: [
+            path.resolve(__dirname, 'src/components/checkbox', 'checkbox.jsx')
+          ]
         }
       ]
     },

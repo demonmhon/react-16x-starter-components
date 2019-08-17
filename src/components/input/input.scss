@@ -9,6 +9,7 @@
 
   &--disabled {
     @include stateDisabled;
+    pointer-events: none;
   }
 
   &__label {

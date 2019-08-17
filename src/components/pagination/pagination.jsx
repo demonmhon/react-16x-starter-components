@@ -14,11 +14,11 @@ const propTypes = {
   /**
    * The current page number.
    */
-  page: PropTypes.number,
+  page: PropTypes.number.isRequired,
   /**
    * The total pages.
    */
-  totalPages: PropTypes.number,
+  totalPages: PropTypes.number.isRequired,
   /**
    * Hide the previous and next button if set to true.
    */
