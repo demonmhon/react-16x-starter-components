@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import css from './checkbox.scss';
@@ -34,35 +34,54 @@ const defaultProps = {
 /**
  * Checkbox
  */
-function Checkbox(props) {
-  const doOnChange = e => {
-    if (!props.disabled) {
-      props.onChange(e);
-    }
-  };
+class Checkbox extends React.Component {
+  constructor(props) {
+    super(props);
 
-  const { children, className, checked, disabled } = props;
-  const checkboxCssClassList = [css.checkbox];
-  const checkboxProps = {};
+    this.state = {
+      checked: props.checked,
+    };
 
-  if (className) checkboxCssClassList.push(className);
-  if (disabled) {
-    checkboxCssClassList.push(css['checkbox--disable']);
-    checkboxProps.disabled = true;
+    this.doOnChange = this.doOnChange.bind(this);
   }
 
-  return (
-    <label
-      className={checkboxCssClassList.join(' ')}
-      onClick={e => doOnChange(e)}
-    >
-      <div className={css.checkbox__container}>
-        <input type="checkbox" checked={checked} {...checkboxProps} />
-        <span className={css.checkbox__ui} />
-        <div className={css.checkbox__label}>{children}</div>
-      </div>
-    </label>
-  );
+  componentWillReceiveProps(nextProps) {
+    if (this.state.checked !== nextProps.checked) {
+      this.setState({
+        value: nextProps.checked,
+      });
+    }
+  }
+
+  doOnChange(e) {
+    const { onChange, disabled } = this.props;
+    if (!disabled) {
+      onChange();
+      e.stopPropagation();
+    }
+  }
+
+  render() {
+    const { children, className, checked, disabled } = this.props;
+    const checkboxCssClassList = [css.checkbox];
+    const checkboxProps = {};
+
+    if (className) checkboxCssClassList.push(className);
+    if (disabled) {
+      checkboxCssClassList.push(css['checkbox--disabled']);
+      checkboxProps.disabled = true;
+    }
+
+    return (
+      <label className={checkboxCssClassList.join(' ')}>
+        <div className={css.checkbox__container}>
+          <input type="checkbox" defaultChecked={checked} {...checkboxProps} onChange={e => this.doOnChange(e)} />
+          <span className={css.checkbox__ui} />
+          <div className={css.checkbox__label}>{children}</div>
+        </div>
+      </label>
+    );
+  }
 }
 
 Checkbox.propTypes = propTypes;

@@ -151,9 +151,7 @@ function Dialog(props) {
         <div
           className={dialogDialogCssClassList.join(' ')}
           style={style}
-          onClick={e => {
-            e.stopPropagation();
-          }}
+          onClick={e => e.stopPropagation()}
         >
           {contentComponent}
         </div>

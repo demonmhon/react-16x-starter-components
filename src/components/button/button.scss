@@ -22,6 +22,7 @@
 
   &[disabled] {
     @include stateDisabled;
+    pointer-events: none;
   }
 
   &--type-button {

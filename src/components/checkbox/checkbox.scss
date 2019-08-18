@@ -7,10 +7,10 @@
 
   &--disabled {
     @include stateDisabled;
+    pointer-events: none;
   }
 
   input {
-    visibility: hidden;
     position: absolute;
     left: -1rem;
     top: -1rem;
@@ -20,6 +20,10 @@
       &::before {
         display: block;
       }
+    }
+
+    &:focus + .checkbox__ui {
+      box-shadow: 0 0 0 0.1875rem rgba($color-text-2, 0.4);
     }
   }
 
