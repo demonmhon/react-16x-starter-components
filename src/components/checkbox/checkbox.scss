@@ -4,6 +4,7 @@
   display: inline-block;
   font-size: 0.875rem;
   line-height: 1.25rem;
+  position: relative;
 
   &--disabled {
     @include stateDisabled;
@@ -12,8 +13,8 @@
 
   input {
     position: absolute;
-    left: -1rem;
-    top: -1rem;
+    opacity: 0;
+    left: 0;
     z-index: -1;
 
     &[checked] + .checkbox__ui {
