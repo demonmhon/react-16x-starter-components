@@ -73,10 +73,7 @@ class InputTextarea extends React.Component {
 
   doOnChange(value) {
     const { onChange } = this.props;
-    this.setState(
-      { value: value },
-      () => onChange(value)
-    );
+    this.setState({ value: value }, () => onChange(value));
   }
 
   onKeyDown(e) {
