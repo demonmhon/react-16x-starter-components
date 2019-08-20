@@ -34,7 +34,8 @@ const defaultProps = {
 /**
  * Checkbox
  */
-function Checkbox({ children, className, checked, disabled, onChange }) {
+function Checkbox(props) {
+  const { children, className, checked, disabled, onChange } = props;
   const [isChecked, setIsChecked] = useState(checked);
 
   useEffect(() => {
@@ -58,8 +59,8 @@ function Checkbox({ children, className, checked, disabled, onChange }) {
   }
 
   return (
-    <label className={checkboxCssClassList.join(' ')}>
-      <div className={css.checkbox__container}>
+    <div className={checkboxCssClassList.join(' ')}>
+      <label className={css.checkbox__container}>
         <input
           type="checkbox"
           checked={isChecked}
@@ -68,8 +69,8 @@ function Checkbox({ children, className, checked, disabled, onChange }) {
         />
         <span className={css.checkbox__ui} />
         <div className={css.checkbox__label}>{children}</div>
-      </div>
-    </label>
+      </label>
+    </div>
   );
 }
 

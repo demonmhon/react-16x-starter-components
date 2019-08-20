@@ -44,13 +44,14 @@ const defaultProps = {
  * To trigger an operation.
  */
 function Button(props) {
+  const { children, className, type, disabled } = props;
+
   const doOnClick = e => {
     if (!props.disabled) {
       props.onClick(e);
     }
   };
 
-  const { children, className, type, disabled } = props;
   const buttonCssClassList = [css.button];
   const buttonProps = {};
 

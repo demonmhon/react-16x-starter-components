@@ -21,8 +21,30 @@ describe('Button component', () => {
   });
 
   test('has the provided class name', () => {
-    const className = 'aaa';
+    const className = 'the-custom-css-class';
     const component = shallow(<Button className={className} />);
     expect(component.hasClass(className)).toBe(true);
+  });
+
+  describe('onClick()', () => {
+    test('called when disabled is false', () => {
+      const props = {
+        disabled: false,
+        onClick: jest.fn(),
+      };
+      const component = shallow(<Button {...props} />);
+      component.simulate('click');
+      expect(props.onClick).toHaveBeenCalledTimes(1);
+    });
+
+    test('not called when disabled is false', () => {
+      const props = {
+        disabled: true,
+        onClick: jest.fn(),
+      };
+      const component = shallow(<Button {...props} />);
+      component.simulate('click');
+      expect(props.onClick).not.toHaveBeenCalled();
+    });
   });
 });
