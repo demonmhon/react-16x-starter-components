@@ -31,25 +31,19 @@
 #### Set value
 
 ```jsx
-class SetValue extends React.Component {
-  constructor(props) {
-    this.state = {
-      value: ''
-    };
-  }
+function InputExample() {
+  const [value, setValue] = React.useState('');
 
-  render() {
-    return (
-      <div>
-        <Button onClick={() => this.setState({ value: '1234-56-7890' })}>Set number to input</Button>
-        <div style={{height: '15px'}} />
-        <Input label="Number" value={this.state.value} />
-      </div>
-    );
-  }
+  return (
+    <div>
+      <Button onClick={() => setValue('1234-56-7890')}>Set number to input</Button>
+      <div style={{height: '15px'}} />
+      <Input label="Number" value={value} />
+    </div>
+  );
 }
 
-<SetValue />
+<InputExample />
 ```
 
 

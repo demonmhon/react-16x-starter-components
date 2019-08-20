@@ -5,25 +5,19 @@
 Toggle `<Dialog />` with button
 
 ```jsx
-class DialogExample extends React.Component {
-  constructor(props) {
-    this.state = {
-      isDialogOpen: false
-    };
-  }
+function DialogExample() {
+   const [isDialogOpen, setIsDialogOpen] = React.useState(false);
 
-  render() {
-    return (
-      <div>
-        <Button onClick={() => this.setState({ isDialogOpen: true })} />
-        <Dialog show={this.state.isDialogOpen} onClose={() => this.setState({ isDialogOpen: false })}>
-          <div style={{padding: '0.5rem 1rem'}}>
-            <p>Dialog content</p>
-          </div>
-        </Dialog>
-      </div>
-    );
-  }
+   return (
+    <div>
+      <Button onClick={() => setIsDialogOpen(true)} />
+      <Dialog show={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
+        <div style={{padding: '0.5rem 1rem'}}>
+          <p>Dialog content</p>
+        </div>
+      </Dialog>
+    </div>
+  );
 }
 
 <DialogExample />
@@ -33,25 +27,19 @@ class DialogExample extends React.Component {
 #### Centered
 
 ```jsx
-class DialogExample extends React.Component {
-  constructor(props) {
-    this.state = {
-      isDialogOpen: false
-    };
-  }
+function DialogExample() {
+   const [isDialogOpen, setIsDialogOpen] = React.useState(false);
 
-  render() {
-    return (
-      <div>
-        <Button onClick={() => this.setState({ isDialogOpen: true })} />
-        <Dialog centered show={this.state.isDialogOpen} onClose={() => this.setState({ isDialogOpen: false })}>
-          <div style={{padding: '0.5rem 1rem'}}>
-            <p>Dialog content</p>
-          </div>
-        </Dialog>
-      </div>
-    );
-  }
+   return (
+    <div>
+      <Button onClick={() => setIsDialogOpen(true)} />
+      <Dialog centered show={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
+        <div style={{padding: '0.5rem 1rem'}}>
+          <p>Dialog content</p>
+        </div>
+      </Dialog>
+    </div>
+  );
 }
 
 <DialogExample />
@@ -61,25 +49,19 @@ class DialogExample extends React.Component {
 #### Full Screen
 
 ```jsx
-class DialogExample extends React.Component {
-  constructor(props) {
-    this.state = {
-      isDialogOpen: false
-    };
-  }
+function DialogExample() {
+   const [isDialogOpen, setIsDialogOpen] = React.useState(false);
 
-  render() {
-    return (
-      <div>
-        <Button onClick={() => this.setState({ isDialogOpen: true })} />
-        <Dialog fullScreen show={this.state.isDialogOpen} onClose={() => this.setState({ isDialogOpen: false })}>
-          <div style={{padding: '0.5rem 1rem'}}>
-            <p>Dialog content</p>
-          </div>
-        </Dialog>
-      </div>
-    );
-  }
+   return (
+    <div>
+      <Button onClick={() => setIsDialogOpen(true)} />
+      <Dialog fullScreen show={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
+        <div style={{padding: '0.5rem 1rem'}}>
+          <p>Dialog content</p>
+        </div>
+      </Dialog>
+    </div>
+  );
 }
 
 <DialogExample />
@@ -89,26 +71,20 @@ class DialogExample extends React.Component {
 #### Modal
 
 ```jsx
-class DialogExample extends React.Component {
-  constructor(props) {
-    this.state = {
-      isDialogOpen: false
-    };
-  }
+function DialogExample() {
+   const [isDialogOpen, setIsDialogOpen] = React.useState(false);
 
-  render() {
-    return (
-      <div>
-        <Button onClick={() => this.setState({ isDialogOpen: true })} />
-        <Dialog modal show={this.state.isDialogOpen} onClose={() => this.setState({ isDialogOpen: false })}>
-          <div style={{padding: '0.5rem 1rem'}}>
-            <p>Dialog content</p>
-            <Button onClick={() => this.setState({ isDialogOpen: false })} >Close Modal</Button>
-          </div>
-        </Dialog>
-      </div>
-    );
-  }
+   return (
+    <div>
+      <Button onClick={() => setIsDialogOpen(true)} />
+      <Dialog modal show={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
+        <div style={{padding: '0.5rem 1rem'}}>
+          <p>Dialog content</p>
+          <Button onClick={() => setIsDialogOpen(false)}>Close Modal</Button>
+        </div>
+      </Dialog>
+    </div>
+  );
 }
 
 <DialogExample />

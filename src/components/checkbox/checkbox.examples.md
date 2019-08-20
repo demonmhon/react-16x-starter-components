@@ -31,25 +31,17 @@ Ut ut ut suscipit dignissimos quia dolorem quibusdam. Repudiandae ut nihil ut do
 ```
 
 
-#### Check state
+#### Checked state
 
 ```jsx
-class CheckboxExample extends React.Component {
-  constructor(props) {
-    this.state = {
-      checked: true
-    };
-  }
+function CheckboxExample() {
+  const [checked, setChecked] = React.useState(true);
 
-  render() {
-    return (
-      <div>
-        <Checkbox checked={this.state.checked} onChange={() => this.setState({ checked: !this.state.checked })}>
-          Sign up for newsletters
-        </Checkbox>
-      </div>
-    );
-  }
+  return (
+  <Checkbox checked={checked} onChange={() => setChecked(!checked)}>
+    Sign up for newsletters
+  </Checkbox>
+  )
 }
 
 <CheckboxExample />
