@@ -3,6 +3,7 @@
 #### Basic
 
 ```jsx
+<Checkbox>I agree to the Privacy Policy</Checkbox>
 <Checkbox>Sign up for newsletters</Checkbox>
 ```
 
