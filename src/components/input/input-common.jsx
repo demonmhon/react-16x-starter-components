@@ -1,10 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-
-import InputWrapper from './input-wrapper';
-import InputText from './input-text';
-import InputPassword from './input-password';
-import InputTextarea from './input-textarea';
 
 const propTypes = {
   /**
@@ -58,17 +53,55 @@ const defaultProps = {
  * Provide the user input is a text field.
  */
 function Input(props) {
+  const {
+    type: inputType,
+    disabled,
+    readOnly,
+    placeholder,
+    value,
+    onChange,
+  } = props;
+  const [inputValue, setInputValue] = useState(value);
+
+  useEffect(() => {
+    setInputValue(value);
+  }, [value]);
+
+  const doOnChange = value => {
+    setInputValue(value);
+    onChange(value);
+  };
+
+  const onKeyDown = e => {
+    /**
+     * keyCode
+     * 13 = Enter -- Trigger the onChange immediately.
+     */
+    if (e.keyCode === 13) {
+      onChange(inputValue);
+    }
+  };
+
+  const type = ['text', 'number', 'email', 'password'].includes(inputType)
+    ? inputType
+    : 'text';
+
+  const inputProps = {
+    type: type,
+    onKeyDown: onKeyDown,
+    onChange: e => doOnChange(e.target.value),
+    value: value
+  };
+  if (placeholder) inputProps.placeholder = placeholder;
+  if (readOnly) inputProps.readOnly = true;
+  if (disabled) inputProps.disabled = true;
+
   return (
-    <InputWrapper {...props}>
-      <InputText {...props} />
-    </InputWrapper>
+    <input {...inputProps} />
   );
 }
 
 Input.propTypes = propTypes;
 Input.defaultProps = defaultProps;
-
-Input.Password = InputPassword;
-Input.Textarea = InputTextarea;
 
 export default Input;

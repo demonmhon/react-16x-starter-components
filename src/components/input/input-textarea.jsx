@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import InputWrapper from './input-wrapper';
@@ -51,59 +51,43 @@ const defaultProps = {
   value: '',
   onChange() {},
 };
-class InputTextarea extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      value: props.value,
-    };
+function InputTextarea(props) {
+  const { disabled, readOnly, placeholder, value, onChange, rows } = props;
+  const [inputValue, setInputValue] = useState(value);
 
-    this.doOnChange = this.doOnChange.bind(this);
-    this.onKeyDown = this.onKeyDown.bind(this);
-  }
+  useEffect(() => {
+    setInputValue(value);
+  }, [value]);
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.value !== nextProps.value) {
-      this.setState({
-        value: nextProps.value,
-      });
-    }
-  }
+  const doOnChange = value => {
+    setInputValue(value);
+    onChange(value);
+  };
 
-  doOnChange(value) {
-    const { onChange } = this.props;
-    this.setState({ value: value }, () => onChange(value));
-  }
-
-  onKeyDown(e) {
+  const onKeyDown = e => {
     /**
      * keyCode
      * 13 = Enter -- Trigger the onChange immediately.
      */
     if (e.keyCode === 13) {
-      this.props.onChange(this.state.value);
+      onChange(inputValue);
     }
-  }
+  };
 
-  render() {
-    const props = this.props;
-    const { disabled, readOnly, label: placeholder, rows } = props;
-
-    return (
-      <InputWrapper {...props}>
-        <textarea
-          placeholder={placeholder}
-          rows={rows}
-          onKeyDown={this.onKeyDown}
-          onChange={e => this.doOnChange(e.target.value)}
-          disabled={disabled}
-          readOnly={readOnly}
-          defaultValue={this.state.value}
-        />
-      </InputWrapper>
-    );
-  }
+  return (
+    <InputWrapper {...props}>
+      <textarea
+        placeholder={placeholder}
+        rows={rows}
+        onKeyDown={onKeyDown}
+        onChange={e => doOnChange(e.target.value)}
+        disabled={disabled}
+        readOnly={readOnly}
+        value={inputValue}
+      />
+    </InputWrapper>
+  );
 }
 
 InputTextarea.propTypes = propTypes;

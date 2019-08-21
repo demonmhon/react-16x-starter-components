@@ -2,12 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import InputCommon from './input-common';
-import InputWrapper from './input-wrapper';
-import './input.scss';
 
 const propTypes = {
   /**
-   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
+   * One or more class names to be added to the root element (input wrapper) of this component, i.e. `"class-foo class-bar"`.
    */
   className: PropTypes.string,
   /**
@@ -48,15 +46,14 @@ const defaultProps = {
   onChange() {},
 };
 
-function InputPassword(props) {
-  return (
-    <InputWrapper {...props}>
-      <InputCommon type={'password'} {...props} />
-    </InputWrapper>
-  );
+/**
+ * Provide the user input is a text field.
+ */
+function InputText(props) {
+  return <InputCommon type={'text'} {...props} />;
 }
 
-InputPassword.propTypes = propTypes;
-InputPassword.defaultProps = defaultProps;
+InputText.propTypes = propTypes;
+InputText.defaultProps = defaultProps;
 
-export default InputPassword;
+export default InputText;

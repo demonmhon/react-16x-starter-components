@@ -20,6 +20,10 @@ const propTypes = {
    * Disables the input if set to true.
    */
   disabled: PropTypes.bool,
+  /**
+   * Type of input
+   */
+  type: PropTypes.string,
 };
 
 const defaultProps = {
@@ -27,14 +31,17 @@ const defaultProps = {
   className: '',
   label: '',
   disable: false,
+  type: '',
 };
 
 function InputWrapper(props) {
-  const { className, disabled, children, label: labelText } = props;
+  const { className, disabled, children, label: labelText, type: inputType } = props;
 
   const inputCssClassList = [css.input];
   if (disabled) inputCssClassList.push(css['input--disabled']);
   if (inputCssClassList) inputCssClassList.push(className);
+  if (['text', 'number', 'email', 'password', 'textarea'].includes(inputType))
+    inputCssClassList.push(css[`input--type-${inputType}`]);
 
   const getLabelEl = labelText => {
     return <span className={css['input__label']}>{labelText}</span>;

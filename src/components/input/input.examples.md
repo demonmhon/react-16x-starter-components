@@ -7,21 +7,14 @@
 ```
 
 
-#### Placeholder
+#### Placeholder & Label
 
 ```jsx
-<Input placeholder="Name" />
+<Input placeholder="Name" label="Name" />
 ```
 
 
-#### Label
-
-```jsx
-<Input label="Name" />
-```
-
-
-#### Value
+#### Value / Default Value
 
 ```jsx
 <Input label="Email" value="user.email@domain.com" />
@@ -45,6 +38,25 @@ function InputExample() {
 
 <InputExample />
 ```
+
+#### onChange
+
+```jsx
+function InputExample() {
+  const [value, setValue] = React.useState('');
+
+  return (
+    <div>
+      <div style={{height: '15px'}} />
+      <Input label="Name" value={value} onChange={v => setValue(v)} />
+      <p>Input length: {value.length} </p>
+    </div>
+  );
+}
+
+<InputExample />
+```
+
 
 
 #### Disabled and Read-Only
