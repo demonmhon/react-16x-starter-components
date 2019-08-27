@@ -82,7 +82,7 @@ function Input(props) {
     }
   };
 
-  const type = ['text', 'number', 'email', 'password'].includes(inputType)
+  const type = ['text', 'number', 'email', 'password', 'search'].includes(inputType)
     ? inputType
     : 'text';
 

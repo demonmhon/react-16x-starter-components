@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { create } from 'react-test-renderer';
 import Checkbox from './index';
 
@@ -37,4 +37,25 @@ describe('Checkbox component', () => {
       expect(component.find('input').props().disabled).toEqual(true);
     });
   });
+
+  describe('onChange()', () => {
+    test('called', () => {
+      const props = {
+        onChange: jest.fn()
+      };
+      const component = mount(<Checkbox {...props} />);
+      component.find('label').simulate('click');
+      expect(props.onChange).toHaveBeenCalledTimes(1);
+    });
+
+    test('not called if disabled', () => {
+      const props = {
+        disabled: true,
+        onChange: jest.fn()
+      };
+      const component = mount(<Checkbox {...props} />);
+      component.find('label').simulate('click');
+      expect(props.onChange).toHaveBeenCalledTimes(0);
+    });
+  })
 });

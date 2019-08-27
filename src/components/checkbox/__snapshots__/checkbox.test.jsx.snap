@@ -6,6 +6,7 @@ exports[`Checkbox component it matches the snapshot 1`] = `
 >
   <label
     className="checkbox__container"
+    onClick={[Function]}
   >
     <input
       checked={false}

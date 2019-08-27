@@ -42,10 +42,9 @@ function Checkbox(props) {
     setIsChecked(checked);
   }, [checked]);
 
-  const doOnChange = e => {
+  const doOnChange = () => {
     if (!disabled) {
       onChange();
-      e.stopPropagation();
     }
   };
 
@@ -60,12 +59,12 @@ function Checkbox(props) {
 
   return (
     <div className={checkboxCssClassList.join(' ')}>
-      <label className={css.checkbox__container}>
+      <label className={css.checkbox__container} onClick={() => doOnChange()}>
         <input
           type="checkbox"
           checked={isChecked}
           {...checkboxProps}
-          onChange={e => doOnChange(e)}
+          onChange={() => {}}
         />
         <span className={css.checkbox__ui} />
         <div className={css.checkbox__label}>{children}</div>

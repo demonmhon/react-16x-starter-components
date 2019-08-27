@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input component it matches the snapshot 1`] = `
+<div
+  className="input  input--type-text"
+>
+  <label>
+    <input
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      type="text"
+      value=""
+    />
+  </label>
+</div>
+`;
