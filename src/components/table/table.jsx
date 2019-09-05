@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import ColGroup from './colgroup';
+import THead from './thead';
+import TBody from './tbody';
 import css from './table.scss';
 
 const propTypes = {
@@ -47,7 +50,7 @@ const propTypes = {
   /**
    * The string of unique key of row data
    */
-  rowId: PropTypes.string,
+  rowId: PropTypes.string.isRequired,
   /**
    * A callback function that is triggered when row clicked
    *
@@ -72,59 +75,19 @@ const defaultProps = {
  */
 /* eslint-enable max-len */
 function Table(props) {
-  const renderColgroup = props => {
-    const { columnSettings } = props;
-    const col = [];
-    for (const c of columnSettings) {
-      const colStyle = {};
-      if (c.width) colStyle.width = c.width;
-      col.push(<col key={`col-${c.id}`} style={colStyle} />);
-    }
-    return <colgroup>{col}</colgroup>;
-  };
-
-  const renderThead = props => {
-    const { columnSettings } = props;
-    const th = [];
-    for (const c of columnSettings) {
-      const headerText = c.title ? c.title : c.id;
-      th.push(<th key={`th-${c.id}`}>{headerText}</th>);
-    }
-    return (
-      <thead>
-        <tr>{th}</tr>
-      </thead>
-    );
-  };
-
-  const renderTbody = props => {
-    const { rowId, data, columnSettings } = props;
-    const tbodyTr = [];
-    for (const row of data) {
-      const trId = row[rowId];
-      const td = [];
-      for (const c of columnSettings) {
-        const value = row[c.id] ? row[c.id] : '';
-        const renderValue = !c.render
-          ? value
-          : c.render({ value: row[c.id], row });
-        td.push(<td key={`td-${trId}-${c.id}`}>{renderValue}</td>);
-      }
-      tbodyTr.push(<tr key={`tr-${trId}`}>{td}</tr>);
-    }
-    return <tbody>{tbodyTr}</tbody>;
-  };
-
-  const { className } = props;
+  const { className, columnSettings } = props;
+  const renderColgroup = () => <ColGroup columnSettings={columnSettings} />
+  const renderThead = () => <THead columnSettings={columnSettings} />
+  const renderTbody = () => <TBody {...props} />
 
   const tableCssClassList = [css.table];
   if (className) tableCssClassList.push(className);
 
   return (
     <table className={tableCssClassList.join(' ')}>
-      {renderColgroup({ ...props })}
-      {renderThead({ ...props })}
-      {renderTbody({ ...props })}
+      {renderColgroup()}
+      {renderThead()}
+      {renderTbody()}
     </table>
   );
 }
