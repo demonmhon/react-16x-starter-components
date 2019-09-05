@@ -35,7 +35,13 @@ const defaultProps = {
 };
 
 function InputWrapper(props) {
-  const { className, disabled, children, label: labelText, type: inputType } = props;
+  const {
+    className,
+    disabled,
+    children,
+    label: labelText,
+    type: inputType,
+  } = props;
 
   const inputCssClassList = [css.input];
   if (disabled) inputCssClassList.push(css['input--disabled']);

@@ -18,8 +18,8 @@ describe('Input component', () => {
   describe('attributes', () => {
     test('value set correctly', () => {
       const props = {
-        value: 'input value 1234'
-      }
+        value: 'input value 1234',
+      };
       const component = mount(<Input {...props} />);
       expect(component.find('input').props().value).toEqual(props.value);
     });

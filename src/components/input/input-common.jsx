@@ -82,7 +82,9 @@ function Input(props) {
     }
   };
 
-  const type = ['text', 'number', 'email', 'password', 'search'].includes(inputType)
+  const type = ['text', 'number', 'email', 'password', 'search'].includes(
+    inputType
+  )
     ? inputType
     : 'text';
 
@@ -90,15 +92,13 @@ function Input(props) {
     type: type,
     onKeyDown: onKeyDown,
     onChange: e => doOnChange(e.target.value),
-    value: value
+    value: value,
   };
   if (placeholder) inputProps.placeholder = placeholder;
   if (readOnly) inputProps.readOnly = true;
   if (disabled) inputProps.disabled = true;
 
-  return (
-    <input {...inputProps} />
-  );
+  return <input {...inputProps} />;
 }
 
 Input.propTypes = propTypes;

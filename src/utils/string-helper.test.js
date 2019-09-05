@@ -1,6 +1,6 @@
 import stringHelper from './string-helper';
 
-const { formatNumber } = stringHelper
+const { formatNumber } = stringHelper;
 
 describe('string helper', () => {
   test('format without comma', () => {

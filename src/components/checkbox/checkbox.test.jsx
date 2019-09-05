@@ -41,7 +41,7 @@ describe('Checkbox component', () => {
   describe('onChange()', () => {
     test('called', () => {
       const props = {
-        onChange: jest.fn()
+        onChange: jest.fn(),
       };
       const component = mount(<Checkbox {...props} />);
       component.find('label').simulate('click');
@@ -51,11 +51,11 @@ describe('Checkbox component', () => {
     test('not called if disabled', () => {
       const props = {
         disabled: true,
-        onChange: jest.fn()
+        onChange: jest.fn(),
       };
       const component = mount(<Checkbox {...props} />);
       component.find('label').simulate('click');
       expect(props.onChange).toHaveBeenCalledTimes(0);
     });
-  })
+  });
 });

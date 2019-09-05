@@ -76,9 +76,9 @@ const defaultProps = {
 /* eslint-enable max-len */
 function Table(props) {
   const { className, columnSettings } = props;
-  const renderColgroup = () => <ColGroup columnSettings={columnSettings} />
-  const renderThead = () => <THead columnSettings={columnSettings} />
-  const renderTbody = () => <TBody {...props} />
+  const renderColgroup = () => <ColGroup columnSettings={columnSettings} />;
+  const renderThead = () => <THead columnSettings={columnSettings} />;
+  const renderTbody = () => <TBody {...props} />;
 
   const tableCssClassList = [css.table];
   if (className) tableCssClassList.push(className);
