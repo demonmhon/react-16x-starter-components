@@ -70,11 +70,9 @@ function Dialog(props) {
   useEffect(() => {
     if (props.show) {
       dialogDialog.focus();
-      toggleDialogOverlay(true);
-    } else {
-      toggleDialogOverlay(false);
     }
-  });
+    toggleDialogOverlay(props.show);
+  }, [props.show]);
 
   const getBrowserScrollbarSize = () => {
     return window.innerWidth - document.documentElement.clientWidth;

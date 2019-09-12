@@ -59,12 +59,12 @@ function Checkbox(props) {
 
   return (
     <div className={checkboxCssClassList.join(' ')}>
-      <label className={css.checkbox__container} onClick={() => doOnChange()}>
+      <label className={css.checkbox__container}>
         <input
           type="checkbox"
           checked={isChecked}
           {...checkboxProps}
-          onChange={() => {}}
+          onChange={doOnChange}
         />
         <span className={css.checkbox__ui} />
         <div className={css.checkbox__label}>{children}</div>

@@ -44,7 +44,7 @@ describe('Checkbox component', () => {
         onChange: jest.fn(),
       };
       const component = mount(<Checkbox {...props} />);
-      component.find('label').simulate('click');
+      component.find('input').simulate('change', () => {});
       expect(props.onChange).toHaveBeenCalledTimes(1);
     });
 
