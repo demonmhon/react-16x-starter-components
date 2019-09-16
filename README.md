@@ -35,7 +35,6 @@ $ cp .env.example .env.development
 ```
 
 > `.env.development` is for local development, it ignored by git.
-> 
 
 ## Usages
 

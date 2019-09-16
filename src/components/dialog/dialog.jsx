@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';z
 import PropTypes from 'prop-types';
 
 import css from './dialog.scss';
@@ -64,6 +64,8 @@ const defaultProps = {
  * Dialog could be closed when dialog get focus and pressing `ESC`.
  */
 function Dialog(props) {
+  const { children, className, centered, fullScreen, show, modal, style } = props;
+
   let dialogDialog;
   let dialogOverlay;
 
@@ -104,16 +106,6 @@ function Dialog(props) {
       }
     }
   };
-
-  const {
-    className,
-    children,
-    centered,
-    fullScreen,
-    show,
-    modal,
-    style,
-  } = props;
 
   const dialogCssClassList = [css.dialog];
   const dialogDialogCssClassList = [css['dialog__dialog']];
