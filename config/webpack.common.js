@@ -21,8 +21,10 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: true,
-              localIdentName: `[local]-[hash:base64:5]`
+              modules: {
+                mode: 'local',
+                localIdentName: `[local]-[hash:base64:5]`,
+              },
             }
           },
           { loader: 'sass-loader' }

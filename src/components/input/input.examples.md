@@ -47,7 +47,6 @@ function InputExample() {
 
   return (
     <div>
-      <div style={{height: '15px'}} />
       <Input label="Name" value={value} onChange={v => setValue(v)} />
       <p>Input length: {value.length} </p>
     </div>
@@ -62,6 +61,6 @@ function InputExample() {
 #### Disabled and Read-Only
 
 ```jsx
-<Input label="Email" value="user1.email@domain.com" disabled />
-<Input label="Email" value="user2.email@domain.com" readOnly />
+<Input label="Email (disabled)" value="user1.email@domain.com" disabled />
+<Input label="Email (read-only)" value="user2.email@domain.com" readOnly />
 ```
