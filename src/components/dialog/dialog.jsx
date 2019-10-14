@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';z
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import css from './dialog.scss';
