@@ -64,7 +64,15 @@ const defaultProps = {
  * Dialog could be closed when dialog get focus and pressing `ESC`.
  */
 function Dialog(props) {
-  const { children, className, centered, fullScreen, show, modal, style } = props;
+  const {
+    children,
+    className,
+    centered,
+    fullScreen,
+    show,
+    modal,
+    style,
+  } = props;
 
   let dialogDialog;
   let dialogOverlay;

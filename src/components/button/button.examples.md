@@ -10,9 +10,19 @@
 
 ```jsx
 <Button/>
-<Button type="primary">Primary</Button>
-<Button type="secondary">Secondary</Button>
+<Button type={Button.Type.Primary}>Primary</Button>
+<Button type={Button.Type.Secondary}>Secondary</Button>
 ```
+
+#### Sized
+
+```jsx
+<Button size={Button.Size.ExtraSmall}>Extra Small</Button>
+<Button size={Button.Size.Small}>Small</Button>
+<Button>Medium</Button>
+<Button size={Button.Size.Large}>Large</Button>
+```
+
 
 #### CSS Classes
 
@@ -24,8 +34,8 @@
 
 ```jsx
 <Button disabled />
-<Button disabled type="primary">Primary</Button>
-<Button disabled type="secondary">Secondary</Button>
+<Button disabled type={Button.Type.Primary}>Primary</Button>
+<Button disabled type={Button.Type.Secondary}>Secondary</Button>
 ```
 
 #### Click Event

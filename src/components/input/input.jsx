@@ -56,6 +56,8 @@ const defaultProps = {
 
 /**
  * Provide the user input is a text field.
+ *
+ * Controlled component. Value will be set by prop.
  */
 function Input(props) {
   return (

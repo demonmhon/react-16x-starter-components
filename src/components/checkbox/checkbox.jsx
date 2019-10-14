@@ -33,6 +33,8 @@ const defaultProps = {
 
 /**
  * Checkbox
+ *
+ * Controlled component. Value will be set by prop.
  */
 function Checkbox(props) {
   const { children, className, checked, disabled, onChange } = props;

@@ -26,6 +26,29 @@ describe('Button component', () => {
     expect(component.hasClass(className)).toBe(true);
   });
 
+  describe('type', () => {
+    test('set the type with valid type value', () => {
+      const typeName = Button.Type.Secondary;
+      const expectedClassName = 'button--type-secondary';
+      const component = shallow(<Button type={typeName} />);
+      expect(component.hasClass(expectedClassName)).toBe(true);
+    });
+
+    test('not set an invalid type', () => {
+      const typeName = 'invalidType';
+      const expectedClassName = 'button--type-button';
+      const component = shallow(<Button type={typeName} />);
+      expect(component.hasClass(expectedClassName)).toBe(true);
+    });
+  });
+
+  test('set the proper size', () => {
+    const sizeName = Button.Size.Small;
+    const expectedClassName = 'button--size-s';
+    const component = shallow(<Button size={sizeName} />);
+    expect(component.hasClass(expectedClassName)).toBe(true);
+  });
+
   describe('onClick()', () => {
     test('called when disabled is false', () => {
       const props = {
