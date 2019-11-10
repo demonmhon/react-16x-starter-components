@@ -90,7 +90,11 @@ const gridData = [
 const gridColumnSettings = [
   { id: 'name', title: 'Item', render: ({value, row}) => <span>{`${row.id} - ${value}`}</span> },
   { id: 'date', title: 'Created Date' },
-  { id: 'action', title: <span />, render: ({value, row}) => <Button onClick={() => alert(`${row.id} clicked`)}>View</Button>}
+  {
+    id: 'action',
+    title: <span />,
+    render: ({value, row}) => <Button onClick={() => alert(`${row.id} clicked`)} size={Button.Size.Small}>View</Button>
+  }
 ];
 
 <Table data={gridData} columnSettings={gridColumnSettings}/>

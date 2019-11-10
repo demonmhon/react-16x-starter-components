@@ -14,7 +14,7 @@
 <Button type={Button.Type.Secondary}>Secondary</Button>
 ```
 
-#### Sized
+#### Size
 
 ```jsx
 <Button size={Button.Size.ExtraSmall}>Extra Small</Button>
