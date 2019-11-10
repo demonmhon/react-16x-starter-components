@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import css from './checkbox.scss';
+import css from './radio.scss';
 
 const propTypes = {
   /**
@@ -32,11 +32,11 @@ const defaultProps = {
 };
 
 /**
- * Checkbox
+ * Radio
  *
  * Controlled component. Value will be set by prop.
  */
-function Checkbox(props) {
+function Radio(props) {
   const { children, className, checked, disabled, onChange } = props;
   const [isChecked, setIsChecked] = useState(checked);
 
@@ -50,32 +50,33 @@ function Checkbox(props) {
     }
   };
 
-  const checkboxCssClassList = [css.checkbox];
-  const checkboxProps = {};
+  const radioCssClassList = [css.radio];
+  const radioProps = {};
 
-  if (className) checkboxCssClassList.push(className);
+
+  if (className) radioCssClassList.push(className);
   if (disabled) {
-    checkboxCssClassList.push(css['checkbox--disabled']);
-    checkboxProps.disabled = true;
+    radioCssClassList.push(css['radio--disabled']);
+    radioProps.disabled = true;
   }
 
   return (
-    <div className={checkboxCssClassList.join(' ')}>
-      <label className={css.checkbox__container}>
+    <div className={radioCssClassList.join(' ')}>
+      <label className={css.radio__container}>
         <input
-          type="checkbox"
+          type="radio"
           checked={isChecked}
-          {...checkboxProps}
+          {...radioProps}
           onChange={doOnChange}
         />
-        <span className={css.checkbox__ui} />
-        <div className={css.checkbox__label}>{children}</div>
+        <span className={css.radio__ui} />
+        <div className={css.radio__label}>{children}</div>
       </label>
     </div>
   );
 }
 
-Checkbox.propTypes = propTypes;
-Checkbox.defaultProps = defaultProps;
+Radio.propTypes = propTypes;
+Radio.defaultProps = defaultProps;
 
-export default Checkbox;
+export default Radio;

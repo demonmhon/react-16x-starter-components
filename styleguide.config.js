@@ -36,6 +36,12 @@ module.exports = {
           components: [
             path.resolve(__dirname, 'src/components/checkbox', 'checkbox.jsx')
           ]
+        },
+        {
+          name: 'Radio',
+          components: [
+            path.resolve(__dirname, 'src/components/radio', 'radio.jsx')
+          ]
         }
       ]
     },
