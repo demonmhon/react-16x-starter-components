@@ -20,6 +20,11 @@ const propTypes = {
    * Disables the checkbox if set to true. Disabled checkbox won't trigger the `onChange`.
    */
   disabled: PropTypes.bool,
+  /**
+   * A callback function, executed when the checkbox is changed.
+   *
+   * ```() => {}```
+   */
   onChange: PropTypes.func,
 };
 

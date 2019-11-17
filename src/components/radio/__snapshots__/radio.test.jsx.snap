@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio component it matches the snapshot 1`] = `
+<div
+  className="radio"
+>
+  <label
+    className="radio__container"
+  >
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="radio"
+      value=""
+    />
+    <span
+      className="radio__ui"
+    />
+    <div
+      className="radio__label"
+    >
+      
+    </div>
+  </label>
+</div>
+`;

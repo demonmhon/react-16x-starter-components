@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import RadioGroup from './radio-group';
 import css from './radio.scss';
 
 const propTypes = {
@@ -13,19 +14,29 @@ const propTypes = {
    */
   className: PropTypes.string,
   /**
-   * Specifies whether the checkbox is checked.
+   * Option value
+   */
+  value: PropTypes.string,
+  /**
+   * Specifies whether the option is checked.
    */
   checked: PropTypes.bool,
   /**
-   * Disables the checkbox if set to true. Disabled checkbox won't trigger the `onChange`.
+   * Disables the option if set to true. Disabled option won't trigger the `onChange`.
    */
   disabled: PropTypes.bool,
+  /**
+   * A callback function, executed when the option is changed.
+   *
+   * ```(value) => {}```
+   */
   onChange: PropTypes.func,
 };
 
 const defaultProps = {
   children: '',
   className: '',
+  value: '',
   disabled: false,
   checked: false,
   onChange() {},
@@ -37,22 +48,21 @@ const defaultProps = {
  * Controlled component. Value will be set by prop.
  */
 function Radio(props) {
-  const { children, className, checked, disabled, onChange } = props;
+  const { children, className, value, checked, disabled, onChange } = props;
   const [isChecked, setIsChecked] = useState(checked);
 
   useEffect(() => {
     setIsChecked(checked);
   }, [checked]);
 
-  const doOnChange = () => {
+  const doOnChange = value => {
     if (!disabled) {
-      onChange();
+      onChange(value);
     }
   };
 
   const radioCssClassList = [css.radio];
   const radioProps = {};
-
 
   if (className) radioCssClassList.push(className);
   if (disabled) {
@@ -67,7 +77,10 @@ function Radio(props) {
           type="radio"
           checked={isChecked}
           {...radioProps}
-          onChange={doOnChange}
+          value={value}
+          onChange={() => {
+            doOnChange(value);
+          }}
         />
         <span className={css.radio__ui} />
         <div className={css.radio__label}>{children}</div>
@@ -78,5 +91,6 @@ function Radio(props) {
 
 Radio.propTypes = propTypes;
 Radio.defaultProps = defaultProps;
+Radio.Group = RadioGroup;
 
 export default Radio;

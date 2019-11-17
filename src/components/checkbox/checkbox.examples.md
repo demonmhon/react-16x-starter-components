@@ -38,9 +38,9 @@ function CheckboxExample() {
   const [checked, setChecked] = React.useState(true);
 
   return (
-  <Checkbox checked={checked} onChange={() => setChecked(!checked)}>
-    Sign up for newsletters
-  </Checkbox>
+    <Checkbox checked={checked} onChange={() => setChecked(!checked)}>
+      Sign up for newsletters
+    </Checkbox>
   )
 }
 

@@ -1,6 +1,8 @@
 @import '../../scss/variables';
 
 .checkbox {
+  $checked-size: 0.875rem;
+
   display: inline-block;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -46,8 +48,8 @@
       position: absolute;
       left: 50%;
       top: 50%;
-      margin-left:-0.4375rem;
-      margin-top: -0.4375rem;
+      margin-left: -($checked-size / 2);
+      margin-top: -($checked-size / 2);
       background-color: $color-text-2;
       mask-image: url('./svg/check.svg');
       mask-size: 0.875rem;
@@ -55,8 +57,8 @@
       -webkit-mask-image: url('./svg/check.svg');
       -webkit-mask-size: 0.875rem;
       -webkit-mask-repeat: no-repeat;
-      width: 0.875rem;
-      height: 0.875rem;
+      width: $checked-size;
+      height: $checked-size;
     }
   }
 
