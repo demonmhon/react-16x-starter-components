@@ -9,6 +9,10 @@ const propTypes = {
    */
   children: PropTypes.node,
   /**
+   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
+   */
+  className: PropTypes.string,
+  /**
    * Show the loading if set to true
    */
   show: PropTypes.bool,
@@ -16,11 +20,12 @@ const propTypes = {
 
 const defaultProps = {
   children: null,
+  className: '',
   show: true,
 };
 
 function Loading(props) {
-  const { children, show } = props;
+  const { children, className, show } = props;
   const spinSvgAnimate = (
     <svg className={css['loading__indicator']} viewBox="0 0 50 50">
       <circle
@@ -36,6 +41,7 @@ function Loading(props) {
 
   const loadingCssClassList = [css.loading];
   if (children) loadingCssClassList.push(css['loading--has-content']);
+  if (className) loadingCssClassList.push(className);
   if (show) loadingCssClassList.push(css['loading--show']);
   return (
     <span className={loadingCssClassList.join(' ')}>

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loadingp component it matches the snapshot 1`] = `
+<span
+  className="loading loading--show"
+>
+  <span
+    className="loading__mask"
+  />
+  <svg
+    className="loading__indicator"
+    viewBox="0 0 50 50"
+  >
+    <circle
+      className="loading__indicator-path"
+      cx="25"
+      cy="25"
+      fill="none"
+      r="20"
+      strokeWidth="5"
+    />
+  </svg>
+</span>
+`;

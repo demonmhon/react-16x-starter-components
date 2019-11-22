@@ -32,4 +32,24 @@ describe('Input component', () => {
       expect(component.find('input').props().disabled).toEqual(true);
     });
   });
+
+  describe('onChange()', () => {
+    test('called', () => {
+      const props = {
+        onChange: jest.fn(),
+      };
+      const component = mount(<Input {...props} />);
+      component.find('input').simulate('change', { target: { value: 'new-value' } });
+      expect(props.onChange).toHaveBeenCalledTimes(1);
+    });
+
+    test('not called if disabled', () => {
+      const props = {
+        onChange: jest.fn(),
+      };
+      const component = mount(<Input {...props} />);
+      component.find('input').simulate('change', { target: { value: 'new-value' } });
+      expect(props.onChange).toHaveBeenCalledTimes(1);
+    });
+  });
 });
