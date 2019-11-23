@@ -5,14 +5,23 @@
 ```jsx
 function RadioExample() {
   const [value, setValue] = React.useState('b');
+  const [label, setLabel] = React.useState('Option B');
 
   return (
-    <Radio.Group value={value} onChange={value => setValue(value)}>
-      <Radio value="a">Option A</Radio>
-      <Radio value="b">Option B</Radio>
-      <Radio value="c">Option C</Radio>
-      <Radio value="d">Option D</Radio>
+    <>
+    <Radio.Group 
+      value={value}
+      onChange={option => {
+        setValue(option.value);
+        setLabel(option.label);
+      }}>
+      <Radio value="a" label={'Option A'} />
+      <Radio value="b" label={'Option B'} />
+      <Radio value="c" label={'Option C'} />
+      <Radio value="d" label={'Option D'} />
     </Radio.Group>
+    <p>{label}, {value} has been selected</p>
+    </>
   )
 }
 
@@ -22,10 +31,10 @@ function RadioExample() {
 #### Disabled all option
 ```jsx
 function RadioExample() {
-  const [value, setValue] = React.useState('');
+  const [value, setValue] = React.useState('c');
 
   return (
-    <Radio.Group value={value} onChange={value => setValue(value)} disabled>
+    <Radio.Group value={value} onChange={option => setValue(option.value)} disabled>
       <Radio value="a">Option A</Radio>
       <Radio value="b">Option B</Radio>
       <Radio value="c">Option C</Radio>
@@ -44,7 +53,7 @@ function RadioExample() {
   const [value, setValue] = React.useState('');
 
   return (
-    <Radio.Group value={value} onChange={value => setValue(value)}>
+    <Radio.Group value={value} onChange={option => setValue(option.value)}>
       <Radio value="a">Option A</Radio>
       <Radio value="b">Option B</Radio>
       <Radio value="c" disabled>Option C</Radio>

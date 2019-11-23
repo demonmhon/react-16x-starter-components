@@ -7,11 +7,6 @@
   display: block;
   min-width: 60px;
 
-  &--disabled {
-    @include stateDisabled;
-    pointer-events: none;
-  }
-
   &__label {
     color: $color-text-2;
     font-size: 0.75rem;
@@ -48,5 +43,14 @@
   textarea {
     font-family: inherit;
     resize: none;
+  }
+
+  &--disabled {
+    @include stateDisabled;
+    pointer-events: none;
+
+    input {
+      background-color: rgba(#000, 0.15);
+    }
   }
 }

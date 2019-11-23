@@ -31,29 +31,6 @@
   height: $size;
   width: $size;
 
-  &--show {
-    display: inline-block;
-  }
-
-  &--has-content {
-    display: block;
-    position: relative;
-    height: 100%;
-    width: 100%;
-
-    .loading__mask,
-    .loading__indicator {
-      display: none;
-    }
-
-    &.loading--show {
-      .loading__mask,
-      .loading__indicator {
-        display: block;
-      }
-    }
-  }
-
   &__mask {
     position: absolute;
     left: 0;
@@ -90,5 +67,28 @@
     stroke: $color-primary-light;
     stroke-linecap: round;
     animation: line-dash 1.5s ease-in-out infinite;
+  }
+
+  &--show {
+    display: inline-block;
+  }
+
+  &--has-content {
+    display: block;
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    .loading__mask,
+    .loading__indicator {
+      display: none;
+    }
+
+    &.loading--show {
+      .loading__mask,
+      .loading__indicator {
+        display: block;
+      }
+    }
   }
 }

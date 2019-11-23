@@ -10,6 +10,10 @@ const propTypes = {
    */
   children: PropTypes.node,
   /**
+   * Label test for this option.
+   */
+  label: PropTypes.string,
+  /**
    * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
    */
   className: PropTypes.string,
@@ -35,6 +39,7 @@ const propTypes = {
 
 const defaultProps = {
   children: '',
+  label: '',
   className: '',
   value: '',
   disabled: false,
@@ -48,7 +53,7 @@ const defaultProps = {
  * Controlled component. Value will be set by prop.
  */
 function Radio(props) {
-  const { children, className, value, checked, disabled, onChange } = props;
+  const { children, label, className, value, checked, disabled, onChange } = props;
   const [isChecked, setIsChecked] = useState(checked);
 
   useEffect(() => {
@@ -79,11 +84,11 @@ function Radio(props) {
           {...radioProps}
           value={value}
           onChange={() => {
-            doOnChange(value);
+            doOnChange({value, label});
           }}
         />
         <span className={css.radio__ui} />
-        <div className={css.radio__label}>{children}</div>
+        <div className={css.radio__label}>{children || label}</div>
       </label>
     </div>
   );
