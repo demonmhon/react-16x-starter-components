@@ -39,7 +39,9 @@ describe('Input component', () => {
         onChange: jest.fn(),
       };
       const component = mount(<Input {...props} />);
-      component.find('input').simulate('change', { target: { value: 'new-value' } });
+      component
+        .find('input')
+        .simulate('change', { target: { value: 'new-value' } });
       expect(props.onChange).toHaveBeenCalledTimes(1);
     });
 
@@ -48,7 +50,9 @@ describe('Input component', () => {
         onChange: jest.fn(),
       };
       const component = mount(<Input {...props} />);
-      component.find('input').simulate('change', { target: { value: 'new-value' } });
+      component
+        .find('input')
+        .simulate('change', { target: { value: 'new-value' } });
       expect(props.onChange).toHaveBeenCalledTimes(1);
     });
   });

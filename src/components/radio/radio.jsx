@@ -53,7 +53,15 @@ const defaultProps = {
  * Controlled component. Value will be set by prop.
  */
 function Radio(props) {
-  const { children, label, className, value, checked, disabled, onChange } = props;
+  const {
+    children,
+    label,
+    className,
+    value,
+    checked,
+    disabled,
+    onChange,
+  } = props;
   const [isChecked, setIsChecked] = useState(checked);
 
   useEffect(() => {
@@ -84,7 +92,7 @@ function Radio(props) {
           {...radioProps}
           value={value}
           onChange={() => {
-            doOnChange({value, label});
+            doOnChange({ value, label });
           }}
         />
         <span className={css.radio__ui} />
