@@ -2,14 +2,16 @@
 
 .table {
   @include reset;
+  $highlight-color: lighten(#000, 90%);
+  $border-color: lighten(#000, 80%);
 
   width: 100%;
   table-layout: fixed;
+  position: relative;
   border-collapse: collapse;
 
-  thead,
   tbody {
-    border-bottom: solid 1px currentColor;
+    border-bottom: solid 1px $border-color;
   }
 
   th,
@@ -18,5 +20,27 @@
     line-height: 1.25rem;
     text-align: inherit;
     padding: 0.5rem 1rem;
+  }
+
+  th {
+    background: $highlight-color;
+    position: sticky;
+    top: 0;
+    padding-bottom: calc(1px + 0.5rem);
+
+    &::after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      border-bottom: solid 1px $border-color;
+    }
+  }
+
+  tbody > tr:hover > td {
+    background: lighten($highlight-color, 10%);
   }
 }
