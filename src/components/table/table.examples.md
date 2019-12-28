@@ -87,14 +87,12 @@ const gridData = [
   }
 ];
 
+const renderTitleColumn = ({value, row}) => <span>{`${row.id} - ${value}`}</span>
+const renderActionColumn = ({value, row}) => <Button onClick={() => alert(`${row.id} clicked`)} size={Button.Size.Small}>View</Button>
 const gridColumnSettings = [
-  { id: 'name', title: 'Item', render: ({value, row}) => <span>{`${row.id} - ${value}`}</span> },
+  { id: 'name', title: 'Item', render: renderTitleColumn },
   { id: 'date', title: 'Created Date' },
-  {
-    id: 'action',
-    title: <span />,
-    render: ({value, row}) => <Button onClick={() => alert(`${row.id} clicked`)} size={Button.Size.Small}>View</Button>
-  }
+  { id: 'action', title: <span />, render: renderActionColumn }
 ];
 
 <Table data={gridData} columnSettings={gridColumnSettings}/>

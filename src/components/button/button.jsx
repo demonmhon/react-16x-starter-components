@@ -92,7 +92,7 @@ function Button(props) {
     <button
       {...buttonProps}
       className={buttonCssClassList.join(' ')}
-      onClick={e => doOnClick(e)}
+      onClick={doOnClick}
     >
       <span className={css.button__label}>{children}</span>
     </button>

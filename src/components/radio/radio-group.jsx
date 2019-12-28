@@ -64,9 +64,7 @@ function RadioGroup(props) {
             ...child.props,
             disabled: disabled ? true : child.props.disabled,
             checked: currentValue === child.props.value,
-            onChange: option => {
-              doOnChange(option);
-            },
+            onChange: doOnChange,
           });
         }
         return child;

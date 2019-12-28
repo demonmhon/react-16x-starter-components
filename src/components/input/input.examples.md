@@ -28,11 +28,11 @@ function InputExample() {
   const [value, setValue] = React.useState('');
 
   return (
-    <div>
+    <>
       <Button onClick={() => setValue('1234-56-7890')}>Set number to input</Button>
       <div style={{height: '15px'}} />
       <Input label="Number" value={value} />
-    </div>
+    </>
   );
 }
 
@@ -46,10 +46,10 @@ function InputExample() {
   const [value, setValue] = React.useState('');
 
   return (
-    <div>
+    <>
       <Input label="Name" value={value} onChange={v => setValue(v)} />
-      <p>Input length: {value.length} </p>
-    </div>
+      <p style={{fontSize: '0.75rem', opacity: 0.6}}>Input length: {value.length} </p>
+    </>
   );
 }
 

@@ -67,7 +67,8 @@ function Input(props) {
     setInputValue(value);
   }, [value]);
 
-  const doOnChange = value => {
+  const doOnChange = e => {
+    const value = e.target.value;
     setInputValue(value);
     onChange(value);
   };
@@ -91,7 +92,7 @@ function Input(props) {
   const inputProps = {
     type: type,
     onKeyDown: onKeyDown,
-    onChange: e => doOnChange(e.target.value),
+    onChange: doOnChange,
     value: value,
   };
   if (placeholder) inputProps.placeholder = placeholder;

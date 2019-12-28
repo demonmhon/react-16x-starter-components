@@ -9,18 +9,18 @@ function RadioExample() {
 
   return (
     <>
-    <Radio.Group 
-      value={value}
-      onChange={option => {
-        setValue(option.value);
-        setLabel(option.label);
-      }}>
-      <Radio value="a" label={'Option A'} />
-      <Radio value="b" label={'Option B'} />
-      <Radio value="c" label={'Option C'} />
-      <Radio value="d" label={'Option D'} />
-    </Radio.Group>
-    <p>{label}, {value} has been selected</p>
+      <Radio.Group 
+        value={value}
+        onChange={option => {
+          setValue(option.value);
+          setLabel(option.label);
+        }}>
+        <Radio value="a" label={'Option A'} />
+        <Radio value="b" label={'Option B'} />
+        <Radio value="c" label={'Option C'} />
+        <Radio value="d" label={'Option D'} />
+      </Radio.Group>
+      <p style={{fontSize: '0.75rem', opacity: 0.6}}>{label}, {value} has been selected</p>
     </>
   )
 }

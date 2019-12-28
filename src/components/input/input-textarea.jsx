@@ -60,7 +60,8 @@ function InputTextarea(props) {
     setInputValue(value);
   }, [value]);
 
-  const doOnChange = value => {
+  const doOnChange = e => {
+    const value = e.target.value;
     setInputValue(value);
     onChange(value);
   };
@@ -81,7 +82,7 @@ function InputTextarea(props) {
         placeholder={placeholder}
         rows={rows}
         onKeyDown={onKeyDown}
-        onChange={e => doOnChange(e.target.value)}
+        onChange={doOnChange}
         disabled={disabled}
         readOnly={readOnly}
         value={inputValue}

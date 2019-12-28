@@ -38,9 +38,12 @@ function CheckboxExample() {
   const [checked, setChecked] = React.useState(true);
 
   return (
-    <Checkbox checked={checked} onChange={() => setChecked(!checked)}>
-      Sign up for newsletters
-    </Checkbox>
+    <>
+      <Checkbox checked={checked} onChange={() => setChecked(!checked)}>
+        Sign up for newsletters
+      </Checkbox>
+      <p style={{fontSize: '0.75rem', opacity: 0.6}}>Checkbox checked: {checked.toString()}</p>
+    </>
   )
 }
 
@@ -60,7 +63,7 @@ function DialogExample() {
   }
 
   return (
-    <div>
+    <>
       <Checkbox checked={checked} onChange={() => setChecked(!checked)}>
         I agree to the <span style={{textDecoration:'underline'}} onClick={openDialog}>Privacy Policy</span>
       </Checkbox>
@@ -69,7 +72,7 @@ function DialogExample() {
           <p>Privacy Policy</p>
         </div>
       </Dialog>
-    </div>
+    </>
   );
 }
 

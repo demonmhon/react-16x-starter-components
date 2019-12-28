@@ -68,9 +68,11 @@ function Radio(props) {
     setIsChecked(checked);
   }, [checked]);
 
-  const doOnChange = value => {
+  const doOnChange = e => {
+    const value = e.target.value;
+    const label = e.target.getAttribute('data-label');
     if (!disabled) {
-      onChange(value);
+      onChange({ value, label });
     }
   };
 
@@ -91,9 +93,8 @@ function Radio(props) {
           checked={isChecked}
           {...radioProps}
           value={value}
-          onChange={() => {
-            doOnChange({ value, label });
-          }}
+          data-label={label}
+          onChange={doOnChange}
         />
         <span className={css.radio__ui} />
         <div className={css.radio__label}>{children || label}</div>
