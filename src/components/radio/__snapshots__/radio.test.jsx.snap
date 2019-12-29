@@ -9,6 +9,7 @@ exports[`Radio component it matches the snapshot 1`] = `
   >
     <input
       checked={false}
+      data-label=""
       onChange={[Function]}
       type="radio"
       value=""
