@@ -63,7 +63,7 @@ function Pagination(props) {
     }
   });
 
-  const onPageChange = pageNumber => {
+  const onPageChange = pageNumber => e => {
     // Will trigger if page in valid and not a current page
     if (
       pageNumber > 0 &&
@@ -83,7 +83,7 @@ function Pagination(props) {
         key="first"
         className={[css['pagination__list-item'], currentCssClass].join(' ')}
       >
-        <button onClick={() => onPageChange(1)}>1</button>
+        <button onClick={onPageChange(1)}>1</button>
       </li>
     );
   };
@@ -96,7 +96,7 @@ function Pagination(props) {
         key="last"
         className={[css['pagination__list-item'], currentCssClass].join(' ')}
       >
-        <button onClick={() => onPageChange(totalPages)}>
+        <button onClick={onPageChange(totalPages)}>
           {StringHelper.formatNumber(totalPages)}
         </button>
       </li>
@@ -109,9 +109,9 @@ function Pagination(props) {
     return (
       <li
         key={p}
-        className={[css['pagination__list-item'], currentCssClass].join(' ')}
+        className={[css['pagination__list-item'], css['pagination__list-item--number'], currentCssClass].join(' ')}
       >
-        <button onClick={() => onPageChange(p)}>
+        <button onClick={onPageChange(p)}>
           {StringHelper.formatNumber(p)}
         </button>
       </li>
@@ -192,7 +192,7 @@ function Pagination(props) {
     return showControlButton ? (
       <li key={type} className={controlPageCssClass.join(' ')}>
         <button
-          onClick={() => onPageChange(toPage)}
+          onClick={onPageChange(toPage)}
           disabled={disabledCssClass !== ''}
         >
           <span>{text}</span>
