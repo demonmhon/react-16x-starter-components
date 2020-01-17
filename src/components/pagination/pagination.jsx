@@ -109,7 +109,11 @@ function Pagination(props) {
     return (
       <li
         key={p}
-        className={[css['pagination__list-item'], css['pagination__list-item--number'], currentCssClass].join(' ')}
+        className={[
+          css['pagination__list-item'],
+          css['pagination__list-item--number'],
+          currentCssClass,
+        ].join(' ')}
       >
         <button onClick={onPageChange(p)}>
           {StringHelper.formatNumber(p)}
