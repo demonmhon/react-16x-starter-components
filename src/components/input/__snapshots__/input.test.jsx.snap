@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input component it matches the snapshot 1`] = `
+exports[`Input component Input it matches the snapshot 1`] = `
 <div
   className="input  input--type-text"
 >
