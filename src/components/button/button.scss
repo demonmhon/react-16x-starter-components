@@ -5,7 +5,7 @@
 
   @include reset;
 
-  font-size: 0.875rem;
+  font-size: 0.8 5rem;
   line-height: 1.25rem;
   display: inline-block;
   cursor: pointer;
@@ -57,7 +57,7 @@
   &--type-primary {
     color: $color-primary-contrast;
     background: $color-primary-light;
-    border-color: $color-primary-light;
+    border-color: $color-primary;
 
     &:hover,
     &:focus {
@@ -76,7 +76,7 @@
   &--type-secondary {
     color: $color-accent-contrast;
     background: $color-accent-light;
-    border-color: rgba($color-accent-light, 0.6);
+    border-color: $color-accent;
 
     &:hover,
     &:focus {
