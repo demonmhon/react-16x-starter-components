@@ -11,6 +11,8 @@ The react 16x starter components. The common, starter react components for most 
 
 This is just the react components. It should be included, used, by other full react application. Using [React Styleguidist](https://react-styleguidist.js.org/) tp preview the components.
 
+The intention for this project is to try to have the component's document and provide a very simple component for the project that started without any ui/style guide.
+
 
 ## Getting started
 
