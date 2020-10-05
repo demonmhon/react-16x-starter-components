@@ -57,10 +57,27 @@ function InputExample() {
 ```
 
 
-
 #### Disabled and Read-Only
 
 ```jsx
 <Input label="Email (disabled)" value="user1.email@domain.com" disabled />
 <Input label="Email (read-only)" value="user2.email@domain.com" readOnly />
+```
+
+
+### With Message Block
+
+```jsx
+function InputExample() {
+  const [value, setValue] = React.useState('');
+
+  return (
+    <>
+      <Input label="Textfield" value={value} onChange={v => setValue(v)} />
+      {value.length > 0 ? (<MessageBlock>Input: {value.length} length</MessageBlock>) : <MessageBlock type={MessageBlock.Type.Error}>Please input this field</MessageBlock>}
+    </>
+  );
+}
+
+<InputExample />
 ```

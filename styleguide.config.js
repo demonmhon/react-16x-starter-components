@@ -1,4 +1,4 @@
-const dotenv = require('dotenv').config();
+require('dotenv').config();
 const path = require('path');
 const pkg = require('./package.json');
 const { theme, styles } = require('./styleguide/styles');
@@ -18,6 +18,11 @@ module.exports = {
       name: 'General',
       components: [
         path.resolve(__dirname, 'src/components/button', 'button.jsx'),
+      ]
+    },{
+      name: 'Message Block',
+      components: [
+        path.resolve(__dirname, 'src/components/message-block', 'message-block.jsx'),
       ]
     },
     {

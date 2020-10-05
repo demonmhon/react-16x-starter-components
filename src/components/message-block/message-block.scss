@@ -1,0 +1,48 @@
+@import '../../scss/variables';
+
+.message-block {
+  $color-bar-size: 4px;
+
+  font-size: 0.75rem;
+  padding: 0.5rem;
+  padding-left: calc(#{$color-bar-size} + 0.5rem);
+  position: relative;
+
+  & + & {
+    margin-top: 0.3125rem;
+  }
+
+  &,
+  &--type-info {
+    background-color: rgba($color-primary-light, .2);
+  }
+
+  &--type-warning {
+    background-color: rgba($color-warning, .2);
+  }
+
+  &--type-error {
+    background-color: rgba($color-error, .2);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+  }
+
+  &--type-info::before {
+    background-color: $color-primary-light;
+  }
+
+  &--type-warning::before {
+    background-color: $color-warning;
+  }
+
+  &--type-error::before {
+    background-color: $color-error;
+  }
+}
