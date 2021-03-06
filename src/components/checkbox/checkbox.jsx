@@ -37,7 +37,7 @@ const defaultProps = {
 };
 
 /**
- * Checkbox
+ * Allows user to select a value from multiple options
  *
  * Controlled component. Value will be set by prop.
  */

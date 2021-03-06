@@ -32,11 +32,14 @@ const propTypes = {
 const defaultProps = {
   children: null,
   className: '',
-  disable: false,
+  disabled: false,
   value: '',
   onChange() {},
 };
 
+/**
+ * `<Radio>` wrapper
+ */
 function RadioGroup(props) {
   const { className, disabled, children, value, onChange } = props;
 
