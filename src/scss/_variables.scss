@@ -1,6 +1,5 @@
 // The prefix for every component
-$alias: 'starter';
-
+$namespace: 'starter';
 
 // Media queries breakpoints
 $screen-xs: 480px;
@@ -36,13 +35,17 @@ $transition-slowest: .85s;
 // Border
 $border-radius: 0.25rem;
 
-// Reset at root of component
-@mixin reset {
-  font-size: 1rem;
-  color: $color-text-1;
-}
-
-// State
-@mixin stateDisabled {
-  opacity: 0.5;
-}
+// Fonts
+$font-family-sans-serif:
+  // Safari for OS X and iOS (San Francisco)
+  -apple-system,
+  // Chrome < 56 for OS X (San Francisco)
+  BlinkMacSystemFont,
+  // Windows
+  "Segoe UI",
+  // Android
+  "Roboto",
+  // Basic web fallback
+  "Helvetica Neue", Arial, sans-serif,
+  // Emoji fonts
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;

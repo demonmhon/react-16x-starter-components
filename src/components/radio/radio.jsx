@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import RadioGroup from './radio-group';
-import css from './radio.scss';
+import './radio.scss';
 
 const propTypes = {
   /**
@@ -53,6 +53,7 @@ const defaultProps = {
  * Controlled component. Value will be set by prop.
  */
 function Radio(props) {
+  const ns = 'starter';
   const {
     children,
     label,
@@ -76,18 +77,18 @@ function Radio(props) {
     }
   };
 
-  const radioCssClassList = [css.radio];
+  const radioCssClassList = [`${ns}-radio`];
   const radioProps = {};
 
   if (className) radioCssClassList.push(className);
   if (disabled) {
-    radioCssClassList.push(css['radio--disabled']);
+    radioCssClassList.push(`${ns}-radio--disabled`);
     radioProps.disabled = true;
   }
 
   return (
     <div className={radioCssClassList.join(' ')}>
-      <label className={css.radio__container}>
+      <label className={`${ns}-radio__container`}>
         <input
           type="radio"
           checked={isChecked}
@@ -96,8 +97,8 @@ function Radio(props) {
           data-label={label}
           onChange={doOnChange}
         />
-        <span className={css.radio__ui} />
-        <div className={css.radio__label}>{children || label}</div>
+        <span className={`${ns}-radio__ui`} />
+        <div className={`${ns}-radio__label`}>{children || label}</div>
       </label>
     </div>
   );

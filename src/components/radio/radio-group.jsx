@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Radio from './radio';
-import css from './radio.scss';
 
 const propTypes = {
   /**
@@ -41,6 +40,7 @@ const defaultProps = {
  * `<Radio>` wrapper
  */
 function RadioGroup(props) {
+  const ns = 'starter';
   const { className, disabled, children, value, onChange } = props;
 
   const [currentValue, setCurrentValue] = useState(value);
@@ -55,8 +55,8 @@ function RadioGroup(props) {
     }
   };
 
-  const radioGroupCssClassList = [css['radio-group']];
-  if (disabled) radioGroupCssClassList.push(css['radio-group--disabled']);
+  const radioGroupCssClassList = [`${ns}-radio-group`];
+  if (disabled) radioGroupCssClassList.push(`${ns}-radio-group--disabled`);
   if (radioGroupCssClassList) radioGroupCssClassList.push(className);
 
   return (

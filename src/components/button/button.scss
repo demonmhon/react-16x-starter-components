@@ -1,6 +1,6 @@
-@import '../../scss/variables';
+@import '../../scss/styles';
 
-.button {
+.#{$namespace}-button {
   $button-background-color: #fff;
 
   @include reset;
@@ -14,7 +14,7 @@
   padding: 0.3125rem 1rem;
   border: solid 1px $color-text-2;
   border-radius: 0.25rem;
-  transition-property: box-shadow, background, border-color;
+  transition-property: box-shadow, background-color, border-color;
   transition-duration: $transition-fastest;
   background: $button-background-color;
   margin-right: 0.375rem;

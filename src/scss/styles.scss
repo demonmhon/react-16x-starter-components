@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'mixins';
 
 // Basic Reset
 html {
@@ -13,6 +14,7 @@ html {
 
 html,
 body {
+  @include reset;
   margin: 0;
   padding: 0;
 }

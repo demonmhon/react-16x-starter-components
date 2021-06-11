@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import css from './button.scss';
+import './button.scss';
 
 const BUTTON_TYPES = {
   Primary: 'primary',
@@ -66,25 +66,26 @@ const defaultProps = {
  * To trigger an operation.
  */
 function Button(props) {
+  const ns = 'starter';
   const { children, className, type, size, disabled } = props;
 
-  const doOnClick = e => {
+  const doOnClick = (e) => {
     if (!props.disabled) {
       props.onClick(e);
     }
   };
 
-  const buttonCssClassList = [css.button, css[`button--type-button`]];
+  const buttonCssClassList = [`${ns}-button`, `${ns}-button--type-button`];
   const buttonProps = {};
 
   if (
     Object.values(BUTTON_TYPES)
-      .filter(t => t !== BUTTON_TYPES.Button)
+      .filter((t) => t !== BUTTON_TYPES.Button)
       .includes(type)
   )
-    buttonCssClassList.push(css[`button--type-${type}`]);
+    buttonCssClassList.push(`${ns}-button--type-${type}`);
   if (Object.values(BUTTON_SIZES).includes(size))
-    buttonCssClassList.push(css[`button--size-${size}`]);
+    buttonCssClassList.push(`${ns}-button--size-${size}`);
   if (className) buttonCssClassList.push(className);
   if (disabled) buttonProps.disabled = true;
 
@@ -94,7 +95,7 @@ function Button(props) {
       className={buttonCssClassList.join(' ')}
       onClick={doOnClick}
     >
-      <span className={css.button__label}>{children}</span>
+      <span className={`${ns}-button__label`}>{children}</span>
     </button>
   );
 }
