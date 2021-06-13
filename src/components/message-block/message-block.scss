@@ -1,6 +1,6 @@
 @import '../../scss/variables';
 
-.message-block {
+.#{$namespace}-message-block {
   $color-bar-size: 4px;
 
   font-size: 0.75rem;

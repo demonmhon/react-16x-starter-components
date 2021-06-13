@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import css from './message-block.scss';
+import './message-block.scss';
 
 const MESSAGE_BLOCK_TYPES = {
   Info: 'info',
@@ -10,15 +10,16 @@ const MESSAGE_BLOCK_TYPES = {
 };
 
 function MessageBlock(props) {
+  const ns = 'starter';
   const { children, className, type } = props;
 
-  const messageBlockCssClassList = [css[`message-block`]];
+  const messageBlockCssClassList = [`${ns}-message-block`];
 
   if (Object.values(MESSAGE_BLOCK_TYPES).includes(type))
-    messageBlockCssClassList.push(css[`message-block--type-${type}`]);
+    messageBlockCssClassList.push(`${ns}-message-block--type-${type}`);
   if (className) messageBlockCssClassList.push(className);
 
-  return <div className={messageBlockCssClassList.join(' ')}>{children}</div>;
+  return <div className={messageBlockCssClassList.join(' ')}>{children ? children : (<>&nbsp;</>)}</div>;
 }
 
 const propTypes = {

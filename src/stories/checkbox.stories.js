@@ -18,7 +18,7 @@ export const basic = () => (
 
 export const checked = () => (
   <Checkbox checked>Sign up for newsletters</Checkbox>
-)
+);
 
 export const onChange = () => {
   const [checked, setChecked] = React.useState(true);
@@ -28,9 +28,26 @@ export const onChange = () => {
       <Checkbox checked={checked} onChange={() => setChecked(!checked)}>
         Sign up for newsletters
       </Checkbox>
-      <p style={{fontSize: '0.75rem', opacity: 0.6}}>Checkbox checked: {checked.toString()}</p>
+      <p style={{ fontSize: '0.75rem', opacity: 0.6 }}>
+        Checkbox checked: {checked.toString()}
+      </p>
     </>
-  )
-}
+  );
+};
+
+export const complexChild = () => {
+  const [checked, setChecked] = React.useState(true);
+
+  return (
+    <>
+      <Checkbox checked={checked} onChange={() => setChecked(!checked)}>
+        I agree to the{' '}
+        <a href="#" style={{ textDecoration: 'underline' }} target="_blank">
+          Privacy Policy
+        </a>
+      </Checkbox>
+    </>
+  );
+};
 
 export const playground = (args) => <Checkbox {...args} />;
