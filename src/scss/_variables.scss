@@ -26,11 +26,11 @@ $color-warning: #fbc02d;
 $color-error: #e53935;
 
 // Transition
-$transition: .5s;
-$transition-faster: .25s;
-$transition-fastest: .15s;
-$transition-slower: .7s;
-$transition-slowest: .85s;
+$transition: 0.5s;
+$transition-faster: 0.25s;
+$transition-fastest: 0.15s;
+$transition-slower: 0.7s;
+$transition-slowest: 0.85s;
 
 // Border
 $border-radius: 0.25rem;
@@ -42,10 +42,12 @@ $font-family-sans-serif:
   // Chrome < 56 for OS X (San Francisco)
   BlinkMacSystemFont,
   // Windows
-  "Segoe UI",
+  'Segoe UI',
   // Android
-  "Roboto",
+  'Roboto',
   // Basic web fallback
-  "Helvetica Neue", Arial, sans-serif,
+  'Helvetica Neue',
+  Arial, sans-serif,
   // Emoji fonts
-  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+  'Apple Color Emoji',
+  'Segoe UI Emoji', 'Segoe UI Symbol' !default;

@@ -52,7 +52,7 @@ const defaultProps = {
 /**
  * Provide the user input is a text field.
  */
-function Input(props) {
+const Input = (props) => {
   const {
     type: inputType,
     disabled,
@@ -67,13 +67,13 @@ function Input(props) {
     setInputValue(value);
   }, [value]);
 
-  const doOnChange = e => {
+  const doOnChange = (e) => {
     const value = e.target.value;
     setInputValue(value);
     onChange(value);
   };
 
-  const onKeyDown = e => {
+  const onKeyDown = (e) => {
     /**
      * keyCode
      * 13 = Enter -- Trigger the onChange immediately.
@@ -100,7 +100,7 @@ function Input(props) {
   if (disabled) inputProps.disabled = true;
 
   return <input {...inputProps} />;
-}
+};
 
 Input.propTypes = propTypes;
 Input.defaultProps = defaultProps;

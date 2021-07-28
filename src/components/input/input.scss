@@ -8,10 +8,10 @@
   min-width: 60px;
 
   &__label {
-    color: $color-text-2;
-    font-size: 0.75rem;
     display: block;
     margin-bottom: 0.5rem;
+    color: $color-text-2;
+    font-size: 0.75rem;
   }
 
   label {
@@ -21,17 +21,17 @@
 
   input,
   textarea {
-    color: $color-text-1;
     width: 100%;
+    padding: 0.5rem 0.625rem;
+    color: $color-text-1;
     font-size: 0.875rem;
     line-height: 1.25rem;
     background-color: transparent;
-    padding: 0.5rem 0.625rem;
     border: solid 1px $color-text-2;
     border-radius: $border-radius;
-    transition-property: box-shadow;
-    transition-duration: $transition-fastest;
     outline: none;
+    transition-duration: $transition-fastest;
+    transition-property: box-shadow;
 
     &:focus,
     &:active {

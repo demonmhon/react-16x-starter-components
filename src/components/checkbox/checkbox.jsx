@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { namespace as ns } from '../../utils/theme';
 import './checkbox.scss';
 
 const propTypes = {
@@ -41,8 +42,7 @@ const defaultProps = {
  *
  * Controlled component. Value will be set by prop.
  */
-function Checkbox(props) {
-  const ns = 'starter';
+const Checkbox = (props) => {
   const { children, className, checked, disabled, onChange } = props;
   const [isChecked, setIsChecked] = useState(checked);
 
@@ -79,7 +79,7 @@ function Checkbox(props) {
       </label>
     </div>
   );
-}
+};
 
 Checkbox.propTypes = propTypes;
 Checkbox.defaultProps = defaultProps;

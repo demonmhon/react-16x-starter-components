@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { namespace as ns } from '../../utils/theme';
 import RadioGroup from './radio-group';
 import './radio.scss';
 
@@ -52,8 +53,7 @@ const defaultProps = {
  *
  * Controlled component. Value will be set by prop.
  */
-function Radio(props) {
-  const ns = 'starter';
+const Radio = (props) => {
   const {
     children,
     label,
@@ -69,7 +69,7 @@ function Radio(props) {
     setIsChecked(checked);
   }, [checked]);
 
-  const doOnChange = e => {
+  const doOnChange = (e) => {
     const value = e.target.value;
     const label = e.target.getAttribute('data-label');
     if (!disabled) {
@@ -102,7 +102,7 @@ function Radio(props) {
       </label>
     </div>
   );
-}
+};
 
 Radio.propTypes = propTypes;
 Radio.defaultProps = defaultProps;

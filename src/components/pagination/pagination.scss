@@ -7,8 +7,8 @@
   user-select: none;
 
   &__container {
-    padding: 0;
     display: inline-block;
+    padding: 0;
   }
 
   &__list {
@@ -19,33 +19,33 @@
 
   &__list-item {
     display: inline-block;
-    vertical-align: middle;
     margin: 0;
     padding: 0;
+    vertical-align: middle;
 
     & + .pagination__list-item {
       margin-left: 0.1875rem;
     }
 
     button {
-      cursor: pointer;
+      position: relative;
+      display: block;
+      min-width: 2.1rem;
+      padding: 0.3125rem 0.25rem;
       color: $color-text-1;
-      background: $button-background-color;
       font-size: 0.8125rem;
       line-height: 1rem;
-      text-decoration: none;
       white-space: nowrap;
-      display: block;
-      padding: 0.3125rem 0.25rem;
-      min-width: 2.1rem;
       text-align: center;
+      text-decoration: none;
+      background: $button-background-color;
       border: solid 1px transparent;
-      position: relative;
       border-color: $color-text-2;
       border-radius: 0.25rem;
       outline: none;
-      transition-property: box-shadow, background, border-color;
+      cursor: pointer;
       transition-duration: $transition-fastest;
+      transition-property: box-shadow, background, border-color;
 
       &:hover,
       &:focus {
@@ -69,8 +69,8 @@
         box-shadow: none;
       }
       button {
-        border-color: transparent;
         min-width: 0;
+        border-color: transparent;
 
         &:focus,
         &:hover {
@@ -107,7 +107,7 @@
         &:not([disabled]) {
           border: none;
           box-shadow: none;
-          }
+        }
       }
     }
   }

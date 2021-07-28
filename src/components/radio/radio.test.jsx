@@ -30,8 +30,8 @@ describe('Radio component', () => {
         <Radio value="d" label={'Option D'} disabled />
       </Radio.Group>
     );
-    expect(component.find('[value="c"]').is('[disabled]')).toBe(true)
-    expect(component.find('[value="d"]').is('[disabled]')).toBe(true)
+    expect(component.find('[value="c"]').is('[disabled]')).toBe(true);
+    expect(component.find('[value="d"]').is('[disabled]')).toBe(true);
   });
 
   describe('onChange()', () => {

@@ -63,7 +63,7 @@ function Pagination(props) {
     }
   });
 
-  const onPageChange = pageNumber => e => {
+  const onPageChange = (pageNumber) => (e) => {
     // Will trigger if page in valid and not a current page
     if (
       pageNumber > 0 &&
@@ -103,7 +103,7 @@ function Pagination(props) {
     );
   };
 
-  const getPage = p => {
+  const getPage = (p) => {
     const currentCssClass =
       currentPage === p ? css['pagination__list-item--current'] : '';
     return (
@@ -162,7 +162,7 @@ function Pagination(props) {
     return pageItems;
   };
 
-  const getJump = type => {
+  const getJump = (type) => {
     return (
       <li
         key={`jump-${type}`}
@@ -176,7 +176,7 @@ function Pagination(props) {
     );
   };
 
-  const getControls = type => {
+  const getControls = (type) => {
     const { showControlButton, previousEl, nextEl } = props;
     const text = type === 'prev' ? previousEl : nextEl;
     const toPage = type === 'prev' ? currentPage - 1 : currentPage + 1;

@@ -92,13 +92,13 @@ function Dialog(props) {
     props.onClose();
   };
 
-  const onKeyDown = e => {
+  const onKeyDown = (e) => {
     if (e.keyCode === 27 && !props.modal) {
       doOnClose();
     }
   };
 
-  const toggleDialogOverlay = show => {
+  const toggleDialogOverlay = (show) => {
     if (show) {
       dialogOverlay = document.createElement('div');
       dialogOverlay.classList.add(css['dialog__overlay']);
@@ -135,7 +135,7 @@ function Dialog(props) {
       tabIndex="0"
       role="dialog"
       onKeyDown={onKeyDown}
-      ref={el => {
+      ref={(el) => {
         dialogDialog = el;
       }}
       className={dialogCssClassList.join(' ')}
@@ -149,7 +149,7 @@ function Dialog(props) {
         <div
           className={dialogDialogCssClassList.join(' ')}
           style={style}
-          onClick={e => e.stopPropagation()}
+          onClick={(e) => e.stopPropagation()}
         >
           {contentComponent}
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { namespace as ns } from '../../utils/theme';
 import './button.scss';
 
 const BUTTON_TYPES = {
@@ -65,8 +66,7 @@ const defaultProps = {
 /**
  * To trigger an operation.
  */
-function Button(props) {
-  const ns = 'starter';
+const Button = (props) => {
   const { children, className, type, size, disabled } = props;
 
   const doOnClick = (e) => {
@@ -98,7 +98,7 @@ function Button(props) {
       <span className={`${ns}-button__label`}>{children}</span>
     </button>
   );
-}
+};
 
 Button.propTypes = propTypes;
 Button.defaultProps = defaultProps;

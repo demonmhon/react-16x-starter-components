@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { namespace as ns } from '../../utils/theme';
 import './message-block.scss';
 
 const MESSAGE_BLOCK_TYPES = {
@@ -9,8 +10,7 @@ const MESSAGE_BLOCK_TYPES = {
   Error: 'error',
 };
 
-function MessageBlock(props) {
-  const ns = 'starter';
+const MessageBlock = (props) => {
   const { children, className, type } = props;
 
   const messageBlockCssClassList = [`${ns}-message-block`];
@@ -19,8 +19,12 @@ function MessageBlock(props) {
     messageBlockCssClassList.push(`${ns}-message-block--type-${type}`);
   if (className) messageBlockCssClassList.push(className);
 
-  return <div className={messageBlockCssClassList.join(' ')}>{children ? children : (<>&nbsp;</>)}</div>;
-}
+  return (
+    <div className={messageBlockCssClassList.join(' ')}>
+      {children ? children : <>&nbsp;</>}
+    </div>
+  );
+};
 
 const propTypes = {
   /**
@@ -30,15 +34,14 @@ const propTypes = {
   /**
    * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
    */
-  className: PropTypes.string
+  className: PropTypes.string,
   /**
    * Message Block type:
    *
    * * `info`
    * * `warning`
    * * `error`
-   */,
-  type: PropTypes.string,
+   */ type: PropTypes.string,
 };
 const defaultProps = {
   children: null,

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { namespace as ns } from '../../utils/theme';
 import './input.scss';
 
 const propTypes = {
@@ -34,8 +35,7 @@ const defaultProps = {
   type: '',
 };
 
-function InputWrapper(props) {
-  const ns = 'starter';
+const InputWrapper = (props) => {
   const {
     className,
     disabled,
@@ -50,7 +50,7 @@ function InputWrapper(props) {
   if (['text', 'number', 'email', 'password', 'textarea'].includes(inputType))
     inputCssClassList.push([`${ns}-input--type-${inputType}`]);
 
-  const getLabelEl = labelText => {
+  const getLabelEl = (labelText) => {
     return <span className={`${ns}-input__label`}>{labelText}</span>;
   };
 
@@ -62,7 +62,7 @@ function InputWrapper(props) {
       </label>
     </div>
   );
-}
+};
 
 InputWrapper.propTypes = propTypes;
 InputWrapper.defaultProps = defaultProps;

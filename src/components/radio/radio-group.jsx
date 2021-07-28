@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { namespace as ns } from '../../utils/theme';
 import Radio from './radio';
 
 const propTypes = {
@@ -39,8 +40,7 @@ const defaultProps = {
 /**
  * `<Radio>` wrapper
  */
-function RadioGroup(props) {
-  const ns = 'starter';
+const RadioGroup = (props) => {
   const { className, disabled, children, value, onChange } = props;
 
   const [currentValue, setCurrentValue] = useState(value);
@@ -49,7 +49,7 @@ function RadioGroup(props) {
     setCurrentValue(value);
   }, [value]);
 
-  const doOnChange = option => {
+  const doOnChange = (option) => {
     if (!disabled) {
       onChange(option);
     }
@@ -61,7 +61,7 @@ function RadioGroup(props) {
 
   return (
     <div className={radioGroupCssClassList.join(' ')}>
-      {React.Children.map(children, child => {
+      {React.Children.map(children, (child) => {
         if (child.type === Radio) {
           return React.cloneElement(child, {
             ...child.props,
@@ -74,7 +74,7 @@ function RadioGroup(props) {
       })}
     </div>
   );
-}
+};
 
 RadioGroup.propTypes = propTypes;
 RadioGroup.defaultProps = defaultProps;

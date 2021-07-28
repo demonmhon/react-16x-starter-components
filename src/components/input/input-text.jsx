@@ -49,9 +49,9 @@ const defaultProps = {
 /**
  * Provide the user input is a text field.
  */
-function InputText(props) {
+const InputText = (props) => {
   return <InputCommon type={'text'} {...props} />;
-}
+};
 
 InputText.propTypes = propTypes;
 InputText.defaultProps = defaultProps;
