@@ -1,7 +1,6 @@
 @import '../../scss/variables';
 
-.table {
-  @include reset;
+.#{$namespace}-table {
   $highlight-color: lighten(#000, 90%);
   $border-color: lighten(#000, 80%);
   position: relative;

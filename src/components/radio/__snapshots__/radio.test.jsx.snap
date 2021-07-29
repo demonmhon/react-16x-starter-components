@@ -2,10 +2,10 @@
 
 exports[`Radio component it matches the snapshot 1`] = `
 <div
-  className="radio"
+  className="starter-radio"
 >
   <label
-    className="radio__container"
+    className="starter-radio__container"
   >
     <input
       checked={false}
@@ -15,10 +15,10 @@ exports[`Radio component it matches the snapshot 1`] = `
       value=""
     />
     <span
-      className="radio__ui"
+      className="starter-radio__ui"
     />
     <div
-      className="radio__label"
+      className="starter-radio__label"
     >
       
     </div>

@@ -2,11 +2,12 @@
 
 exports[`Button component it matches the snapshot 1`] = `
 <button
-  className="button button--type-button"
+  className="starter-button starter-button--type-button starter-button--type-button"
+  data-type="button"
   onClick={[Function]}
 >
   <span
-    className="button__label"
+    className="starter-button__label"
   >
     Button
   </span>

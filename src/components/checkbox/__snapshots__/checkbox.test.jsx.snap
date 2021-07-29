@@ -2,10 +2,10 @@
 
 exports[`Checkbox component it matches the snapshot 1`] = `
 <div
-  className="checkbox"
+  className="starter-checkbox"
 >
   <label
-    className="checkbox__container"
+    className="starter-checkbox__container"
   >
     <input
       checked={false}
@@ -13,10 +13,10 @@ exports[`Checkbox component it matches the snapshot 1`] = `
       type="checkbox"
     />
     <span
-      className="checkbox__ui"
+      className="starter-checkbox__ui"
     />
     <div
-      className="checkbox__label"
+      className="starter-checkbox__label"
     >
       
     </div>

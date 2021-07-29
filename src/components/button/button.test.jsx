@@ -11,13 +11,13 @@ describe('Button component', () => {
 
   test('has default button text', () => {
     const component = shallow(<Button />);
-    expect(component.find('.button__label').text()).toEqual('Button');
+    expect(component.text()).toEqual('Button');
   });
 
   test('use the given childen as button text', () => {
     const buttonText = 'OK';
     const component = shallow(<Button>{buttonText}</Button>);
-    expect(component.find('.button__label').text()).toEqual(buttonText);
+    expect(component.text()).toEqual(buttonText);
   });
 
   test('has the provided class name', () => {
@@ -29,24 +29,17 @@ describe('Button component', () => {
   describe('type', () => {
     test('set the type with valid type value', () => {
       const typeName = Button.Type.Secondary;
-      const expectedClassName = 'button--type-secondary';
+      const expectedAttr = 'secondary';
       const component = shallow(<Button type={typeName} />);
-      expect(component.hasClass(expectedClassName)).toBe(true);
+      expect(component.props()['data-type']).toBe(expectedAttr);
     });
 
-    test('not set an invalid type', () => {
+    test('not set an invalid type, default to "button"', () => {
       const typeName = 'invalidType';
-      const expectedClassName = 'button--type-button';
+      const expectedAttr = 'button';
       const component = shallow(<Button type={typeName} />);
-      expect(component.hasClass(expectedClassName)).toBe(true);
+      expect(component.props()['data-type']).toBe(expectedAttr);
     });
-  });
-
-  test('set the proper size', () => {
-    const sizeName = Button.Size.Small;
-    const expectedClassName = 'button--size-s';
-    const component = shallow(<Button size={sizeName} />);
-    expect(component.hasClass(expectedClassName)).toBe(true);
   });
 
   describe('onClick()', () => {

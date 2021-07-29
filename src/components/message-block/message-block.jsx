@@ -15,12 +15,17 @@ const MessageBlock = (props) => {
 
   const messageBlockCssClassList = [`${ns}-message-block`];
 
-  if (Object.values(MESSAGE_BLOCK_TYPES).includes(type))
-    messageBlockCssClassList.push(`${ns}-message-block--type-${type}`);
+  const validatedType = Object.values(MESSAGE_BLOCK_TYPES).includes(type)
+    ? type
+    : MESSAGE_BLOCK_TYPES.Info;
+  messageBlockCssClassList.push(`${ns}-message-block--type-${validatedType}`);
   if (className) messageBlockCssClassList.push(className);
 
   return (
-    <div className={messageBlockCssClassList.join(' ')}>
+    <div
+      data-type={validatedType}
+      className={messageBlockCssClassList.join(' ')}
+    >
       {children ? children : <>&nbsp;</>}
     </div>
   );

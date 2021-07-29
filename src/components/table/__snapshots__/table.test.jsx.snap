@@ -2,7 +2,7 @@
 
 exports[`Table component it matches the snapshot 1`] = `
 <table
-  className="table"
+  className="starter-table"
 >
   <colgroup />
   <thead>

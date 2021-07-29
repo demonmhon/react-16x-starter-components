@@ -4,7 +4,7 @@
   overflow: hidden;
 }
 
-.dialog {
+.#{$namespace}-dialog {
   $dialog-bg-color: #fff;
   $dialog-overlay-bg-color: #fff;
   $dialog-overlay-opacity: 0.85;
@@ -72,11 +72,11 @@
   &--show {
     height: 100%;
 
-    .dialog__dialog {
+    .#{$namespace}-dialog__dialog {
       top: 0;
     }
 
-    .dialog__overlay {
+    .#{$namespace}-dialog__overlay {
       bottom: 0;
       opacity: $dialog-overlay-opacity;
     }
@@ -84,7 +84,7 @@
 
   /* Centered */
   &--centered {
-    .dialog__display {
+    .#{$namespace}-dialog__display {
       display: flex;
       align-items: center;
     }
@@ -92,7 +92,7 @@
 
   /* Fullscreen */
   &--full-screen {
-    .dialog__dialog {
+    .#{$namespace}-dialog__dialog {
       display: flex;
       flex-direction: column;
       flex-wrap: nowrap;
@@ -101,7 +101,7 @@
       height: calc(100% - 60px);
     }
 
-    .dialog__body {
+    .#{$namespace}-dialog__body {
       flex: 1;
     }
   }

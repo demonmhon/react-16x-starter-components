@@ -2,6 +2,6 @@
 
 exports[`Radio.Group component it matches the snapshot 1`] = `
 <div
-  className="radio-group "
+  className="starter-radio-group "
 />
 `;

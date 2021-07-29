@@ -78,12 +78,13 @@ const Button = (props) => {
   const buttonCssClassList = [`${ns}-button`, `${ns}-button--type-button`];
   const buttonProps = {};
 
-  if (
-    Object.values(BUTTON_TYPES)
-      .filter((t) => t !== BUTTON_TYPES.Button)
-      .includes(type)
-  )
-    buttonCssClassList.push(`${ns}-button--type-${type}`);
+  const validatedType = Object.values(BUTTON_TYPES)
+    .filter((t) => t !== BUTTON_TYPES.Button)
+    .includes(type)
+    ? type
+    : BUTTON_TYPES.Button;
+
+  buttonCssClassList.push(`${ns}-button--type-${validatedType}`);
   if (Object.values(BUTTON_SIZES).includes(size))
     buttonCssClassList.push(`${ns}-button--size-${size}`);
   if (className) buttonCssClassList.push(className);
@@ -92,6 +93,7 @@ const Button = (props) => {
   return (
     <button
       {...buttonProps}
+      data-type={validatedType}
       className={buttonCssClassList.join(' ')}
       onClick={doOnClick}
     >
