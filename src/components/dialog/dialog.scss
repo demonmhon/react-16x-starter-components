@@ -47,8 +47,10 @@
     overflow: hidden;
     background-color: $dialog-bg-color;
     border: solid 1px transparent;
-    border-radius: 0.25rem;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 0.5px 0.9px rgba(0, 0, 0, 0.024),
+      0 1.3px 2.5px rgba(0, 0, 0, 0.035), 0 3px 6px rgba(0, 0, 0, 0.046),
+      0 10px 20px rgba(0, 0, 0, 0.07);
     transition: top $transition;
 
     @media (max-width: $screen-xs) {
@@ -64,7 +66,7 @@
     &-content {
       box-sizing: border-box;
       height: 100%;
-      padding: 0.5rem 1rem;
+      padding: 10px 15px;
     }
   }
 

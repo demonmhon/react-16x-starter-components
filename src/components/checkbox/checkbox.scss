@@ -39,7 +39,7 @@
     width: 1.125rem;
     height: 1.125rem;
     border: solid 1px $color-text-2;
-    border-radius: 0.25rem;
+    border-radius: $border-radius;
     cursor: pointer;
     transition-duration: $transition-fastest;
     transition-property: box-shadow;

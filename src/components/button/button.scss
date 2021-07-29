@@ -9,12 +9,11 @@
   padding: 0.3125rem 1rem;
   color: $color-text-1;
 
-  font-size: 0.8 5rem;
+  font-size: 0.85rem;
   line-height: 1.25rem;
-  background: $button-background-color;
-  background-color: #fff;
+  background-color: $button-background-color;
   border: solid 1px $color-text-2;
-  border-radius: 0.25rem;
+  border-radius: $border-radius;
   outline: none;
   cursor: pointer;
   transition-duration: $transition-fastest;

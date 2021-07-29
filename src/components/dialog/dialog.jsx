@@ -73,25 +73,24 @@ function Dialog(props) {
     show,
     modal,
     style,
+    onClose,
   } = props;
 
   let dialogDialog;
   let dialogOverlay;
 
   useEffect(() => {
-    if (props.show) {
+    if (show) {
       dialogDialog.focus();
     }
-    toggleDialogOverlay(props.show);
-  }, [props.show]);
+    toggleDialogOverlay(show);
+  }, [show]);
 
   const getBrowserScrollbarSize = () => {
     return window.innerWidth - document.documentElement.clientWidth;
   };
 
-  const doOnClose = () => {
-    props.onClose();
-  };
+  const doOnClose = () => (!modal ? onClose() : false);
 
   const onKeyDown = (e) => {
     if (e.keyCode === 27 && !props.modal) {
@@ -141,12 +140,7 @@ function Dialog(props) {
       }}
       className={dialogCssClassList.join(' ')}
     >
-      <div
-        className={`${ns}-dialog__display`}
-        onClick={() => {
-          if (!modal) doOnClose();
-        }}
-      >
+      <div className={`${ns}-dialog__display`} onClick={() => doOnClose()}>
         <div
           className={dialogDialogCssClassList.join(' ')}
           style={style}
