@@ -26,12 +26,12 @@
   }
 
   &--size-xs {
-    padding: calc(#{$padding-xs} / 2) $padding-xs;
+    padding: calc(#{$padding-xs} / 2.2) $padding-xs;
     font-size: 0.6875rem;
   }
 
   &--size-s {
-    padding: calc(#{$padding-s} / 2) $padding-s;
+    padding: calc(#{$padding-s} / 2.2) $padding-s;
     font-size: 0.75rem;
   }
 
