@@ -93,6 +93,7 @@ function Table(props) {
   );
 }
 
+Table.displayName = 'Table';
 Table.propTypes = propTypes;
 Table.defaultProps = defaultProps;
 

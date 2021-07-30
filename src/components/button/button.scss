@@ -5,11 +5,12 @@
 
   @include reset;
   display: inline-block;
-  margin-right: 0.375rem;
-  padding: 0.3125rem 1rem;
+  min-width: 80px;
+  margin-right: 6px;
+  margin-bottom: 4px;
+  padding: calc(#{$padding} / 2.2) $padding;
   color: $color-text-1;
-
-  font-size: 0.85rem;
+  font-size: 1rem;
   line-height: 1.25rem;
   background-color: $button-background-color;
   border: solid 1px $color-text-2;
@@ -25,31 +26,31 @@
   }
 
   &--size-xs {
-    padding: 0.125rem 0.5rem;
+    padding: calc(#{$padding-xs} / 2) $padding-xs;
     font-size: 0.6875rem;
   }
 
   &--size-s {
-    padding: 0.1875rem 0.75rem;
+    padding: calc(#{$padding-s} / 2) $padding-s;
     font-size: 0.75rem;
   }
 
   &--size-l {
-    padding: 0.5rem 1.25rem;
-    font-size: 1rem;
+    padding: calc(#{$padding-l} / 2.4) $padding-l;
+    font-size: 1.1rem;
   }
 
   &--type-button {
     &:hover,
     &:focus {
       &:not([disabled]) {
-        box-shadow: 0 0 0 0.1875rem rgba($color-text-2, 0.4);
+        box-shadow: 0 0 0 3px rgba($color-text-2, 0.4);
       }
     }
 
     &:active {
       background: darken($button-background-color, 20%);
-      box-shadow: 0 0 0 0.25em rgba($color-text-2, 0.4);
+      box-shadow: 0 0 0 4px rgba($color-text-2, 0.4);
     }
   }
 
@@ -62,13 +63,13 @@
     &:focus {
       &:not([disabled]) {
         border-color: $color-primary-dark;
-        box-shadow: 0 0 0 0.1875rem rgba($color-primary-light, 0.4);
+        box-shadow: 0 0 0 3px rgba($color-primary-light, 0.4);
       }
     }
 
     &:active {
       background: darken($color-primary-light, 20%);
-      box-shadow: 0 0 0 0.25em rgba($color-primary-light, 0.4);
+      box-shadow: 0 0 0 4px rgba($color-primary-light, 0.4);
     }
   }
 
@@ -81,13 +82,13 @@
     &:focus {
       &:not([disabled]) {
         border-color: $color-accent-dark;
-        box-shadow: 0 0 0 0.1875rem rgba($color-accent-light, 0.4);
+        box-shadow: 0 0 0 3px rgba($color-accent-light, 0.4);
       }
     }
 
     &:active {
       background: darken($color-accent-light, 20%);
-      box-shadow: 0 0 0 0.25em rgba($color-accent-light, 0.4);
+      box-shadow: 0 0 0 4px rgba($color-accent-light, 0.4);
     }
   }
 }

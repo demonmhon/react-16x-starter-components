@@ -75,7 +75,7 @@ const Button = (props) => {
     }
   };
 
-  const buttonCssClassList = [`${ns}-button`, `${ns}-button--type-button`];
+  const buttonCssClassList = [`${ns}-button`];
   const buttonProps = {};
 
   const validatedType = Object.values(BUTTON_TYPES)
@@ -102,6 +102,7 @@ const Button = (props) => {
   );
 };
 
+Button.displayName = 'Button';
 Button.propTypes = propTypes;
 Button.defaultProps = defaultProps;
 Button.Type = { ...BUTTON_TYPES };

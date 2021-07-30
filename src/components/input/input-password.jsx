@@ -56,6 +56,7 @@ const InputPassword = (props) => {
   );
 };
 
+InputPassword.displayName = 'InputPassword';
 InputPassword.propTypes = propTypes;
 InputPassword.defaultProps = defaultProps;
 

@@ -5,9 +5,11 @@
 }
 
 .#{$namespace}-radio {
+  $box-size: 20px;
   $checked-size: 0.625rem;
-  position: relative;
 
+  @include reset;
+  position: relative;
   display: inline-block;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -27,7 +29,7 @@
     }
 
     &:focus + .#{$namespace}-radio__ui {
-      box-shadow: 0 0 0 0.1875rem rgba($color-text-2, 0.4);
+      box-shadow: 0 0 0 3px rgba($color-text-2, 0.4);
     }
   }
 
@@ -35,15 +37,15 @@
     display: flex;
 
     &:hover .#{$namespace}-radio__ui {
-      box-shadow: 0 0 0 0.1875rem rgba($color-text-2, 0.4);
+      box-shadow: 0 0 0 3px rgba($color-text-2, 0.4);
     }
   }
 
   &__ui {
     position: relative;
     display: inline-block;
-    width: 1.125rem;
-    height: 1.125rem;
+    width: $box-size;
+    height: $box-size;
     border: solid 1px $color-text-2;
     border-radius: 50%;
     cursor: pointer;
@@ -57,10 +59,9 @@
       display: none;
       width: $checked-size;
       height: $checked-size;
-      margin-top: -($checked-size / 2);
-      margin-left: -($checked-size / 2);
       background-color: $color-text-2;
       border-radius: 50%;
+      transform: translate(-50%, -50%);
       content: '';
     }
   }

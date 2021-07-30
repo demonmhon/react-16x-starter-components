@@ -81,6 +81,7 @@ const Checkbox = (props) => {
   );
 };
 
+Checkbox.displayName = 'Checkbox';
 Checkbox.propTypes = propTypes;
 Checkbox.defaultProps = defaultProps;
 

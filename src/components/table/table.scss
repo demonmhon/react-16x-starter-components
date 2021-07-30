@@ -1,10 +1,9 @@
-@import '../../scss/variables';
+@import '../../scss/styles';
 
 .#{$namespace}-table {
   $highlight-color: lighten(#000, 90%);
-  $border-color: lighten(#000, 80%);
-  position: relative;
 
+  position: relative;
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
@@ -15,9 +14,8 @@
 
   th,
   td {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+    @include reset;
+    padding: calc(#{$padding} / 2) $padding;
     text-align: inherit;
   }
 

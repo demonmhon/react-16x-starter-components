@@ -54,6 +54,7 @@ const defaultProps = {
   type: MESSAGE_BLOCK_TYPES.Info,
 };
 
+MessageBlock.displayName = 'MessageBlock';
 MessageBlock.propTypes = propTypes;
 MessageBlock.defaultProps = defaultProps;
 MessageBlock.Type = { ...MESSAGE_BLOCK_TYPES };

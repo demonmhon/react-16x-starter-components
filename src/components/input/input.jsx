@@ -67,6 +67,7 @@ const Input = (props) => {
   );
 };
 
+Input.displayName = 'Input';
 Input.propTypes = propTypes;
 Input.defaultProps = defaultProps;
 

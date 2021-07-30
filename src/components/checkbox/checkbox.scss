@@ -1,7 +1,8 @@
 @import '../../scss/styles';
 
 .#{$namespace}-checkbox {
-  $checked-size: 0.875rem;
+  $box-size: 20px;
+  $checked-size: 1rem;
 
   @include reset;
   position: relative;
@@ -20,7 +21,7 @@
     }
 
     &:focus + .#{$namespace}-checkbox__ui {
-      box-shadow: 0 0 0 0.1875rem rgba($color-text-2, 0.4);
+      box-shadow: 0 0 0 3px rgba($color-text-2, 0.4);
     }
   }
 
@@ -29,15 +30,15 @@
     padding: 0.375rem 0 0;
 
     &:hover .#{$namespace}-checkbox__ui {
-      box-shadow: 0 0 0 0.1875rem rgba($color-text-2, 0.4);
+      box-shadow: 0 0 0 3px rgba($color-text-2, 0.4);
     }
   }
 
   &__ui {
     position: relative;
     display: inline-block;
-    width: 1.125rem;
-    height: 1.125rem;
+    width: $box-size;
+    height: $box-size;
     border: solid 1px $color-text-2;
     border-radius: $border-radius;
     cursor: pointer;
@@ -51,23 +52,24 @@
       display: none;
       width: $checked-size;
       height: $checked-size;
-      margin-top: -($checked-size / 2);
-      margin-left: -($checked-size / 2);
       background-color: $color-text-2;
+      transform: translate(-50%, -50%);
       content: '';
-      -webkit-mask-image: url('./svg/check.svg');
       mask-image: url('./svg/check.svg');
-      mask-size: 0.875rem;
-      mask-repeat: no-repeat;
-      -webkit-mask-size: 0.875rem;
+      mask-size: $checked-size;
       -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      -webkit-mask-image: url('./svg/check.svg');
+      -webkit-mask-size: $checked-size;
+      -webkit-mask-position: center;
     }
   }
 
   &__label {
     display: inline-block;
     flex: 1;
-    padding: 0 1rem 0 0.5rem;
+    padding: 0 15px 0 10px;
   }
 
   &--disabled {

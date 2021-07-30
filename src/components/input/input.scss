@@ -11,7 +11,7 @@
     display: block;
     margin-bottom: 0.5rem;
     color: $color-text-2;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
   }
 
   label {
@@ -21,11 +21,10 @@
 
   input,
   textarea {
+    @include reset;
     width: 100%;
-    padding: 0.35rem 0.625rem;
+    padding: 6px 10px;
     color: $color-text-1;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
     background-color: transparent;
     border: solid 1px $color-text-2;
     border-radius: $border-radius;
@@ -36,12 +35,11 @@
     &:focus,
     &:active {
       border-color: $color-primary-light;
-      box-shadow: 0 0 0 0.1875rem rgba($color-primary-light, 0.4);
+      box-shadow: 0 0 0 3px rgba($color-primary-light, 0.4);
     }
   }
 
   textarea {
-    font-family: inherit;
     resize: none;
   }
 

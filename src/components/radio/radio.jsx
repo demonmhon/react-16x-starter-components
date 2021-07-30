@@ -104,6 +104,7 @@ const Radio = (props) => {
   );
 };
 
+Radio.displayName = 'Radio';
 Radio.propTypes = propTypes;
 Radio.defaultProps = defaultProps;
 Radio.Group = RadioGroup;

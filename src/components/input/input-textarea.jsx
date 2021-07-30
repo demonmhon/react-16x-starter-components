@@ -90,6 +90,7 @@ const InputTextarea = (props) => {
   );
 };
 
+InputTextarea.displayName = 'InputTextarea';
 InputTextarea.propTypes = propTypes;
 InputTextarea.defaultProps = defaultProps;
 

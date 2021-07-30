@@ -53,6 +53,7 @@ const InputText = (props) => {
   return <InputCommon type={'text'} {...props} />;
 };
 
+InputText.displayName = 'InputText';
 InputText.propTypes = propTypes;
 InputText.defaultProps = defaultProps;
 

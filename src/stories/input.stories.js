@@ -9,13 +9,44 @@ export default {
   argTypes: {},
 };
 
-export const input = () => (
-  <>
-    <Input placeholder="" label="First Name" />
-    <Input placeholder="" label="Last Name" />
-    <Input placeholder="" label="Email" />
-  </>
-);
+export const input = () => {
+  const [formValues, setFormValues] = React.useState({
+    fname: '',
+    lname: '',
+    email: '',
+  });
+  const setValue = (field, value) => {
+    setFormValues({
+      ...formValues,
+      [field]: value,
+    });
+  };
+  return (
+    <>
+      <Input
+        placeholder=""
+        onChange={(v) => setValue('fname', v)}
+        label="First Name"
+        value={formValues.fname}
+      />
+      <Input
+        placeholder=""
+        onChange={(v) => setValue('lname', v)}
+        label="Last Name"
+        value={formValues.lname}
+      />
+      <Input
+        placeholder=""
+        onChange={(v) => setValue('email', v)}
+        label="Email"
+        value={formValues.email}
+      />
+      <p style={{ fontSize: '0.75rem', opacity: 0.6 }}>
+        <code>{JSON.stringify(formValues, null, '  ')}</code>
+      </p>
+    </>
+  );
+};
 
 export const textarea = () => <Input.Textarea label="Address 1" />;
 

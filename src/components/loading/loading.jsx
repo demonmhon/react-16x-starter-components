@@ -53,6 +53,7 @@ function Loading(props) {
   );
 }
 
+Loading.displayName = 'Loading';
 Loading.propTypes = propTypes;
 Loading.defaultProps = defaultProps;
 
