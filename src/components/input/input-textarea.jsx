@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import InputWrapper from './input-wrapper';
-import './input.scss';
 
 const propTypes = {
   /**
@@ -52,7 +51,7 @@ const defaultProps = {
   onChange() {},
 };
 
-function InputTextarea(props) {
+const InputTextarea = (props) => {
   const { disabled, readOnly, placeholder, value, onChange, rows } = props;
   const [inputValue, setInputValue] = useState(value);
 
@@ -60,13 +59,13 @@ function InputTextarea(props) {
     setInputValue(value);
   }, [value]);
 
-  const doOnChange = e => {
+  const doOnChange = (e) => {
     const value = e.target.value;
     setInputValue(value);
     onChange(value);
   };
 
-  const onKeyDown = e => {
+  const onKeyDown = (e) => {
     /**
      * keyCode
      * 13 = Enter -- Trigger the onChange immediately.
@@ -89,8 +88,9 @@ function InputTextarea(props) {
       />
     </InputWrapper>
   );
-}
+};
 
+InputTextarea.displayName = 'InputTextarea';
 InputTextarea.propTypes = propTypes;
 InputTextarea.defaultProps = defaultProps;
 

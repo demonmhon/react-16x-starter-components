@@ -48,14 +48,15 @@ const defaultProps = {
   onChange() {},
 };
 
-function InputPassword(props) {
+const InputPassword = (props) => {
   return (
     <InputWrapper {...props}>
       <InputCommon type={'password'} {...props} />
     </InputWrapper>
   );
-}
+};
 
+InputPassword.displayName = 'InputPassword';
 InputPassword.propTypes = propTypes;
 InputPassword.defaultProps = defaultProps;
 

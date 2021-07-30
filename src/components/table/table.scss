@@ -1,13 +1,11 @@
-@import '../../scss/variables';
+@import '../../scss/styles';
 
-.table {
-  @include reset;
+.#{$namespace}-table {
   $highlight-color: lighten(#000, 90%);
-  $border-color: lighten(#000, 80%);
 
+  position: relative;
   width: 100%;
   table-layout: fixed;
-  position: relative;
   border-collapse: collapse;
 
   tbody {
@@ -16,27 +14,26 @@
 
   th,
   td {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+    @include reset;
+    padding: calc(#{$padding} / 2) $padding;
     text-align: inherit;
-    padding: 0.5rem 1rem;
   }
 
   th {
-    background: $highlight-color;
     position: sticky;
     top: 0;
     padding-bottom: calc(1px + 0.5rem);
+    background: $highlight-color;
 
     &::after {
-      content: '';
-      display: block;
-      height: 0;
-      width: 100%;
       position: absolute;
-      left: 0;
       bottom: -1px;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 0;
       border-bottom: solid 1px $border-color;
+      content: '';
     }
   }
 

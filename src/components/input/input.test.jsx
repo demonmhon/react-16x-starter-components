@@ -83,5 +83,5 @@ describe('Input component', () => {
         expect(props.onChange).toHaveBeenCalledTimes(1);
       });
     });
-  })
+  });
 });

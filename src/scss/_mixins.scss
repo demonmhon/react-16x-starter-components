@@ -1,0 +1,9 @@
+@mixin reset {
+  color: $color-text-1;
+  font-size: 1rem;
+  font-family: $font-family-sans-serif;
+}
+
+@mixin stateDisabled {
+  opacity: 0.5;
+}

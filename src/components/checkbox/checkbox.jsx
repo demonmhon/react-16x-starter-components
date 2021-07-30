@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import css from './checkbox.scss';
+import { namespace as ns } from '../../utils/theme';
+import './checkbox.scss';
 
 const propTypes = {
   /**
@@ -41,7 +42,7 @@ const defaultProps = {
  *
  * Controlled component. Value will be set by prop.
  */
-function Checkbox(props) {
+const Checkbox = (props) => {
   const { children, className, checked, disabled, onChange } = props;
   const [isChecked, setIsChecked] = useState(checked);
 
@@ -55,31 +56,32 @@ function Checkbox(props) {
     }
   };
 
-  const checkboxCssClassList = [css.checkbox];
+  const checkboxCssClassList = [`${ns}-checkbox`];
   const checkboxProps = {};
 
   if (className) checkboxCssClassList.push(className);
   if (disabled) {
-    checkboxCssClassList.push(css['checkbox--disabled']);
+    checkboxCssClassList.push(`${ns}-checkbox--disabled`);
     checkboxProps.disabled = true;
   }
 
   return (
     <div className={checkboxCssClassList.join(' ')}>
-      <label className={css.checkbox__container}>
+      <label className={`${ns}-checkbox__container`}>
         <input
           type="checkbox"
           checked={isChecked}
           {...checkboxProps}
           onChange={doOnChange}
         />
-        <span className={css.checkbox__ui} />
-        <div className={css.checkbox__label}>{children}</div>
+        <span className={`${ns}-checkbox__ui`} />
+        <div className={`${ns}-checkbox__label`}>{children}</div>
       </label>
     </div>
   );
-}
+};
 
+Checkbox.displayName = 'Checkbox';
 Checkbox.propTypes = propTypes;
 Checkbox.defaultProps = defaultProps;
 

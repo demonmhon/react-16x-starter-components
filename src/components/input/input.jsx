@@ -59,14 +59,15 @@ const defaultProps = {
  *
  * Controlled component. Value will be set by prop.
  */
-function Input(props) {
+const Input = (props) => {
   return (
     <InputWrapper {...props}>
       <InputText {...props} />
     </InputWrapper>
   );
-}
+};
 
+Input.displayName = 'Input';
 Input.propTypes = propTypes;
 Input.defaultProps = defaultProps;
 

@@ -1,8 +1,27 @@
 @import 'variables';
+@import 'mixins';
+
+:root {
+  --color-background: $color-background;
+  --color-text: $color-text;
+  --color-text-1: $color-text-1;
+  --color-text-2: $color-text-2;
+  --color-primary: $color-primary;
+  --color-primary-light: $color-primary-light;
+  --color-primary-dar: $color-primary-dark;
+  --color-primary-contrast: $color-primary-contrast;
+  --color-accent: $color-accent;
+  --color-accent-light: $color-accent-light;
+  --color-accent-dar: $color-accent-dark;
+  --color-accent-contrast: $color-accent-contrast;
+  --color-warning: $color-warning;
+  --color-error: $color-error;
+}
 
 // Basic Reset
 html {
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 *,
@@ -13,6 +32,20 @@ html {
 
 html,
 body {
+  @include reset;
   margin: 0;
   padding: 0;
+}
+
+label,
+input,
+button,
+select,
+optgroup,
+textarea {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
 }

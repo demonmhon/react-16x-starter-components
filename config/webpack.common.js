@@ -1,7 +1,7 @@
 const path = require('path');
+const webpack = require('webpack');
 
-const HtmlWebPackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { name } = require('../package.json');
 
 module.exports = {
   mode: 'development',
@@ -9,9 +9,10 @@ module.exports = {
     main: path.resolve(__dirname, '../src', 'index.js'),
   },
   output: {
-    filename: '[name].[hash].js',
+    filename: `${name}.js`,
     path: path.resolve(__dirname, '../dist'),
-    publicPath: '/'
+    publicPath: '/',
+    libraryTarget: 'umd'
   },
   module: {
     rules: [
@@ -19,54 +20,54 @@ module.exports = {
         test: /\.s(a|c)ss$/,
         use: [
           { loader: 'style-loader' },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                mode: 'local',
-                localIdentName: `[local]-[hash:base64:5]`,
-              },
-            }
-          },
-          { loader: 'sass-loader' }
-        ]
+          { loader: 'css-loader' },
+          { loader: 'postcss-loader' },
+          { loader: 'sass-loader' },
+        ],
       },
       {
         test: /\.(js|jsx)$/,
         exclude: [/node_modules/],
-        use: [{ loader: 'babel-loader' }]
+        use: [{ loader: 'babel-loader' }],
       },
       {
-        test: /.*\.(gif|png|jpe?g|svg)$/i,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]?[hash]',
-            outputPath: 'images'
-          }
-        }]
+        test: /\.svg$/,
+        use: [{ loader: '@svgr/webpack' }],
       },
       {
-        test: /fonts\/\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]?[hash]',
-            outputPath: 'fonts'
-          }
-        }]
-      }
-    ]
+        test: /.*\.(gif|png|jpe?g)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]?[hash]',
+              outputPath: 'images',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              name: '[name].[ext]?[hash]',
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
-    new HtmlWebPackPlugin({
-      template: path.resolve(__dirname, '../src', 'index.html'),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
     }),
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-    })
   ],
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    alias: {
+      react: path.resolve('./node_modules/react')
+    }
   },
-}
+};

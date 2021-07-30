@@ -1,37 +1,37 @@
 @import '../../scss/variables';
 
-.message-block {
+.#{$namespace}-message-block {
   $color-bar-size: 4px;
 
-  font-size: 0.75rem;
-  padding: 0.5rem;
-  padding-left: calc(#{$color-bar-size} + 0.5rem);
   position: relative;
+  padding: 8px;
+  padding-left: calc(#{$color-bar-size} + 8px);
+  font-size: 0.75rem;
 
   & + & {
-    margin-top: 0.3125rem;
+    margin-top: 5px;
   }
 
   &,
   &--type-info {
-    background-color: rgba($color-primary-light, .2);
+    background-color: rgba($color-primary-light, 0.2);
   }
 
   &--type-warning {
-    background-color: rgba($color-warning, .2);
+    background-color: rgba($color-warning, 0.2);
   }
 
   &--type-error {
-    background-color: rgba($color-error, .2);
+    background-color: rgba($color-error, 0.2);
   }
 
   &::before {
-    content: '';
     position: absolute;
-    left: 0;
     top: 0;
     bottom: 0;
+    left: 0;
     width: 4px;
+    content: '';
   }
 
   &--type-info::before {

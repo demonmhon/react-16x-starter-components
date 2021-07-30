@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { namespace as ns } from '../../utils/theme';
 import Radio from './radio';
-import css from './radio.scss';
 
 const propTypes = {
   /**
@@ -40,7 +40,7 @@ const defaultProps = {
 /**
  * `<Radio>` wrapper
  */
-function RadioGroup(props) {
+const RadioGroup = (props) => {
   const { className, disabled, children, value, onChange } = props;
 
   const [currentValue, setCurrentValue] = useState(value);
@@ -49,19 +49,19 @@ function RadioGroup(props) {
     setCurrentValue(value);
   }, [value]);
 
-  const doOnChange = option => {
+  const doOnChange = (option) => {
     if (!disabled) {
       onChange(option);
     }
   };
 
-  const radioGroupCssClassList = [css['radio-group']];
-  if (disabled) radioGroupCssClassList.push(css['radio-group--disabled']);
+  const radioGroupCssClassList = [`${ns}-radio-group`];
+  if (disabled) radioGroupCssClassList.push(`${ns}-radio-group--disabled`);
   if (radioGroupCssClassList) radioGroupCssClassList.push(className);
 
   return (
     <div className={radioGroupCssClassList.join(' ')}>
-      {React.Children.map(children, child => {
+      {React.Children.map(children, (child) => {
         if (child.type === Radio) {
           return React.cloneElement(child, {
             ...child.props,
@@ -74,7 +74,7 @@ function RadioGroup(props) {
       })}
     </div>
   );
-}
+};
 
 RadioGroup.propTypes = propTypes;
 RadioGroup.defaultProps = defaultProps;

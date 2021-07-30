@@ -1,24 +1,24 @@
-@import '../../scss/variables';
+@import '../../scss/styles';
 
-.button {
+.#{$namespace}-button {
   $button-background-color: #fff;
 
   @include reset;
-
-  font-size: 0.8 5rem;
-  line-height: 1.25rem;
   display: inline-block;
-  cursor: pointer;
+  min-width: 80px;
+  margin-right: 6px;
+  margin-bottom: 4px;
+  padding: calc(#{$padding} / 2.2) $padding;
   color: $color-text-1;
-  background-color: #fff;
-  padding: 0.3125rem 1rem;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  background-color: $button-background-color;
   border: solid 1px $color-text-2;
-  border-radius: 0.25rem;
-  transition-property: box-shadow, background, border-color;
-  transition-duration: $transition-fastest;
-  background: $button-background-color;
-  margin-right: 0.375rem;
+  border-radius: $border-radius;
   outline: none;
+  cursor: pointer;
+  transition-duration: $transition-fastest;
+  transition-property: box-shadow, background-color, border-color;
 
   &[disabled] {
     @include stateDisabled;
@@ -26,31 +26,31 @@
   }
 
   &--size-xs {
+    padding: calc(#{$padding-xs} / 2.2) $padding-xs;
     font-size: 0.6875rem;
-    padding: 0.125rem 0.5rem;
   }
 
   &--size-s {
+    padding: calc(#{$padding-s} / 2.2) $padding-s;
     font-size: 0.75rem;
-    padding: 0.1875rem 0.75rem;
   }
 
   &--size-l {
-    font-size: 1rem;
-    padding: 0.5rem 1.25rem;
+    padding: calc(#{$padding-l} / 2.4) $padding-l;
+    font-size: 1.1rem;
   }
 
   &--type-button {
     &:hover,
     &:focus {
       &:not([disabled]) {
-        box-shadow: 0 0 0 0.1875rem rgba($color-text-2, 0.4);
+        box-shadow: 0 0 0 3px rgba($color-text-2, 0.4);
       }
     }
 
     &:active {
       background: darken($button-background-color, 20%);
-      box-shadow: 0 0 0 0.25em rgba($color-text-2, 0.4);
+      box-shadow: 0 0 0 4px rgba($color-text-2, 0.4);
     }
   }
 
@@ -63,13 +63,13 @@
     &:focus {
       &:not([disabled]) {
         border-color: $color-primary-dark;
-        box-shadow: 0 0 0 0.1875rem rgba($color-primary-light, 0.4);
+        box-shadow: 0 0 0 3px rgba($color-primary-light, 0.4);
       }
     }
 
     &:active {
       background: darken($color-primary-light, 20%);
-      box-shadow: 0 0 0 0.25em rgba($color-primary-light, 0.4);
+      box-shadow: 0 0 0 4px rgba($color-primary-light, 0.4);
     }
   }
 
@@ -82,13 +82,13 @@
     &:focus {
       &:not([disabled]) {
         border-color: $color-accent-dark;
-        box-shadow: 0 0 0 0.1875rem rgba($color-accent-light, 0.4);
+        box-shadow: 0 0 0 3px rgba($color-accent-light, 0.4);
       }
     }
 
     &:active {
       background: darken($color-accent-light, 20%);
-      box-shadow: 0 0 0 0.25em rgba($color-accent-light, 0.4);
+      box-shadow: 0 0 0 4px rgba($color-accent-light, 0.4);
     }
   }
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import css from './button.scss';
+import { namespace as ns } from '../../utils/theme';
+import './button.scss';
 
 const BUTTON_TYPES = {
   Primary: 'primary',
@@ -65,40 +66,43 @@ const defaultProps = {
 /**
  * To trigger an operation.
  */
-function Button(props) {
+const Button = (props) => {
   const { children, className, type, size, disabled } = props;
 
-  const doOnClick = e => {
+  const doOnClick = (e) => {
     if (!props.disabled) {
       props.onClick(e);
     }
   };
 
-  const buttonCssClassList = [css.button, css[`button--type-button`]];
+  const buttonCssClassList = [`${ns}-button`];
   const buttonProps = {};
 
-  if (
-    Object.values(BUTTON_TYPES)
-      .filter(t => t !== BUTTON_TYPES.Button)
-      .includes(type)
-  )
-    buttonCssClassList.push(css[`button--type-${type}`]);
+  const validatedType = Object.values(BUTTON_TYPES)
+    .filter((t) => t !== BUTTON_TYPES.Button)
+    .includes(type)
+    ? type
+    : BUTTON_TYPES.Button;
+
+  buttonCssClassList.push(`${ns}-button--type-${validatedType}`);
   if (Object.values(BUTTON_SIZES).includes(size))
-    buttonCssClassList.push(css[`button--size-${size}`]);
+    buttonCssClassList.push(`${ns}-button--size-${size}`);
   if (className) buttonCssClassList.push(className);
   if (disabled) buttonProps.disabled = true;
 
   return (
     <button
       {...buttonProps}
+      data-type={validatedType}
       className={buttonCssClassList.join(' ')}
       onClick={doOnClick}
     >
-      <span className={css.button__label}>{children}</span>
+      <span className={`${ns}-button__label`}>{children}</span>
     </button>
   );
-}
+};
 
+Button.displayName = 'Button';
 Button.propTypes = propTypes;
 Button.defaultProps = defaultProps;
 Button.Type = { ...BUTTON_TYPES };

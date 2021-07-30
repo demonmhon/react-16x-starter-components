@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { namespace as ns } from '../../utils/theme';
 import ColGroup from './colgroup';
 import THead from './thead';
 import TBody from './tbody';
-import css from './table.scss';
+import './table.scss';
 
 const propTypes = {
   /**
@@ -80,7 +81,7 @@ function Table(props) {
   const renderThead = () => <THead columnSettings={columnSettings} />;
   const renderTbody = () => <TBody {...props} />;
 
-  const tableCssClassList = [css.table];
+  const tableCssClassList = [`${ns}-table`];
   if (className) tableCssClassList.push(className);
 
   return (
@@ -92,6 +93,7 @@ function Table(props) {
   );
 }
 
+Table.displayName = 'Table';
 Table.propTypes = propTypes;
 Table.defaultProps = defaultProps;
 

@@ -2,17 +2,17 @@
 
 exports[`Loadingp component it matches the snapshot 1`] = `
 <span
-  className="loading loading--show"
+  className="starter-loading starter-loading--show"
 >
   <span
-    className="loading__mask"
+    className="starter-loading__mask"
   />
   <svg
-    className="loading__indicator"
+    className="starter-loading__indicator"
     viewBox="0 0 50 50"
   >
     <circle
-      className="loading__indicator-path"
+      className="starter-loading__indicator-path"
       cx="25"
       cy="25"
       fill="none"

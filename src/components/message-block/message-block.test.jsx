@@ -24,16 +24,16 @@ describe('MessageBlock component', () => {
   describe('type', () => {
     test('set the type with valid type value', () => {
       const typeName = MessageBlock.Type.Error;
-      const expectedClassName = 'message-block--type-error';
+      const expectedClassName = 'error';
       const component = shallow(<MessageBlock type={typeName} />);
-      expect(component.hasClass(expectedClassName)).toBe(true);
+      expect(component.prop('data-type')).toBe(expectedClassName);
     });
 
-    test('not set an invalid type', () => {
+    test('not set an invalid type, default to "info"', () => {
       const typeName = 'invalidType';
-      const expectedClassName = 'message-block';
+      const expectedClassName = 'info';
       const component = shallow(<MessageBlock type={typeName} />);
-      expect(component.hasClass(expectedClassName)).toBe(true);
+      expect(component.prop('data-type')).toBe(expectedClassName);
     });
   });
 });

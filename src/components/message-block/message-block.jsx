@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import css from './message-block.scss';
+import { namespace as ns } from '../../utils/theme';
+import './message-block.scss';
 
 const MESSAGE_BLOCK_TYPES = {
   Info: 'info',
@@ -9,17 +10,26 @@ const MESSAGE_BLOCK_TYPES = {
   Error: 'error',
 };
 
-function MessageBlock(props) {
+const MessageBlock = (props) => {
   const { children, className, type } = props;
 
-  const messageBlockCssClassList = [css[`message-block`]];
+  const messageBlockCssClassList = [`${ns}-message-block`];
 
-  if (Object.values(MESSAGE_BLOCK_TYPES).includes(type))
-    messageBlockCssClassList.push(css[`message-block--type-${type}`]);
+  const validatedType = Object.values(MESSAGE_BLOCK_TYPES).includes(type)
+    ? type
+    : MESSAGE_BLOCK_TYPES.Info;
+  messageBlockCssClassList.push(`${ns}-message-block--type-${validatedType}`);
   if (className) messageBlockCssClassList.push(className);
 
-  return <div className={messageBlockCssClassList.join(' ')}>{children}</div>;
-}
+  return (
+    <div
+      data-type={validatedType}
+      className={messageBlockCssClassList.join(' ')}
+    >
+      {children ? children : <>&nbsp;</>}
+    </div>
+  );
+};
 
 const propTypes = {
   /**
@@ -29,15 +39,14 @@ const propTypes = {
   /**
    * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
    */
-  className: PropTypes.string
+  className: PropTypes.string,
   /**
    * Message Block type:
    *
    * * `info`
    * * `warning`
    * * `error`
-   */,
-  type: PropTypes.string,
+   */ type: PropTypes.string,
 };
 const defaultProps = {
   children: null,
@@ -45,6 +54,7 @@ const defaultProps = {
   type: MESSAGE_BLOCK_TYPES.Info,
 };
 
+MessageBlock.displayName = 'MessageBlock';
 MessageBlock.propTypes = propTypes;
 MessageBlock.defaultProps = defaultProps;
 MessageBlock.Type = { ...MESSAGE_BLOCK_TYPES };

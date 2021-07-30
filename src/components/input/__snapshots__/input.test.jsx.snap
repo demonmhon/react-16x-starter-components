@@ -2,7 +2,7 @@
 
 exports[`Input component Input it matches the snapshot 1`] = `
 <div
-  className="input  input--type-text"
+  className="starter-input  starter-input--type-text"
 >
   <label>
     <input

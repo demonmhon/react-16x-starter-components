@@ -2,6 +2,9 @@
 
 exports[`MessageBlock component it matches the snapshot 1`] = `
 <div
-  className="message-block message-block--type-info"
-/>
+  className="starter-message-block starter-message-block--type-info"
+  data-type="info"
+>
+   
+</div>
 `;
