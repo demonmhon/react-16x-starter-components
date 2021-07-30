@@ -2,7 +2,7 @@
 
 exports[`Button component it matches the snapshot 1`] = `
 <button
-  className="starter-button starter-button--type-button starter-button--type-button"
+  className="starter-button starter-button--type-button"
   data-type="button"
   onClick={[Function]}
 >
