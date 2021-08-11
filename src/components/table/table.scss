@@ -37,6 +37,10 @@
     }
   }
 
+  td {
+    font-size: 0.875rem;
+  }
+
   tbody > tr:hover > td {
     background: lighten($highlight-color, 10%);
   }

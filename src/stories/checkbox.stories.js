@@ -11,8 +11,21 @@ export default {
 
 export const basic = () => (
   <>
-    <Checkbox>I agree to the Privacy Policy</Checkbox>
-    <Checkbox>Sign up for newsletters</Checkbox>
+    <div>
+      <Checkbox>I agree to the Privacy Policy</Checkbox>
+    </div>
+    <div>
+      <Checkbox>Sign up for newsletters</Checkbox>
+    </div>
+    <div>
+      <Checkbox>
+        Eius reiciendis dolores quis ut voluptatibus illo vel velit eos.
+        Deserunt id sequi in sit inventore praesentium. Minima amet atque
+        facilis dolorem. Voluptatem velit nostrum possimus ut dignissimos
+        reiciendis quia. Deleniti vitae qui fugit quae voluptatibus. Iure iusto
+        sint sint fugit dolore eos nemo.
+      </Checkbox>
+    </div>
   </>
 );
 

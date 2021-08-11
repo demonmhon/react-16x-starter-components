@@ -2,13 +2,12 @@
 
 .#{$namespace}-checkbox {
   $box-size: 20px;
-  $checked-size: 1rem;
+  $checked-size: 16px;
 
   @include reset;
   position: relative;
-  display: inline-block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  display: inline-flex;
+  padding: calc(#{$padding} / 3) $padding calc(#{$padding} / 3) 0;
 
   input {
     position: absolute;
@@ -23,13 +22,8 @@
     &:focus + .#{$namespace}-checkbox__ui {
       box-shadow: 0 0 0 3px rgba($color-text-2, 0.4);
     }
-  }
 
-  &__container {
-    display: flex;
-    padding: 0.375rem 0 0;
-
-    &:hover .#{$namespace}-checkbox__ui {
+    &:hover + .#{$namespace}-checkbox__ui {
       box-shadow: 0 0 0 3px rgba($color-text-2, 0.4);
     }
   }
@@ -39,6 +33,7 @@
     display: inline-block;
     width: $box-size;
     height: $box-size;
+    vertical-align: middle;
     border: solid 1px $color-text-2;
     border-radius: $border-radius;
     cursor: pointer;
@@ -69,7 +64,7 @@
   &__label {
     display: inline-block;
     flex: 1;
-    padding: 0 15px 0 10px;
+    padding: 0 0 0 calc(#{$padding} / 1.5);
   }
 
   &--disabled {

@@ -10,12 +10,15 @@
 
   @include reset;
   position: relative;
-  display: inline-block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  display: inline-flex;
+  padding: calc(#{$padding} / 3) $padding calc(#{$padding} / 3) 0;
+
+  &:hover .#{$namespace}-radio__ui {
+    box-shadow: 0 0 0 3px rgba($color-text-2, 0.4);
+  }
 
   & + .radio {
-    margin-left: 1rem;
+    margin-left: calc(#{$padding} / 3);
   }
 
   input {
@@ -33,19 +36,12 @@
     }
   }
 
-  &__container {
-    display: flex;
-
-    &:hover .#{$namespace}-radio__ui {
-      box-shadow: 0 0 0 3px rgba($color-text-2, 0.4);
-    }
-  }
-
   &__ui {
     position: relative;
     display: inline-block;
     width: $box-size;
     height: $box-size;
+    vertical-align: middle;
     border: solid 1px $color-text-2;
     border-radius: 50%;
     cursor: pointer;
@@ -69,7 +65,7 @@
   &__label {
     display: inline-block;
     flex: 1;
-    padding: 0 1rem 0 0.5rem;
+    padding: 0 0 0 calc(#{$padding} / 1.5);
   }
 
   &--disabled {

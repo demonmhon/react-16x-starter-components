@@ -66,18 +66,16 @@ const Checkbox = (props) => {
   }
 
   return (
-    <div className={checkboxCssClassList.join(' ')}>
-      <label className={`${ns}-checkbox__container`}>
-        <input
-          type="checkbox"
-          checked={isChecked}
-          {...checkboxProps}
-          onChange={doOnChange}
-        />
-        <span className={`${ns}-checkbox__ui`} />
-        <div className={`${ns}-checkbox__label`}>{children}</div>
-      </label>
-    </div>
+    <label className={checkboxCssClassList.join(' ')}>
+      <input
+        type="checkbox"
+        checked={isChecked}
+        {...checkboxProps}
+        onChange={doOnChange}
+      />
+      <span className={`${ns}-checkbox__ui`} />
+      <div className={`${ns}-checkbox__label`}>{children}</div>
+    </label>
   );
 };
 

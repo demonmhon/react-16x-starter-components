@@ -26,6 +26,12 @@ export const basic = () => {
         <Radio value="b" label={'Option B'} />
         <Radio value="c" label={'Option C'} />
         <Radio value="d" label={'Option D'} />
+        <Radio
+          value="other"
+          label={
+            'Totam fugit veritatis ut cum neque voluptas minus quia. Molestiae architecto non non quis at sunt. Libero repudiandae beatae culpa accusamus minus.'
+          }
+        />
       </Radio.Group>
       <p style={{ fontSize: '0.75rem', opacity: 0.6 }}>
         {label}, {value} has been selected
