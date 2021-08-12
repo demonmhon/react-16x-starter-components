@@ -1,27 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Radio component it matches the snapshot 1`] = `
-<div
+<label
   className="starter-radio"
 >
-  <label
-    className="starter-radio__container"
+  <input
+    checked={false}
+    data-label=""
+    onChange={[Function]}
+    type="radio"
+    value=""
+  />
+  <span
+    className="starter-radio__ui"
+  />
+  <div
+    className="starter-radio__label"
   >
-    <input
-      checked={false}
-      data-label=""
-      onChange={[Function]}
-      type="radio"
-      value=""
-    />
-    <span
-      className="starter-radio__ui"
-    />
-    <div
-      className="starter-radio__label"
-    >
-      
-    </div>
-  </label>
-</div>
+    
+  </div>
+</label>
 `;

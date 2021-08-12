@@ -6,7 +6,7 @@
 
 .#{$namespace}-radio {
   $box-size: 20px;
-  $checked-size: 0.625rem;
+  $checked-size: 10px;
 
   @include reset;
   position: relative;
