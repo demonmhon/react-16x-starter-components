@@ -14,14 +14,14 @@ export const basic = () => {
   const [isDialogOpen, setIsDialogOpen] = React.useState(false);
 
   return (
-    <div>
-      <Button onClick={() => setIsDialogOpen(true)} />
+    <>
+      <Button onClick={() => setIsDialogOpen(true)}>Open Dialog</Button>
       <Dialog show={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
         <div style={{ padding: '0.5rem 1rem' }}>
           <p>Dialog content</p>
         </div>
       </Dialog>
-    </div>
+    </>
   );
 };
 
@@ -29,8 +29,8 @@ export const centered = () => {
   const [isDialogOpen, setIsDialogOpen] = React.useState(false);
 
   return (
-    <div>
-      <Button onClick={() => setIsDialogOpen(true)} />
+    <>
+      <Button onClick={() => setIsDialogOpen(true)}>Open Dialog</Button>
       <Dialog
         centered
         show={isDialogOpen}
@@ -40,7 +40,7 @@ export const centered = () => {
           <p>Dialog content</p>
         </div>
       </Dialog>
-    </div>
+    </>
   );
 };
 
@@ -48,8 +48,8 @@ export const fullScreen = () => {
   const [isDialogOpen, setIsDialogOpen] = React.useState(false);
 
   return (
-    <div>
-      <Button onClick={() => setIsDialogOpen(true)} />
+    <>
+      <Button onClick={() => setIsDialogOpen(true)}>Open Dialog</Button>
       <Dialog
         fullScreen
         show={isDialogOpen}
@@ -59,7 +59,7 @@ export const fullScreen = () => {
           <p>Dialog content</p>
         </div>
       </Dialog>
-    </div>
+    </>
   );
 };
 
@@ -67,8 +67,8 @@ export const modal = () => {
   const [isDialogOpen, setIsDialogOpen] = React.useState(false);
 
   return (
-    <div>
-      <Button onClick={() => setIsDialogOpen(true)} />
+    <>
+      <Button onClick={() => setIsDialogOpen(true)}>Open Dialog</Button>
       <Dialog modal show={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
         <div style={{ padding: '0.5rem 1rem' }}>
           <p>Dialog content</p>
@@ -79,6 +79,6 @@ export const modal = () => {
           <Button onClick={() => setIsDialogOpen(false)}>Close</Button>
         </div>
       </Dialog>
-    </div>
+    </>
   );
 };

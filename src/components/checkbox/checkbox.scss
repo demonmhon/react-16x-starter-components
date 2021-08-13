@@ -5,9 +5,12 @@
   $checked-size: 16px;
 
   @include reset;
-  position: relative;
-  display: inline-flex;
-  padding: calc(#{$padding} / 3) $padding calc(#{$padding} / 3) 0;
+
+  label {
+    position: relative;
+    display: inline-flex;
+    padding: calc(#{$padding} / 3) $padding calc(#{$padding} / 3) 0;
+  }
 
   input {
     position: absolute;

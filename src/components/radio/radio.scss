@@ -9,16 +9,15 @@
   $checked-size: 10px;
 
   @include reset;
-  position: relative;
-  display: inline-flex;
-  padding: calc(#{$padding} / 3) $padding calc(#{$padding} / 3) 0;
 
   &:hover .#{$namespace}-radio__ui {
     box-shadow: 0 0 0 3px rgba($color-text-2, 0.4);
   }
 
-  & + .radio {
-    margin-left: calc(#{$padding} / 3);
+  label {
+    position: relative;
+    display: inline-flex;
+    padding: calc(#{$padding} / 3) $padding calc(#{$padding} / 3) 0;
   }
 
   input {

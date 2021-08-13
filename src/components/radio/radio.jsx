@@ -87,18 +87,20 @@ const Radio = (props) => {
   }
 
   return (
-    <label className={radioCssClassList.join(' ')}>
-      <input
-        type="radio"
-        checked={isChecked}
-        {...radioProps}
-        value={value}
-        data-label={label}
-        onChange={doOnChange}
-      />
-      <span className={`${ns}-radio__ui`} />
-      <div className={`${ns}-radio__label`}>{children || label}</div>
-    </label>
+    <div className={radioCssClassList.join(' ')}>
+      <label>
+        <input
+          type="radio"
+          checked={isChecked}
+          {...radioProps}
+          value={value}
+          data-label={label}
+          onChange={doOnChange}
+        />
+        <span className={`${ns}-radio__ui`} />
+        <div className={`${ns}-radio__label`}>{children || label}</div>
+      </label>
+    </div>
   );
 };
 

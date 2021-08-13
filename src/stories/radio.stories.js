@@ -10,8 +10,8 @@ export default {
 };
 
 export const basic = () => {
-  const [value, setValue] = React.useState('b');
-  const [label, setLabel] = React.useState('Option B');
+  const [value, setValue] = React.useState('');
+  const [label, setLabel] = React.useState('');
 
   return (
     <>
@@ -40,8 +40,8 @@ export const basic = () => {
   );
 };
 
-export const disabledOptions = () => {
-  const [value, setValue] = React.useState('c');
+export const disabled = () => {
+  const [value, setValue] = React.useState('a');
 
   return (
     <Radio.Group
@@ -52,6 +52,21 @@ export const disabledOptions = () => {
       <Radio value="a">Option A</Radio>
       <Radio value="b">Option B</Radio>
       <Radio value="c">Option C</Radio>
+      <Radio value="d">Option D</Radio>
+    </Radio.Group>
+  );
+};
+
+export const disabledSomeOptions = () => {
+  const [value, setValue] = React.useState('');
+
+  return (
+    <Radio.Group value={value} onChange={(option) => setValue(option.value)}>
+      <Radio value="a">Option A</Radio>
+      <Radio value="b">Option B</Radio>
+      <Radio value="c" disabled>
+        Option C
+      </Radio>
       <Radio value="d">Option D</Radio>
     </Radio.Group>
   );
