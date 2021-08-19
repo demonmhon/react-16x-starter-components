@@ -1,21 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkbox component it matches the snapshot 1`] = `
-<label
+<div
   className="starter-checkbox"
 >
-  <input
-    checked={false}
-    onChange={[Function]}
-    type="checkbox"
-  />
-  <span
-    className="starter-checkbox__ui"
-  />
-  <div
-    className="starter-checkbox__label"
-  >
-    
-  </div>
-</label>
+  <label>
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="starter-checkbox__ui"
+    />
+    <div
+      className="starter-checkbox__label"
+    >
+      
+    </div>
+  </label>
+</div>
 `;

@@ -28,7 +28,7 @@ jobs:
             ./cc-test-reporter after-build --exit-code $?
       - run:
           name: Build a production HTML version
-          command: npm run build
+          command: npm run build-storybook
   deploy:
     machine:
       enabled: true

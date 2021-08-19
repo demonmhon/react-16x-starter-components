@@ -9,9 +9,17 @@ The react 16x starter components. The common, starter react components for most 
 
 ## Disclaimer
 
-This is just the react components. It should be included, used, by other full react application. Using [React Styleguidist](https://react-styleguidist.js.org/) tp preview the components.
+This is just the react components. It should be included, used, by other full react application. Using [Storybook](https://storybook.js.org) to preview the components.
 
-The intention for this project is to try to have the component's document and provide a very simple component for the project that started without any ui/style guide.
+The intention for this project is to have the component's document. And provide starter component for the project that doesn't provide any ui/style guide.
+
+
+## What build this project?
+
+* **SCSS/CSS**: Many people recommend the [styled-components](https://styled-components.com/) or similar package like [emotion](https://emotion.sh/). But I decide to stick with traditional styles sheet with simple, straightforward. And it also to foundation of any styled-components like packages.
+* **Webpack**: Popular bundle tools
+* **Jest**: Test framework
+* **ESLint & Prettier**: For good looking in the codes.
 
 
 ## Getting started
