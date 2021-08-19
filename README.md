@@ -38,13 +38,6 @@ Start the style guide dev server. Then open the web browser to view the componen
 $ npm start
 ```
 
-You'll only the `.env` for `docker-compose` only. To do that, set your environment variables in `.env.development`, update all variables with correct values
-
-```bash
-$ cp .env.example .env.development
-```
-
-> `.env.development` is for local development, it ignored by git.
 
 ## Usages
 
