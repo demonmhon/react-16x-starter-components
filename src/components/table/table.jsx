@@ -75,7 +75,7 @@ const defaultProps = {
  * `<Table>` won't manage or control the data itself. Grid functionality or its part is controlled externally like: sorting, filtering, pagination. By passing the props.
  */
 /* eslint-enable max-len */
-function Table(props) {
+const Table = (props) => {
   const { className, columnSettings } = props;
   const renderColgroup = () => <ColGroup columnSettings={columnSettings} />;
   const renderThead = () => <THead columnSettings={columnSettings} />;

@@ -15,7 +15,7 @@ const propTypes = {
 
 const defaultProps = {};
 
-function ColGroup(props) {
+const ColGroup = (props) => {
   const { columnSettings } = props;
   const col = [];
   for (const c of columnSettings) {

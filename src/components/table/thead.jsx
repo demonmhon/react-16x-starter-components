@@ -15,7 +15,7 @@ const propTypes = {
 
 const defaultProps = {};
 
-function THead(props) {
+const THead = (props) => {
   const { columnSettings } = props;
   const th = [];
   for (const c of columnSettings) {

@@ -64,7 +64,7 @@ const defaultProps = {
  *
  * Dialog could be closed when dialog get focus and pressing `ESC`.
  */
-function Dialog(props) {
+const Dialog = (props) => {
   const {
     children,
     className,

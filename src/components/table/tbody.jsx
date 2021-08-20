@@ -21,7 +21,7 @@ const propTypes = {
 
 const defaultProps = {};
 
-function TBody(props) {
+const TBody = (props) => {
   const { rowId, data, columnSettings } = props;
   const tbodyTr = [];
   for (const row of data) {

@@ -25,7 +25,7 @@ const defaultProps = {
   show: true,
 };
 
-function Loading(props) {
+const Loading = (props) => {
   const { children, className, show } = props;
   const spinSvgAnimate = (
     <svg className={`${ns}-loading__indicator`} viewBox="0 0 50 50">
