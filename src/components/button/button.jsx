@@ -67,11 +67,12 @@ const defaultProps = {
  * To trigger an operation.
  */
 const Button = (props) => {
-  const { children, className, type, size, disabled } = props;
+  const { children, className, type, size, disabled, onClick } = props;
 
   const doOnClick = (e) => {
-    if (!props.disabled) {
-      props.onClick(e);
+    e.preventdefault();
+    if (!disabled) {
+      onClick(e);
     }
   };
 

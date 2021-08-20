@@ -1,5 +1,4 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 
 import Table from '../components/table';
 import Button from '../components/button';
@@ -56,7 +55,7 @@ export const customColumn = () => {
   const renderTitleColumn = ({ value, row }) => (
     <span>{`${row.id} - ${value}`}</span>
   );
-  const renderActionColumn = ({ value, row }) => (
+  const renderActionColumn = ({ row }) => (
     <Button
       onClick={() => alert(`${row.id} clicked`)}
       size={Button.Size.ExtraSmall}

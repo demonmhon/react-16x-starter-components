@@ -1,5 +1,4 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 
 import Dialog from '../components/dialog';
 import Button from '../components/button';
@@ -74,7 +73,7 @@ export const modal = () => {
           <p>Dialog content</p>
           <p>
             You cannot close this dialog with ESC button or click outside
-            dialog. Only defined action like click the "Close" button would.
+            dialog. Only defined action like click the Close button would.
           </p>
           <Button onClick={() => setIsDialogOpen(false)}>Close</Button>
         </div>
