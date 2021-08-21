@@ -10,14 +10,14 @@
 
   @include reset;
 
-  &:hover .#{$namespace}-radio__ui {
-    box-shadow: 0 0 0 3px rgba($color-text-2, 0.4);
-  }
-
   label {
     position: relative;
     display: inline-flex;
     padding: calc(#{$padding} / 3) $padding calc(#{$padding} / 3) 0;
+
+    &:hover .#{$namespace}-radio__ui {
+      box-shadow: 0 0 0 3px rgba($color-text-2, 0.4);
+    }
   }
 
   input {
