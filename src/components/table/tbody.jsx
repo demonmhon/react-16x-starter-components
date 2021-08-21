@@ -37,7 +37,7 @@ const TBody = (props) => {
     tbodyTr.push(<tr key={`tr-${trId}`}>{td}</tr>);
   }
   return <tbody>{tbodyTr}</tbody>;
-}
+};
 
 TBody.propTypes = propTypes;
 TBody.defaultProps = defaultProps;

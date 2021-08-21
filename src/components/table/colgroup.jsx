@@ -24,7 +24,7 @@ const ColGroup = (props) => {
     col.push(<col key={`col-${c.id}`} style={colStyle} />);
   }
   return <colgroup>{col}</colgroup>;
-}
+};
 
 ColGroup.propTypes = propTypes;
 ColGroup.defaultProps = defaultProps;

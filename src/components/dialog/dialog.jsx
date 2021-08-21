@@ -151,7 +151,7 @@ const Dialog = (props) => {
       </div>
     </div>
   );
-}
+};
 
 Dialog.displayName = 'Dialog';
 Dialog.propTypes = propTypes;

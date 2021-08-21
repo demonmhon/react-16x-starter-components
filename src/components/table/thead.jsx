@@ -27,7 +27,7 @@ const THead = (props) => {
       <tr>{th}</tr>
     </thead>
   );
-}
+};
 
 THead.propTypes = propTypes;
 THead.defaultProps = defaultProps;

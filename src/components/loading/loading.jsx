@@ -51,7 +51,7 @@ const Loading = (props) => {
       {spinSvgAnimate}
     </span>
   );
-}
+};
 
 Loading.displayName = 'Loading';
 Loading.propTypes = propTypes;

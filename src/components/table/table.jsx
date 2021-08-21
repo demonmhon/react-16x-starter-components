@@ -91,7 +91,7 @@ const Table = (props) => {
       {renderTbody()}
     </table>
   );
-}
+};
 
 Table.displayName = 'Table';
 Table.propTypes = propTypes;
