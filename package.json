@@ -17,14 +17,15 @@
     "lint": "eslint -c .eslintrc --ext .js \"src/**/*.{js,jsx}\"",
     "prettier": "prettier --check \"src/**/*.(js|jsx|css|scss)\"",
     "prettier:write": "prettier --write \"src/**/*.(js|jsx|css|scss)\"",
-    "start": "npm run storybook",
+    "start": "serve storybook-static",
     "start:dev": "npm run storybook",
     "pretest": "npm run lint && npm run prettier",
     "test": "npm run test:coverage",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=51ba550d3597"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.0",
@@ -46,7 +47,6 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
-    "chromatic": "^5.9.2",
     "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^5.1.0",
@@ -69,6 +69,7 @@
     "react-dom": "^16.3.1",
     "react-test-renderer": "^17.0.1",
     "sass-loader": "^10.2.0",
+    "serve": "^12.0.0",
     "style-loader": "^2.0.0",
     "url-loader": "^4.1.1",
     "webpack": "^5.24.2",
