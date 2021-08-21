@@ -19,7 +19,7 @@
     "prettier:write": "prettier --write \"src/**/*.(js|jsx|css|scss)\"",
     "start": "npm run storybook",
     "start:dev": "npm run storybook",
-    "pretest": "npm run prettier",
+    "pretest": "npm run lint && npm run prettier",
     "test": "npm run test:coverage",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",

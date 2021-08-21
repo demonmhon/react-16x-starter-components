@@ -24,6 +24,7 @@ const defaultProps = {};
 const TBody = (props) => {
   const { rowId, data, columnSettings } = props;
   const tbodyTr = [];
+
   for (const row of data) {
     const trId = row[rowId];
     const td = [];
@@ -36,6 +37,7 @@ const TBody = (props) => {
     }
     tbodyTr.push(<tr key={`tr-${trId}`}>{td}</tr>);
   }
+
   return <tbody>{tbodyTr}</tbody>;
 };
 

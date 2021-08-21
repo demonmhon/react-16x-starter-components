@@ -70,7 +70,6 @@ const Button = (props) => {
   const { children, className, type, size, disabled, onClick } = props;
 
   const doOnClick = (e) => {
-    e.preventdefault();
     if (!disabled) {
       onClick(e);
     }
@@ -79,11 +78,7 @@ const Button = (props) => {
   const buttonCssClassList = [`${ns}-button`];
   const buttonProps = {};
 
-  const validatedType = Object.values(BUTTON_TYPES)
-    .filter((t) => t !== BUTTON_TYPES.Button)
-    .includes(type)
-    ? type
-    : BUTTON_TYPES.Button;
+  const validatedType = getValidButtonType(type);
 
   buttonCssClassList.push(`${ns}-button--type-${validatedType}`);
   if (Object.values(BUTTON_SIZES).includes(size))
@@ -102,6 +97,13 @@ const Button = (props) => {
     </button>
   );
 };
+
+const getValidButtonType = (type) =>
+  Object.values(BUTTON_TYPES)
+    .filter((t) => t !== BUTTON_TYPES.Button)
+    .includes(type)
+    ? type
+    : BUTTON_TYPES.Button;
 
 Button.displayName = 'Button';
 Button.propTypes = propTypes;

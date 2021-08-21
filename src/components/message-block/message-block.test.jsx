@@ -21,6 +21,11 @@ describe('MessageBlock component', () => {
     expect(component.hasClass(className)).toBe(true);
   });
 
+  test('has the text provided', () => {
+    const component = shallow(<MessageBlock>Test message</MessageBlock>);
+    expect(component.text()).toBe('Test message');
+  });
+
   describe('type', () => {
     test('set the type with valid type value', () => {
       const typeName = MessageBlock.Type.Error;
