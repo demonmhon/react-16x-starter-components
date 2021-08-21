@@ -27,7 +27,7 @@ jobs:
             npm run test:coverage
             ./cc-test-reporter after-build --exit-code $?
       - run:
-          name: Deploy Master to Heroku
+          name: Deploy to Chromatic
           command: npm run chromatic --project-token=${CHROMATIC_PROJECT_TOKEN}
 
 
