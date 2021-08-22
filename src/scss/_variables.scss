@@ -44,7 +44,9 @@ $padding: 15px;
 $padding-l: 28px;
 
 // Fonts
-$font-family-sans-serif:
+$font-weight: 400;
+$font-family:
+  'Open Sans',
   // Safari for OS X and iOS (San Francisco)
   -apple-system,
   // Chrome < 56 for OS X (San Francisco)
@@ -55,7 +57,4 @@ $font-family-sans-serif:
   'Roboto',
   // Basic web fallback
   'Helvetica Neue',
-  Arial, sans-serif,
-  // Emoji fonts
-  'Apple Color Emoji',
-  'Segoe UI Emoji', 'Segoe UI Symbol' !default;
+  Arial, sans-serif !default;
