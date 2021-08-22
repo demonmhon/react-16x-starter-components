@@ -15,14 +15,14 @@
   th,
   td {
     @include reset;
-    padding: calc(#{$padding} / 2) $padding;
+    padding: ($padding / 2) $padding;
     text-align: inherit;
   }
 
   th {
     position: sticky;
     top: 0;
-    padding-bottom: calc(1px + 0.5rem);
+    padding-bottom: calc(1px + ($padding / 2));
     background: $highlight-color;
 
     &::after {
