@@ -1,6 +1,11 @@
 // The prefix for every component
 $namespace: 'starter';
 
+// Functions
+@function hex-to-rgb($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
 // Media queries breakpoints
 $screen-xs: 480px;
 $screen-sm: 768px;
@@ -11,20 +16,57 @@ $screen-lg: 1200px;
 // Palette from Material
 // URL: https://material.io/tools/color/#!/
 // Light Blue + Blue Grey
-$color-background: #fff;
+$color-light-background: #ffffff;
+$color-dark-background: #1a1a1a;
 $color-text: #000;
 $color-text-1: #262626;
 $color-text-2: #616161;
 $color-primary: #01579b;
 $color-primary-light: #4f83cc;
 $color-primary-dark: #002f6c;
-$color-primary-contrast: #fff;
+$color-primary-contrast: #ffffff;
 $color-accent: #263238;
 $color-accent-light: #4f5b62;
 $color-accent-dark: #000a12;
-$color-accent-contrast: #fff;
+$color-accent-contrast: #ffffff;
 $color-warning: #fbc02d;
 $color-error: #e53935;
+
+$colors: (
+  'light-background': $color-light-background,
+  'dark-background': $color-dark-background,
+  'text': $color-text,
+  'text-1': $color-text-1,
+  'text-2': $color-text-2,
+  'primary': $color-primary,
+  'primary-light': $color-primary-light,
+  'primary-dark': $color-primary-dark,
+  'primary-contrast': $color-primary-contrast,
+  'accent': $color-accent,
+  'accent-light': $color-accent-light,
+  'accent-dark': $color-accent-dark,
+  'accent-contrast': $color-accent-contrast,
+  'warning': $color-warning,
+  'error': $color-error,
+);
+
+$colors-rgb: (
+  'light-background': #{hex-to-rgb($color-light-background)},
+  'dark-background': #{hex-to-rgb($color-dark-background)},
+  'text': #{hex-to-rgb($color-text)},
+  'text-1': #{hex-to-rgb($color-text-1)},
+  'text-2': #{hex-to-rgb($color-text-2)},
+  'primary': #{hex-to-rgb($color-primary)},
+  'primary-light': #{hex-to-rgb($color-primary-light)},
+  'primary-dark': #{hex-to-rgb($color-primary-dark)},
+  'primary-contrast': #{hex-to-rgb($color-primary-contrast)},
+  'accent': #{hex-to-rgb($color-accent)},
+  'accent-light': #{hex-to-rgb($color-accent-light)},
+  'accent-dark': #{hex-to-rgb($color-accent-dark)},
+  'accent-contrast': #{hex-to-rgb($color-accent-contrast)},
+  'warning': #{hex-to-rgb($color-warning)},
+  'error': #{hex-to-rgb($color-error)},
+);
 
 // Transition
 $transition: 0.5s;
@@ -46,8 +88,7 @@ $padding-l: 28px;
 // Fonts
 $font-size: 14px;
 $font-weight: 400;
-$font-family:
-  'Open Sans',
+$font-family: 'Open Sans',
   // Safari for OS X and iOS (San Francisco)
   -apple-system,
   // Chrome < 56 for OS X (San Francisco)

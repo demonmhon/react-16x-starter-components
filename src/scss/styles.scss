@@ -3,20 +3,18 @@
 @import 'mixins';
 
 :root {
-  --color-background: #{$color-background};
-  --color-text: #{$color-text};
-  --color-text-1: #{$color-text-1};
-  --color-text-2: #{$color-text-2};
-  --color-primary: #{$color-primary};
-  --color-primary-light: #{$color-primary-light};
-  --color-primary-dar: #{$color-primary-dark};
-  --color-primary-contrast: #{$color-primary-contrast};
-  --color-accent: #{$color-accent};
-  --color-accent-light: #{$color-accent-light};
-  --color-accent-dar: #{$color-accent-dark};
-  --color-accent-contrast: #{$color-accent-contrast};
-  --color-warning: #{$color-warning};
-  --color-error: #{$color-error};
+  @each $color, $value in $colors {
+    --color-#{$color}: #{$value};
+  }
+  @each $color, $value in $colors-rgb {
+    --color-#{$color}-rgb: #{$value};
+  }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #{$color-dark-background};
+  }
 }
 
 // Basic Reset
