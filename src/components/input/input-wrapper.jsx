@@ -4,37 +4,6 @@ import PropTypes from 'prop-types';
 import { namespace as ns } from '../../utils/theme';
 import './input.scss';
 
-const propTypes = {
-  /**
-   * Elements to be rendered as children of this component.
-   */
-  children: PropTypes.node,
-  /**
-   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
-   */
-  className: PropTypes.string,
-  /**
-   * Label of input
-   */
-  label: PropTypes.string,
-  /**
-   * Disables the input if set to true.
-   */
-  disabled: PropTypes.bool,
-  /**
-   * Type of input
-   */
-  type: PropTypes.string,
-};
-
-const defaultProps = {
-  children: null,
-  className: '',
-  label: '',
-  disable: false,
-  type: '',
-};
-
 const InputWrapper = (props) => {
   const {
     className,
@@ -64,7 +33,34 @@ const InputWrapper = (props) => {
   );
 };
 
-InputWrapper.propTypes = propTypes;
-InputWrapper.defaultProps = defaultProps;
+InputWrapper.propTypes = {
+  /**
+   * Elements to be rendered as children of this component.
+   */
+  children: PropTypes.node,
+  /**
+   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
+   */
+  className: PropTypes.string,
+  /**
+   * Label of input
+   */
+  label: PropTypes.string,
+  /**
+   * Disables the input if set to true.
+   */
+  disabled: PropTypes.bool,
+  /**
+   * Type of input
+   */
+  type: PropTypes.string,
+};
+InputWrapper.defaultProps = {
+  children: null,
+  className: '',
+  label: '',
+  disable: false,
+  type: '',
+};
 
 export default InputWrapper;

@@ -1,20 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const propTypes = {
-  columnSettings: PropTypes.arrayOf(
-    PropTypes.shape({
-      className: PropTypes.string,
-      id: PropTypes.string,
-      title: PropTypes.node,
-      width: PropTypes.number,
-      render: PropTypes.func,
-    })
-  ),
-};
-
-const defaultProps = {};
-
 const ColGroup = (props) => {
   const { columnSettings } = props;
   const col = [];
@@ -26,7 +12,19 @@ const ColGroup = (props) => {
   return <colgroup>{col}</colgroup>;
 };
 
-ColGroup.propTypes = propTypes;
-ColGroup.defaultProps = defaultProps;
+ColGroup.propTypes = {
+  columnSettings: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      id: PropTypes.string,
+      title: PropTypes.node,
+      width: PropTypes.number,
+      render: PropTypes.func,
+    })
+  ),
+};
+ColGroup.defaultProps = {
+  columnSettings: [],
+};
 
 export default ColGroup;

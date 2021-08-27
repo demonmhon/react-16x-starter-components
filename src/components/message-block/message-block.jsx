@@ -4,12 +4,6 @@ import PropTypes from 'prop-types';
 import { namespace as ns } from '../../utils/theme';
 import './message-block.scss';
 
-const MESSAGE_BLOCK_TYPES = {
-  Info: 'info',
-  Warning: 'warning',
-  Error: 'error',
-};
-
 const MessageBlock = (props) => {
   const { children, className, type } = props;
 
@@ -31,7 +25,14 @@ const MessageBlock = (props) => {
   );
 };
 
-const propTypes = {
+const MESSAGE_BLOCK_TYPES = {
+  Info: 'info',
+  Warning: 'warning',
+  Error: 'error',
+};
+
+MessageBlock.displayName = 'MessageBlock';
+MessageBlock.propTypes = {
   /**
    * Elements to be rendered as children of this component.
    */
@@ -48,15 +49,11 @@ const propTypes = {
    * * `error`
    */ type: PropTypes.string,
 };
-const defaultProps = {
+MessageBlock.defaultProps = {
   children: null,
   className: '',
   type: MESSAGE_BLOCK_TYPES.Info,
 };
-
-MessageBlock.displayName = 'MessageBlock';
-MessageBlock.propTypes = propTypes;
-MessageBlock.defaultProps = defaultProps;
 MessageBlock.Type = { ...MESSAGE_BLOCK_TYPES };
 
 export default MessageBlock;

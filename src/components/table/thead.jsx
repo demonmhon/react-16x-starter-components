@@ -1,20 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const propTypes = {
-  columnSettings: PropTypes.arrayOf(
-    PropTypes.shape({
-      className: PropTypes.string,
-      id: PropTypes.string,
-      title: PropTypes.node,
-      width: PropTypes.number,
-      render: PropTypes.func,
-    })
-  ),
-};
-
-const defaultProps = {};
-
 const THead = (props) => {
   const { columnSettings } = props;
   const th = [];
@@ -29,7 +15,19 @@ const THead = (props) => {
   );
 };
 
-THead.propTypes = propTypes;
-THead.defaultProps = defaultProps;
+THead.propTypes = {
+  columnSettings: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      id: PropTypes.string,
+      title: PropTypes.node,
+      width: PropTypes.number,
+      render: PropTypes.func,
+    })
+  ),
+};
+THead.defaultProps = {
+  columnSettings: [],
+};
 
 export default THead;

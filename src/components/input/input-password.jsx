@@ -5,7 +5,16 @@ import InputCommon from './input-common';
 import InputWrapper from './input-wrapper';
 import './input.scss';
 
-const propTypes = {
+const InputPassword = (props) => {
+  return (
+    <InputWrapper {...props}>
+      <InputCommon type={'password'} {...props} />
+    </InputWrapper>
+  );
+};
+
+InputPassword.displayName = 'InputPassword';
+InputPassword.propTypes = {
   /**
    * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
    */
@@ -37,8 +46,7 @@ const propTypes = {
    */
   onChange: PropTypes.func,
 };
-
-const defaultProps = {
+InputPassword.defaultProps = {
   className: '',
   disabled: false,
   readOnly: false,
@@ -47,17 +55,5 @@ const defaultProps = {
   value: '',
   onChange() {},
 };
-
-const InputPassword = (props) => {
-  return (
-    <InputWrapper {...props}>
-      <InputCommon type={'password'} {...props} />
-    </InputWrapper>
-  );
-};
-
-InputPassword.displayName = 'InputPassword';
-InputPassword.propTypes = propTypes;
-InputPassword.defaultProps = defaultProps;
 
 export default InputPassword;

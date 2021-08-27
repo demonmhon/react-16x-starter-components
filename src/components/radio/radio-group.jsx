@@ -4,39 +4,6 @@ import PropTypes from 'prop-types';
 import { namespace as ns } from '../../utils/theme';
 import Radio from './radio';
 
-const propTypes = {
-  /**
-   * Elements to be rendered as children of this component.
-   */
-  children: PropTypes.node,
-  /**
-   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
-   */
-  className: PropTypes.string,
-  /**
-   * Disables the input if set to true.
-   */
-  disabled: PropTypes.bool,
-  /**
-   * Value of checked option
-   */
-  value: PropTypes.string,
-  /**
-   * A callback function, executed when the radio option is changed.
-   *
-   * ```() => {}```
-   */
-  onChange: PropTypes.func,
-};
-
-const defaultProps = {
-  children: null,
-  className: '',
-  disabled: false,
-  value: '',
-  onChange() {},
-};
-
 /**
  * `<Radio>` wrapper
  */
@@ -76,7 +43,37 @@ const RadioGroup = (props) => {
   );
 };
 
-RadioGroup.propTypes = propTypes;
-RadioGroup.defaultProps = defaultProps;
+RadioGroup.displayName = 'RadioGroup';
+RadioGroup.propTypes = {
+  /**
+   * Elements to be rendered as children of this component.
+   */
+  children: PropTypes.node,
+  /**
+   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
+   */
+  className: PropTypes.string,
+  /**
+   * Disables the input if set to true.
+   */
+  disabled: PropTypes.bool,
+  /**
+   * Value of checked option
+   */
+  value: PropTypes.string,
+  /**
+   * A callback function, executed when the radio option is changed.
+   *
+   * ```() => {}```
+   */
+  onChange: PropTypes.func,
+};
+RadioGroup.defaultProps = {
+  children: null,
+  className: '',
+  disabled: false,
+  value: '',
+  onChange() {},
+};
 
 export default RadioGroup;

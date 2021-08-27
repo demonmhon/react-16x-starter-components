@@ -7,7 +7,33 @@ import THead from './thead';
 import TBody from './tbody';
 import './table.scss';
 
-const propTypes = {
+/* eslint-disable max-len */
+/**
+ * A table displays rows of data.
+ *
+ * `<Table>` won't manage or control the data itself. Grid functionality or its part is controlled externally like: sorting, filtering, pagination. By passing the props.
+ */
+/* eslint-enable max-len */
+const Table = (props) => {
+  const { className, columnSettings } = props;
+  const renderColgroup = () => <ColGroup columnSettings={columnSettings} />;
+  const renderThead = () => <THead columnSettings={columnSettings} />;
+  const renderTbody = () => <TBody {...props} />;
+
+  const tableCssClassList = [`${ns}-table`];
+  if (className) tableCssClassList.push(className);
+
+  return (
+    <table className={tableCssClassList.join(' ')}>
+      {renderColgroup()}
+      {renderThead()}
+      {renderTbody()}
+    </table>
+  );
+};
+
+Table.displayName = 'Table';
+Table.propTypes = {
   /**
    * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
    */
@@ -60,41 +86,12 @@ const propTypes = {
   onRowClick: PropTypes.func,
 };
 
-const defaultProps = {
+Table.defaultProps = {
   className: '',
   columnSettings: [],
   data: [],
   rowId: 'id',
-  onRowClick: null,
+  onRowClick() {},
 };
-
-/* eslint-disable max-len */
-/**
- * A table displays rows of data.
- *
- * `<Table>` won't manage or control the data itself. Grid functionality or its part is controlled externally like: sorting, filtering, pagination. By passing the props.
- */
-/* eslint-enable max-len */
-const Table = (props) => {
-  const { className, columnSettings } = props;
-  const renderColgroup = () => <ColGroup columnSettings={columnSettings} />;
-  const renderThead = () => <THead columnSettings={columnSettings} />;
-  const renderTbody = () => <TBody {...props} />;
-
-  const tableCssClassList = [`${ns}-table`];
-  if (className) tableCssClassList.push(className);
-
-  return (
-    <table className={tableCssClassList.join(' ')}>
-      {renderColgroup()}
-      {renderThead()}
-      {renderTbody()}
-    </table>
-  );
-};
-
-Table.displayName = 'Table';
-Table.propTypes = propTypes;
-Table.defaultProps = defaultProps;
 
 export default Table;

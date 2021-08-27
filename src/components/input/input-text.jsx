@@ -3,7 +3,15 @@ import PropTypes from 'prop-types';
 
 import InputCommon from './input-common';
 
-const propTypes = {
+/**
+ * Provide the user input is a text field.
+ */
+const InputText = (props) => {
+  return <InputCommon type={'text'} {...props} />;
+};
+
+InputText.displayName = 'InputText';
+InputText.propTypes = {
   /**
    * One or more class names to be added to the root element (input wrapper) of this component, i.e. `"class-foo class-bar"`.
    */
@@ -35,8 +43,7 @@ const propTypes = {
    */
   onChange: PropTypes.func,
 };
-
-const defaultProps = {
+InputText.defaultProps = {
   className: '',
   disabled: false,
   readOnly: false,
@@ -45,16 +52,5 @@ const defaultProps = {
   value: '',
   onChange() {},
 };
-
-/**
- * Provide the user input is a text field.
- */
-const InputText = (props) => {
-  return <InputCommon type={'text'} {...props} />;
-};
-
-InputText.displayName = 'InputText';
-InputText.propTypes = propTypes;
-InputText.defaultProps = defaultProps;
 
 export default InputText;

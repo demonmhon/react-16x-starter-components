@@ -1,8 +1,10 @@
 @import '../../scss/variables';
+@import '../../scss/mixins';
 
 .#{$namespace}-message-block {
   $color-bar-size: 4px;
 
+  @include reset;
   position: relative;
   padding: calc(#{$padding} / 2);
   padding-left: calc(#{$color-bar-size} + (#{$padding} / 2));

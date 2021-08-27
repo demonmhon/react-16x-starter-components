@@ -5,49 +5,6 @@ import { namespace as ns } from '../../utils/theme';
 import RadioGroup from './radio-group';
 import './radio.scss';
 
-const propTypes = {
-  /**
-   * Elements to be rendered as children of this component.
-   */
-  children: PropTypes.node,
-  /**
-   * Label test for this option.
-   */
-  label: PropTypes.string,
-  /**
-   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
-   */
-  className: PropTypes.string,
-  /**
-   * Option value
-   */
-  value: PropTypes.string,
-  /**
-   * Specifies whether the option is checked.
-   */
-  checked: PropTypes.bool,
-  /**
-   * Disables the option if set to true. Disabled option won't trigger the `onChange`.
-   */
-  disabled: PropTypes.bool,
-  /**
-   * A callback function, executed when the option is changed.
-   *
-   * ```(value) => {}```
-   */
-  onChange: PropTypes.func,
-};
-
-const defaultProps = {
-  children: '',
-  label: '',
-  className: '',
-  value: '',
-  disabled: false,
-  checked: false,
-  onChange() {},
-};
-
 /**
  * Allows user to select a value from multiple options
  *
@@ -105,8 +62,47 @@ const Radio = (props) => {
 };
 
 Radio.displayName = 'Radio';
-Radio.propTypes = propTypes;
-Radio.defaultProps = defaultProps;
+Radio.propTypes = {
+  /**
+   * Elements to be rendered as children of this component.
+   */
+  children: PropTypes.node,
+  /**
+   * Label test for this option.
+   */
+  label: PropTypes.string,
+  /**
+   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
+   */
+  className: PropTypes.string,
+  /**
+   * Option value
+   */
+  value: PropTypes.string,
+  /**
+   * Specifies whether the option is checked.
+   */
+  checked: PropTypes.bool,
+  /**
+   * Disables the option if set to true. Disabled option won't trigger the `onChange`.
+   */
+  disabled: PropTypes.bool,
+  /**
+   * A callback function, executed when the option is changed.
+   *
+   * ```(value) => {}```
+   */
+  onChange: PropTypes.func,
+};
+Radio.defaultProps = {
+  children: '',
+  label: '',
+  className: '',
+  value: '',
+  disabled: false,
+  checked: false,
+  onChange() {},
+};
 Radio.Group = RadioGroup;
 
 export default Radio;

@@ -3,54 +3,6 @@ import PropTypes from 'prop-types';
 
 import InputWrapper from './input-wrapper';
 
-const propTypes = {
-  /**
-   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
-   */
-  className: PropTypes.string,
-  /**
-   * Disables the input if set to true.
-   */
-  disabled: PropTypes.bool,
-  /**
-   * Readonly the input if set to true.
-   */
-  readOnly: PropTypes.bool,
-  /**
-   * Label of input
-   */
-  label: PropTypes.string,
-  /**
-   * Placeholder text
-   */
-  placeholder: PropTypes.string,
-  /**
-   * Visible number of lines in a text area
-   */
-  rows: PropTypes.number,
-  /**
-   * Initial value
-   */
-  value: PropTypes.string,
-  /**
-   * A callback function, executed when the input is changed.
-   *
-   * ```(value) => {}```
-   */
-  onChange: PropTypes.func,
-};
-
-const defaultProps = {
-  className: '',
-  disabled: false,
-  readOnly: false,
-  label: '',
-  placeholder: '',
-  rows: 3,
-  value: '',
-  onChange() {},
-};
-
 const InputTextarea = (props) => {
   const { disabled, readOnly, placeholder, value, onChange, rows } = props;
   const [inputValue, setInputValue] = useState(value);
@@ -91,7 +43,51 @@ const InputTextarea = (props) => {
 };
 
 InputTextarea.displayName = 'InputTextarea';
-InputTextarea.propTypes = propTypes;
-InputTextarea.defaultProps = defaultProps;
+InputTextarea.propTypes = {
+  /**
+   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
+   */
+  className: PropTypes.string,
+  /**
+   * Disables the input if set to true.
+   */
+  disabled: PropTypes.bool,
+  /**
+   * Readonly the input if set to true.
+   */
+  readOnly: PropTypes.bool,
+  /**
+   * Label of input
+   */
+  label: PropTypes.string,
+  /**
+   * Placeholder text
+   */
+  placeholder: PropTypes.string,
+  /**
+   * Visible number of lines in a text area
+   */
+  rows: PropTypes.number,
+  /**
+   * Initial value
+   */
+  value: PropTypes.string,
+  /**
+   * A callback function, executed when the input is changed.
+   *
+   * ```(value) => {}```
+   */
+  onChange: PropTypes.func,
+};
+InputTextarea.defaultProps = {
+  className: '',
+  disabled: false,
+  readOnly: false,
+  label: '',
+  placeholder: '',
+  rows: 3,
+  value: '',
+  onChange() {},
+};
 
 export default InputTextarea;

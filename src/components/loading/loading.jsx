@@ -4,27 +4,6 @@ import PropTypes from 'prop-types';
 import { namespace as ns } from '../../utils/theme';
 import './loading.scss';
 
-const propTypes = {
-  /**
-   * Elements to be rendered as children of this component.
-   */
-  children: PropTypes.node,
-  /**
-   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
-   */
-  className: PropTypes.string,
-  /**
-   * Show the loading if set to true
-   */
-  show: PropTypes.bool,
-};
-
-const defaultProps = {
-  children: null,
-  className: '',
-  show: true,
-};
-
 const Loading = (props) => {
   const { children, className, show } = props;
   const spinSvgAnimate = (
@@ -54,7 +33,24 @@ const Loading = (props) => {
 };
 
 Loading.displayName = 'Loading';
-Loading.propTypes = propTypes;
-Loading.defaultProps = defaultProps;
+Loading.propTypes = {
+  /**
+   * Elements to be rendered as children of this component.
+   */
+  children: PropTypes.node,
+  /**
+   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
+   */
+  className: PropTypes.string,
+  /**
+   * Show the loading if set to true
+   */
+  show: PropTypes.bool,
+};
+Loading.defaultProps = {
+  children: null,
+  className: '',
+  show: true,
+};
 
 export default Loading;

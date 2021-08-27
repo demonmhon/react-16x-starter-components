@@ -1,4 +1,5 @@
-@import '../../scss/styles';
+@import '../../scss/variables';
+@import '../../scss/mixins';
 
 .#{$namespace}-input {
   $min-width: 60px;

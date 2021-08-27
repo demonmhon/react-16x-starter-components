@@ -1,26 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const propTypes = {
-  rowId: PropTypes.string.isRequired,
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-    })
-  ).isRequired,
-  columnSettings: PropTypes.arrayOf(
-    PropTypes.shape({
-      className: PropTypes.string,
-      id: PropTypes.string,
-      title: PropTypes.node,
-      width: PropTypes.number,
-      render: PropTypes.func,
-    })
-  ),
-};
-
-const defaultProps = {};
-
 const TBody = (props) => {
   const { rowId, data, columnSettings } = props;
   const tbodyTr = [];
@@ -41,7 +21,27 @@ const TBody = (props) => {
   return <tbody>{tbodyTr}</tbody>;
 };
 
-TBody.propTypes = propTypes;
-TBody.defaultProps = defaultProps;
+TBody.propTypes = {
+  rowId: PropTypes.string.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    })
+  ).isRequired,
+  columnSettings: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      id: PropTypes.string,
+      title: PropTypes.node,
+      width: PropTypes.number,
+      render: PropTypes.func,
+    })
+  ),
+};
+TBody.defaultProps = {
+  rowId: '',
+  data: [],
+  columnSettings: [],
+};
 
 export default TBody;

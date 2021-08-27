@@ -1,4 +1,5 @@
-@import '../../scss/styles';
+@import '../../scss/variables';
+@import '../../scss/mixins';
 
 .#{$namespace}-table {
   $highlight-color: lighten(#000, 90%);

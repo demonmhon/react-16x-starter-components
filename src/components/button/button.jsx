@@ -4,65 +4,6 @@ import PropTypes from 'prop-types';
 import { namespace as ns } from '../../utils/theme';
 import './button.scss';
 
-const BUTTON_TYPES = {
-  Primary: 'primary',
-  Secondary: 'secondary',
-  Button: 'button',
-};
-
-const BUTTON_SIZES = {
-  ExtraSmall: 'xs',
-  Small: 's',
-  Medium: 'm',
-  Large: 'l',
-};
-
-const propTypes = {
-  /**
-   * Elements to be rendered as children of this component.
-   */
-  children: PropTypes.node,
-  /**
-   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
-   */
-  className: PropTypes.string,
-  /**
-   * Button type:
-   *
-   * * `primary`
-   * * `secondary`
-   * * `button`
-   */
-  type: PropTypes.string,
-  /**
-   * Button size:
-   *
-   * * `s`
-   * * `m`
-   * * `l`
-   */
-  size: PropTypes.string,
-  /**
-   * Disables the button if set to true. Disabled button won't trigger the `onClick`.
-   */
-  disabled: PropTypes.bool,
-  /**
-   * A callback function that is triggered when button clicked.
-   *
-   * `e => {}`
-   */
-  onClick: PropTypes.func,
-};
-
-const defaultProps = {
-  children: 'Button',
-  className: '',
-  type: BUTTON_TYPES.Button,
-  size: BUTTON_SIZES.M,
-  disabled: false,
-  onClick() {},
-};
-
 /**
  * To trigger an operation.
  */
@@ -98,6 +39,19 @@ const Button = (props) => {
   );
 };
 
+const BUTTON_TYPES = {
+  Primary: 'primary',
+  Secondary: 'secondary',
+  Button: 'button',
+};
+
+const BUTTON_SIZES = {
+  ExtraSmall: 'xs',
+  Small: 's',
+  Medium: 'm',
+  Large: 'l',
+};
+
 const getValidButtonType = (type) =>
   Object.values(BUTTON_TYPES)
     .filter((t) => t !== BUTTON_TYPES.Button)
@@ -106,8 +60,50 @@ const getValidButtonType = (type) =>
     : BUTTON_TYPES.Button;
 
 Button.displayName = 'Button';
-Button.propTypes = propTypes;
-Button.defaultProps = defaultProps;
+Button.propTypes = {
+  /**
+   * Elements to be rendered as children of this component.
+   */
+  children: PropTypes.node,
+  /**
+   * One or more class names to be added to the root element of this component, i.e. `"class-foo class-bar"`.
+   */
+  className: PropTypes.string,
+  /**
+   * Button type:
+   *
+   * * `primary`
+   * * `secondary`
+   * * `button`
+   */
+  type: PropTypes.string,
+  /**
+   * Button size:
+   *
+   * * `s`
+   * * `m`
+   * * `l`
+   */
+  size: PropTypes.string,
+  /**
+   * Disables the button if set to true. Disabled button won't trigger the `onClick`.
+   */
+  disabled: PropTypes.bool,
+  /**
+   * A callback function that is triggered when button clicked.
+   *
+   * `e => {}`
+   */
+  onClick: PropTypes.func,
+};
+Button.defaultProps = {
+  children: 'Button',
+  className: '',
+  type: BUTTON_TYPES.Button,
+  size: BUTTON_SIZES.M,
+  disabled: false,
+  onClick() {},
+};
 Button.Type = { ...BUTTON_TYPES };
 Button.Size = { ...BUTTON_SIZES };
 

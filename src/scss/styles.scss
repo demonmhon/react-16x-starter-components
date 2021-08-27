@@ -9,12 +9,8 @@
   @each $color, $value in $colors-rgb {
     --color-#{$color}-rgb: #{$value};
   }
-}
-
-@media screen and (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #{$color-dark-background};
-  }
+  --color-background: #{$color-light-background};
+  --color-background-rgb: #{hex-to-rgb($color-light-background)};
 }
 
 // Basic Reset
@@ -33,6 +29,11 @@ html,
 body {
   margin: 0;
   padding: 0;
+}
+
+body {
+  @include reset;
+  background-color: var(--color-background);
 }
 
 label,

@@ -6,7 +6,21 @@ import InputText from './input-text';
 import InputPassword from './input-password';
 import InputTextarea from './input-textarea';
 
-const propTypes = {
+/**
+ * Provide the user input is a text field.
+ *
+ * Controlled component. Value will be set by prop.
+ */
+const Input = (props) => {
+  return (
+    <InputWrapper {...props}>
+      <InputText {...props} />
+    </InputWrapper>
+  );
+};
+
+Input.displayName = 'Input';
+Input.propTypes = {
   /**
    * Type of input
    */
@@ -42,8 +56,7 @@ const propTypes = {
    */
   onChange: PropTypes.func,
 };
-
-const defaultProps = {
+Input.defaultProps = {
   type: 'text',
   className: '',
   disabled: false,
@@ -53,24 +66,6 @@ const defaultProps = {
   value: '',
   onChange() {},
 };
-
-/**
- * Provide the user input is a text field.
- *
- * Controlled component. Value will be set by prop.
- */
-const Input = (props) => {
-  return (
-    <InputWrapper {...props}>
-      <InputText {...props} />
-    </InputWrapper>
-  );
-};
-
-Input.displayName = 'Input';
-Input.propTypes = propTypes;
-Input.defaultProps = defaultProps;
-
 Input.Password = InputPassword;
 Input.Textarea = InputTextarea;
 
