@@ -11,15 +11,8 @@ import './radio.scss';
  * Controlled component. Value will be set by prop.
  */
 const Radio = (props) => {
-  const {
-    children,
-    label,
-    className,
-    value,
-    checked,
-    disabled,
-    onChange,
-  } = props;
+  const { children, label, className, value, checked, disabled, onChange } =
+    props;
   const [isChecked, setIsChecked] = useState(checked);
 
   useEffect(() => {
