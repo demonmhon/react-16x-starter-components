@@ -35,7 +35,7 @@ $ npm install
 Start the style guide dev server. Then open the web browser to view the components guide.
 
 ```bash
-$ npm start
+$ npm run storybook
 ```
 
 
@@ -54,7 +54,6 @@ As mentioned, copy the `src/components` and `src/scss` to full react application
 | `test:coverage` | Generate a coverage report |
 | `test:watch` | Run all the tests and keep on watch mode |
 | `build` | Build a production HTML version |
-| `build:docker` | Build docker image |
 
 
 ## License
