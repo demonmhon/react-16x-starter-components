@@ -2,7 +2,7 @@
   "name": "react-16x-starter-components",
   "version": "1.0.0",
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=20.0.0"
   },
   "description": "React components",
   "repository": {
@@ -18,7 +18,7 @@
     "prettier": "prettier --check \"src/**/*.(js|jsx|css|scss)\"",
     "prettier:write": "prettier --write \"src/**/*.(js|jsx|css|scss)\"",
     "start": "serve storybook-static",
-    "start:dev": "npm run storybook",
+    "dev": "npm run storybook",
     "pretest": "npm run lint && npm run prettier",
     "test": "npm run test:coverage",
     "test:coverage": "jest --coverage",
@@ -27,12 +27,12 @@
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
-    "@babel/cli": "^7.13.0",
+    "@babel/cli": "^7.24.7",
     "@babel/core": "^7.13.8",
-    "@babel/node": "^7.13.0",
+    "@babel/node": "^7.24.7",
     "@babel/plugin-transform-runtime": "^7.13.8",
     "@babel/polyfill": "^7.12.1",
-    "@babel/preset-env": "^7.13.8",
+    "@babel/preset-env": "^7.24.7",
     "@babel/preset-flow": "^7.12.13",
     "@babel/preset-react": "^7.12.13",
     "@babel/preset-stage-0": "^7.8.3",
@@ -47,7 +47,7 @@
     "@svgr/webpack": "^5.5.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.3",
-    "babel-loader": "^8.2.2",
+    "babel-loader": "^9.1.3",
     "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^6.6.0",
@@ -67,7 +67,7 @@
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-test-renderer": "^17.0.2",
+    "react-test-renderer": "^16.14.0",
     "sass": "^1.49.8",
     "sass-loader": "^12.6.0",
     "serve": "^13.0.2",
