@@ -48,8 +48,7 @@ As mentioned, copy the `src/components` and `src/scss` to full react application
 
 | Script | Description |
 |-|-|
-| `start` | Alias of `start:dev` |
-| `start:dev` | Start a style guide dev server |
+| `start` | Start storybook |
 | `test` | Jest and execute all the tests |
 | `test:coverage` | Generate a coverage report |
 | `test:watch` | Run all the tests and keep on watch mode |

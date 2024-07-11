@@ -17,14 +17,13 @@
     "lint": "eslint -c .eslintrc --ext .js \"src/**/*.{js,jsx}\"",
     "prettier": "prettier --check \"src/**/*.(js|jsx|css|scss)\"",
     "prettier:write": "prettier --write \"src/**/*.(js|jsx|css|scss)\"",
-    "start": "serve storybook-static",
-    "dev": "npm run storybook",
+    "start": "npm run storybook",
     "pretest": "npm run lint && npm run prettier",
     "test": "npm run test:coverage",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "storybook dev -p 9009",
+    "storybook:build": "storybook build"
   },
   "devDependencies": {
     "@babel/cli": "^7.24.7",
@@ -76,8 +75,8 @@
     "storybook-dark-mode": "^4.0.2",
     "style-loader": "^3.3.1",
     "url-loader": "^4.1.1",
-    "webpack": "^5.69.1",
-    "webpack-cli": "^4.9.2",
-    "webpack-merge": "^5.8.0"
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-merge": "^5.10.0"
   }
 }
