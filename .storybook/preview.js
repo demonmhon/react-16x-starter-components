@@ -2,7 +2,6 @@ import '!style-loader!css-loader!sass-loader!../src/scss/styles.scss';
 import { themes } from '@storybook/theming';
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -15,3 +14,4 @@ export const parameters = {
     stylePreview: true
   }
 }
+export const tags = ['autodocs'];
